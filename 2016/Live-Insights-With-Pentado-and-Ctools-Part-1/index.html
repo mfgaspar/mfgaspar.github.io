@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-75757763-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+  <title>Live Insights using Pentaho and Ctools - Part 1: Overview</title>
+  <meta name="description" content="This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.">
+  <meta name="author" content="Miguel Gaspar">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="analytics,big data,iot,social innovation,bi,business intelligence,ctools,pentaho,real-time,realtime,likve,insights,analysis,dashboards>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cooking Analytics">
+  <meta name="twitter:description" content="This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cooking Analytics">
+  <meta property="og:description" content="This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/images/favicons/manifest.json">
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mfgaspar.github.io/index.html//2016/Live-Insights-With-Pentado-and-Ctools-Part-1/">
+  <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
+</head>
+
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+  <i class="icon icon-list btn-mobile-menu__icon"></i>
+  <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+</span>
+  
+<header class="panel-cover" style="background-image: url(/images/cover.jpg)">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <a href="/" title="link to home of Cooking Analytics">
+          <img src="/images/profile.jpg" class="user-image" alt="My Profile Photo">
+          <h1 class="panel-cover__title panel-title">Cooking Analytics</h1>
+        </a>
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="link to Cooking Analytics blog" class="blog-button">Blog</a></li>
+            </ul>
+          </nav>
+
+          <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+            
+              <!-- Twitter -->
+              <li class="navigation__item">
+                <a href="http://twitter.com/migfgaspar" title="@migfgaspar on Twitter" target="_blank">
+                  <i class="icon icon-social-twitter"></i>
+                  <span class="label">Twitter</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Facebook -->
+              <li class="navigation__item">
+                <a href="http://fb.me/miguel.ferreira.gaspar" title="miguel.ferreira.gaspar on Facebook" target="_blank">
+                  <i class="icon icon-social-facebook"></i>
+                  <span class="label">Facebook</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- LinkedIn -->
+              <li class="navigation__item">
+                <a href="https://www.linkedin.com/in/mfgaspar" title="mfgaspar on LinkedIn" target="_blank">
+                  <i class="icon icon-social-linkedin"></i>
+                  <span class="label">LinkedIn</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- GitHub -->
+              <li class="navigation__item">
+                <a href="https://www.github.com/mfgaspar" title="mfgaspar on GitHub" target="_blank">
+                  <i class="icon icon-social-github"></i>
+                  <span class="label">GitHub</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Email -->
+              <li class="navigation__item">
+                <a href="mailto:miguel.ferreira.gaspar@gmail.com" title="Email miguel.ferreira.gaspar@gmail.com" target="_blank">
+                  <i class="icon icon-mail"></i>
+                  <span class="label">Email</span>
+                </a>
+              </li>
+            
+
+            <!-- RSS -->
+            <li class="navigation__item">
+              <a href="/feed.xml" title="Subscribe" target="_blank">
+                <i class="icon icon-rss"></i>
+                <span class="label">RSS</span>
+              </a>
+            </li>
+          
+            </ul>
+          </nav>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="4 Apr 2016" class="post-meta__date date">4 Apr 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span>
+    </div>
+    <h1 class="post-title">Live Insights using Pentaho and Ctools - Part 1: Overview</h1>
+  </header>
+
+  <section class="post">
+    <p>This series of posts/post has origins on the last Pentaho Community Meeting that took place in London, November last year, <a href="https://github.com/PentahoCommunityMeetup2015/info">PCM 2015</a>. You can follow up on<br />
+<a href="https://twitter.com/search?q=%23pcm15%20pentaho">Twitter</a>.</p>
+
+<p>The first evening, there was a <a href="http://www.meetup.com/Pentaho-London-User-Group/events/222548597/">hackathon</a>, where me Miguel Cunhal and Sam … (sorry Sam, don’t know your last name), received a Raspberry Pi, coutesy of <a href="[https://twitter.com/ivyinfosystems]">Ivy IS</a> as a prize. We really hadn’t the time to complete the project, so I feelt that I needed to give something more to the community, to the organization and to the attendees.</p>
+
+<p>Given that was a Rapesberry Pi largely used on IoT (Internet Of Things) projects, I will share what we can call <strong>Live Insight comming from IoT</strong> using Pentaho technology.</p>
+
+<h3 id="quick-introduction">Quick introduction</h3>
+
+<p>When talking about IoT and Social Innovation (I feel like I should write a new blog post about my point of view about this terminology), for some use cases there is a need to display real-time data, comming from all kind of “things”. As one of the simpledt examples, a Rapesberry Pi that might have some sensors connected, a mobile phone, a twitter account, and many other “things”.</p>
+
+<p>For now I will not call it real-time, and that’s because real-time in some areas of IoT, might mean milliseconds. Not that we can’t do it really fast, but it’s not fair for pleople working in some areas, like electronics, where the concept of real-time can be diferent from the one where we are displaying information on the bowser and comming from tne Internet.</p>
+
+<p>I will call “Live Insight”, to the capability to display data from the devices maybe in small amount of time. So let’s start discussing one of the ways to create Live Insight in Analytics and applied to IoT.</p>
+
+<p>When trying to display live data over the internet using a browser we need to keep in mind the internet lattency we might face, as also the time that might be needed to do some calculations, agreggations, clean up, etc..</p>
+
+<h3 id="considerations">Considerations</h3>
+
+<p>There are a huge demand for real-time dashboards, but first, there are some questions that we might need to raise before starting this kind of projects:</p>
+
+<ul>
+  <li>
+    <p>How often is important to have data refreshed in my data analysis dashboard? Usually, after making this question you might realize that you wont need a high refresh rate as you first might tougth about. One, two, five seconds or more might be more than enought. Of couse that this depends and varies with the use case.</p>
+  </li>
+  <li>
+    <p>Can the users, really understand what is going on, when using to high refresh rates? Well I don’t believe so, anyhow it depends on the refresh rate, it will depends on the capabilities of each user, but usually the user will get lost just when trying to interpret results faster that he is able to. So I would say this is a very important point where we should be carefull. The user should always be able to easly understand what it’s being displayed. We should not allow micro intervals between each update, and do it more often than necessary. This can be controlled on the back-end.</p>
+  </li>
+  <li>
+    <p>Another question that might raise is, shoud we keep the same speed the device is using to sent new information? I would say no, and we might wnat to do some aggregations because it might not make sense to dsiplay the information for a specific devive, but can mae sense to diplay it to multiple devices by doing some aggregations/calculations. So before the data being displayed we might have the need to massage data.</p>
+  </li>
+</ul>
+
+<h3 id="what-do-we-need-to-build-a-solution-like-this">What do we need to build a solution like this?</h3>
+
+<p>I consider to be 3 important concepts that were considered:</p>
+
+<ul>
+  <li>How to make data arrive from the devices and reach the dashboard, that could also be done the other way arround and build a prescriptive solution;</li>
+  <li>How to use Data Integration process data, that is done as soon as messages arrives from the devices;</li>
+  <li>How to present live data in the dashboard. Currently there are multiple ways to do it and it does not need to be with CDE, anyhow it will bring you some other advantages.</li>
+</ul>
+
+<p>So, what we really need to have in place to be able to have it working:</p>
+
+<ul>
+  <li>Pentaho BA Server &amp; Pentaho Data Integration (of course);</li>
+  <li>Message Broker (messaging publish/subscribe system);
+    <ul>
+      <li>For this proof-of-concept I have used a message broker and <a href="http://mqtt.org/">MQTT</a> as the protocol to exchange messages that goes from the IoT devices to the dashboard.</li>
+      <li>I have used <a href="http://mosquitto.org/">Mosquitto</a>, available as a docker container.</li>
+    </ul>
+  </li>
+  <li>MQTT libraries:
+    <ul>
+      <li>I have used <a href="https://eclipse.org/paho/clients/java/">Paho</a> for the back-end ;</li>
+      <li>and <a href="https://github.com/mqttjs/MQTT.js">MQTT.js</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="small-video">Small video</h3>
+
+<p>I have build a small sample about one of the ways to achieved this, using Data Integration Streaming to process live data and how to display this live data on a Ctools dashboard. Here you can find a small video, to show it working.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>**INLCUDE VIDEO**
+</code></pre>
+</div>
+
+<h3 id="future-work">Future work</h3>
+
+<p>I will write some more posts on this subject, giving some more details about the architecture, the back-end and front-end. Just write a <a href="https://twitter.com/migfgaspar">tweet</a> so that I can know how mutch detail will you want/need to get.</p>
+
+<p>Also want to write some blog post/posts about how would be the full high leevl architecture for a real system that would allows to scale easly.</p>
+
+<p>This is a solution based on messagic-centric concepts but I also wnat to build a data-centric proof-of-concept, of course the architecture and technology will change a bit.</p>
+
+<p>Start to think the way it would be possible to have it work out-of-the-box in CDA/CDE and even in Pentaho Analyzer.</p>
+
+<h3 id="future-challenges">Future challenges</h3>
+
+<p>In the meantime, I wold like to start preparing a new series of blog posts about <strong>embedding Ctools visualizations in Augmented Reality applications</strong>? Who wants to send me some google glass to build the prooof-of-concept? Who dares to be involved?</p>
+
+<p>Any questions please send email or contact me over <a href="https://www.facebook.com/miguel.ferreira.gaspar">Facebook</a>, or <a href="https://www.linkedin.com/in/mfgaspar">LinkedIn</a>.</p>
+
+<p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
+
+
+  </section>
+  
+</article>
+
+
+
+      </div>
+
+      <footer class="footer">
+  <span class="footer__copyright">&copy; 2016 Miguel Gaspar. All rights reserved.</span>
+</footer> 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+    </div>
+  </body>
+</html>
