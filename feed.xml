@@ -5,8 +5,8 @@
     <description>This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io/index.html//</link>
     <atom:link href="http://mfgaspar.github.io/index.html//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Apr 2016 00:36:43 +0100</pubDate>
-    <lastBuildDate>Tue, 12 Apr 2016 00:36:43 +0100</lastBuildDate>
+    <pubDate>Tue, 12 Apr 2016 00:42:29 +0100</pubDate>
+    <lastBuildDate>Tue, 12 Apr 2016 00:42:29 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -76,7 +76,7 @@
 
 &lt;p&gt;I have build a small sample about one of the ways to achieved this, using Data Integration Streaming to process live data and how to display this live data on a Ctools dashboard. Here you can find a small video, to show it working.&lt;/p&gt;
 
-&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://youtu.be/M0MKaTKrkAw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/M0MKaTKrkAw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;future-work&quot;&gt;Future work&lt;/h3&gt;
 
