@@ -2,29 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cooking Analytics</title>
-    <description>This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.</description>
+    <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io/index.html//</link>
     <atom:link href="http://mfgaspar.github.io/index.html//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Apr 2016 00:42:29 +0100</pubDate>
-    <lastBuildDate>Tue, 12 Apr 2016 00:42:29 +0100</lastBuildDate>
+    <pubDate>Thu, 14 Apr 2016 19:08:09 +0100</pubDate>
+    <lastBuildDate>Thu, 14 Apr 2016 19:08:09 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
-        <title>Live Insights using Pentaho and Ctools - Part 1: Overview</title>
+        <title>Live Insights using Pentaho and CTools - Part 1: Overview</title>
         <description>&lt;p&gt;This series of posts/post has origins on the last Pentaho Community Meeting that took place in London, November last year, &lt;a href=&quot;https://github.com/PentahoCommunityMeetup2015/info&quot;&gt;PCM 2015&lt;/a&gt;. You can follow up on&lt;br /&gt;
 &lt;a href=&quot;https://twitter.com/search?q=%23pcm15%20pentaho&quot;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The first evening, there was a &lt;a href=&quot;http://www.meetup.com/Pentaho-London-User-Group/events/222548597/&quot;&gt;hackathon&lt;/a&gt;, where me Miguel Cunhal and Sam … (sorry Sam, don’t know your last name), received a Raspberry Pi, coutesy of &lt;a href=&quot;[https://twitter.com/ivyinfosystems]&quot;&gt;Ivy IS&lt;/a&gt; as a prize. We really hadn’t the time to complete the project, so I feelt that I needed to give something more to the community, to the organization and to the attendees.&lt;/p&gt;
+&lt;p&gt;The first evening, there was a &lt;a href=&quot;http://www.meetup.com/Pentaho-London-User-Group/events/222548597/&quot;&gt;hackathon&lt;/a&gt;, where me Miguel Cunhal and Sam … (sorry Sam, don’t know your last name), received a Raspberry Pi, coutesy of &lt;a href=&quot;[https://twitter.com/ivyinfosystems]&quot;&gt;Ivy IS&lt;/a&gt; as a prize. We really hadn’t the time to complete the project, so I felt that I needed to give them (organization and community) more.&lt;/p&gt;
 
-&lt;p&gt;Given that was a Rapesberry Pi largely used on IoT (Internet Of Things) projects, I will share what we can call &lt;strong&gt;Live Insight comming from IoT&lt;/strong&gt; using Pentaho technology.&lt;/p&gt;
+&lt;p&gt;Given that a Rapesberry Pi is largely used on IoT (Internet Of Things) projects, I will share what we I am calling &lt;strong&gt;Live Insight comming from IoT&lt;/strong&gt;, using Pentaho technology.&lt;/p&gt;
 
 &lt;h3 id=&quot;quick-introduction&quot;&gt;Quick introduction&lt;/h3&gt;
 
-&lt;p&gt;When talking about IoT and Social Innovation (I feel like I should write a new blog post about my point of view about this terminology), for some use cases there is a need to display real-time data, comming from all kind of “things”. As one of the simpledt examples, a Rapesberry Pi that might have some sensors connected, a mobile phone, a twitter account, and many other “things”.&lt;/p&gt;
+&lt;p&gt;When talking about IoT and Social Innovation (I feel like I should write a new blog post, about my point of view about this terminologies), there are some use cases were we need to display “real-time” data, coming from all kind of “things”.&lt;/p&gt;
 
-&lt;p&gt;For now I will not call it real-time, and that’s because real-time in some areas of IoT, might mean milliseconds. Not that we can’t do it really fast, but it’s not fair for pleople working in some areas, like electronics, where the concept of real-time can be diferent from the one where we are displaying information on the bowser and comming from tne Internet.&lt;/p&gt;
+&lt;p&gt;For the title of the blog post, I’ve used the name Live Insights and not real-time, that’s because real-time at the hardware level is done in milli/micro seconds. Not that we can’t do it really fast at the software level, but it’s not fair for people working in some areas, like electronics, where the concept of real-time can be different from the one where we are displaying information on the bowser and coming through. That’s the reason why I have used the title “Live Insight”, and just to make it clear, this is an example on how data being generated by sensors can be processed on the fly and be delivered (over the internet using) with low lattency with a lower lattency.&lt;/p&gt;
 
-&lt;p&gt;I will call “Live Insight”, to the capability to display data from the devices maybe in small amount of time. So let’s start discussing one of the ways to create Live Insight in Analytics and applied to IoT.&lt;/p&gt;
+&lt;p&gt;This is just one of the ways to do it, let’s start to cover it.&lt;/p&gt;
+
+&lt;p&gt;A Rapesberry Pi that might have some sensors connected, a mobile phone, a twitter account, and many other “things”.&lt;/p&gt;
 
 &lt;p&gt;When trying to display live data over the internet using a browser we need to keep in mind the internet lattency we might face, as also the time that might be needed to do some calculations, agreggations, clean up, etc..&lt;/p&gt;
 
@@ -74,13 +76,13 @@
 
 &lt;h3 id=&quot;small-video&quot;&gt;Small video&lt;/h3&gt;
 
-&lt;p&gt;I have build a small sample about one of the ways to achieved this, using Data Integration Streaming to process live data and how to display this live data on a Ctools dashboard. Here you can find a small video, to show it working.&lt;/p&gt;
+&lt;p&gt;I have build a small sample about one of the ways to achieved this, using Data Integration Streaming to process live data and how to display this live data on a CTools dashboard. Here you can find a small video, to show it working, but keep in mind this is just an overview demo, it does not get into details (latter posts will detail).&lt;/p&gt;
 
 &lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/M0MKaTKrkAw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;future-work&quot;&gt;Future work&lt;/h3&gt;
 
-&lt;p&gt;I will write some more posts on this subject, giving some more details about the architecture, the back-end and front-end. Just write a &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;tweet&lt;/a&gt; so that I can know how mutch detail will you want/need to get.&lt;/p&gt;
+&lt;p&gt;I will write some more posts on this subject, giving some more details about the architecture, the back-end and front-end. Just write a &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;tweet&lt;/a&gt; so that I can know how mutch detail will you want/need to get. Another post should be written to highlight some of the architecture for scaling.&lt;/p&gt;
 
 &lt;p&gt;Also want to write some blog post/posts about how would be the full high leevl architecture for a real system that would allows to scale easly.&lt;/p&gt;
 
@@ -90,7 +92,7 @@
 
 &lt;h3 id=&quot;future-challenges&quot;&gt;Future challenges&lt;/h3&gt;
 
-&lt;p&gt;In the meantime, I wold like to start preparing a new series of blog posts about &lt;strong&gt;embedding Ctools visualizations in Augmented Reality applications&lt;/strong&gt;? Who wants to send me some google glass to build the prooof-of-concept? Who dares to be involved?&lt;/p&gt;
+&lt;p&gt;In the meantime, I wold like to start preparing a new series of blog posts about &lt;strong&gt;embedding CTools visualizations in Augmented Reality applications&lt;/strong&gt;? Who wants to send me some google glass to build the prooof-of-concept? Who dares to be involved?&lt;/p&gt;
 
 &lt;p&gt;Any questions please send email or contact me over &lt;a href=&quot;https://www.facebook.com/miguel.ferreira.gaspar&quot;&gt;Facebook&lt;/a&gt;, or &lt;a href=&quot;https://www.linkedin.com/in/mfgaspar&quot;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
 
@@ -109,11 +111,11 @@
       </item>
     
       <item>
-        <title>Learning Pentaho Ctools</title>
-        <description>&lt;p&gt;Pentaho and Ctools are two of the fastest and most rapidly growing tools for practical solutions not found in any other tool available on the market. Using Pentaho allows you to build a complete analytics solution, and Ctools brings an advanced flexibility to customizing them in a remarkable way. Ctools provides its users with the ability to utilize Web technologies and data visualization concepts, and make the most of best practices to create a huge visual impact.&lt;/p&gt;
+        <title>Learning Pentaho CTools</title>
+        <description>&lt;p&gt;Pentaho and CTools are two of the fastest and most rapidly growing tools for practical solutions not found in any other tool available on the market. Using Pentaho allows you to build a complete analytics solution, and CTools brings an advanced flexibility to customizing them in a remarkable way. CTools provides its users with the ability to utilize Web technologies and data visualization concepts, and make the most of best practices to create a huge visual impact.&lt;/p&gt;
 
 &lt;p&gt;The cover was already released: 
-&lt;img src=&quot;http://mfgaspar.github.io/assets/B04770_BookCover_small.png&quot; alt=&quot;Learning Pentaho Ctools Cover&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;http://mfgaspar.github.io/assets/B04770_BookCover_small.png&quot; alt=&quot;Learning Pentaho CTools Cover&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;book-overview&quot;&gt;Book Overview&lt;/h3&gt;
 
@@ -137,9 +139,9 @@
 
 &lt;h3 id=&quot;who-this-book-is-for&quot;&gt;Who This Book Is For&lt;/h3&gt;
 
-&lt;p&gt;If you are a Ctools developer and would like to expand your knowledge and create attractive dashboards and frameworks, this book is the go-to-guide for you. A basic knowledge of JavaScript and Cascading Style Sheets (CSS) is highly recommended. Definitely a knowledge on Pentaho is a requirement.&lt;/p&gt;
+&lt;p&gt;If you are a CTools developer and would like to expand your knowledge and create attractive dashboards and frameworks, this book is the go-to-guide for you. A basic knowledge of JavaScript and Cascading Style Sheets (CSS) is highly recommended. Definitely a knowledge on Pentaho is a requirement.&lt;/p&gt;
 
-&lt;p&gt;The book is available at &lt;a href=&quot;https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-ctools&quot;&gt;Packt&lt;/a&gt; and &lt;a href=&quot;http://www.amazon.com/Learning-Pentaho-Ctools-Miguel-Gaspar-ebook/dp/B0171UHJJ6/&quot;&gt;Amazon&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The book is available at &lt;a href=&quot;https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-CTools&quot;&gt;Packt&lt;/a&gt; and &lt;a href=&quot;http://www.amazon.com/Learning-Pentaho-CTools-Miguel-Gaspar-ebook/dp/B0171UHJJ6/&quot;&gt;Amazon&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;It was expected to be out at the end of this month, but since tomorrow is the last day of the month, It will get a bit delayed :(&lt;/p&gt;
 
@@ -152,10 +154,10 @@
         <link>http://mfgaspar.github.io/index.html//2016/Ctools-Book/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io/index.html//2016/Ctools-Book/</guid>
         
-        <category>Pentaho Ctools Book</category>
+        <category>Pentaho CTools Book</category>
         
         
-        <category>Pentaho Ctools Book</category>
+        <category>Pentaho CTools Book</category>
         
       </item>
     
@@ -163,9 +165,9 @@
         <title>Welcome to Cooking Analytics</title>
         <description>&lt;p&gt;I hope you can find this Blog interesting, where you will be able to read about Analytics solutions bringing architecture discussions, development technics that can be aplied to Big Data solutions, IoT or Social Innovation solutions, most of the time focused in Pentaho.&lt;/p&gt;
 
-&lt;p&gt;I will also make some post that will point to some interesting links, and that I believe it might bring value to the tiopics being discussed, and based on the feedback I might get from readers. Together we might do this Blog better!&lt;/p&gt;
+&lt;p&gt;Some of the times you will find just pointers to some other blogs and posts with very intersting stuff, that I believe it might bring value to the topics being discussed. It’s important for me to get feedback from you so that I can go in your way, at the end the blog is for you, so I will relly on you!&lt;/p&gt;
 
-&lt;p&gt;Let me also apologise for the poor English that you might find in the posts, it’s getting better day-by-day but still far away from desired!&lt;/p&gt;
+&lt;p&gt;Let me also apologise for the poor English that you might find in the posts, I am getting better day-by-day but still with lots to improve.&lt;/p&gt;
 
 &lt;p&gt;I will try to complement the text with images and videos as mutch as I can. Not sure I will be able to add a section for comments, but will investigate how it can it be done using this or another theme.&lt;/p&gt;
 

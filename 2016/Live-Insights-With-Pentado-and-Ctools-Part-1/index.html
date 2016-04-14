@@ -14,23 +14,23 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Live Insights using Pentaho and Ctools - Part 1: Overview</title>
-  <meta name="description" content="This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.">
+  <title>Live Insights using Pentaho and CTools - Part 1: Overview</title>
+  <meta name="description" content="My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="analytics,big data,iot,social innovation,bi,business intelligence,ctools,pentaho,real-time,realtime,likve,insights,analysis,dashboards>
+  <meta name="keywords" content="1analytics,big data,iot,social innovation,bi,business intelligence,ctools,pentaho,real-time,realtime,likve,insights,analysis,dashboards'>
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Cooking Analytics">
-  <meta name="twitter:description" content="This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.">
+  <meta name="twitter:description" content="My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Cooking Analytics">
-  <meta property="og:description" content="This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.">
+  <meta property="og:description" content="My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.">
 
   <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
@@ -74,7 +74,7 @@
           <h1 class="panel-cover__title panel-title">Cooking Analytics</h1>
         </a>
         <hr class="panel-cover__divider">
-        <p class="panel-cover__description">This blog is focused on Analytics solutions, providing architectural and development recipes that can be applied to traditional Business Analytics solutions or applied to some hot topics like Big Data, IoT and Social Innovation solutions. The content will mostly be based in the use of Pentaho technology.</p>
+        <p class="panel-cover__description">My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</p>
         <hr class="panel-cover__divider panel-cover__divider--secondary">
 
         <div class="navigation-wrapper">
@@ -167,24 +167,26 @@
     <div class="post-meta">
       <time datetime="4 Apr 2016" class="post-meta__date date">4 Apr 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span>
     </div>
-    <h1 class="post-title">Live Insights using Pentaho and Ctools - Part 1: Overview</h1>
+    <h1 class="post-title">Live Insights using Pentaho and CTools - Part 1: Overview</h1>
   </header>
 
   <section class="post">
     <p>This series of posts/post has origins on the last Pentaho Community Meeting that took place in London, November last year, <a href="https://github.com/PentahoCommunityMeetup2015/info">PCM 2015</a>. You can follow up on<br />
 <a href="https://twitter.com/search?q=%23pcm15%20pentaho">Twitter</a>.</p>
 
-<p>The first evening, there was a <a href="http://www.meetup.com/Pentaho-London-User-Group/events/222548597/">hackathon</a>, where me Miguel Cunhal and Sam … (sorry Sam, don’t know your last name), received a Raspberry Pi, coutesy of <a href="[https://twitter.com/ivyinfosystems]">Ivy IS</a> as a prize. We really hadn’t the time to complete the project, so I feelt that I needed to give something more to the community, to the organization and to the attendees.</p>
+<p>The first evening, there was a <a href="http://www.meetup.com/Pentaho-London-User-Group/events/222548597/">hackathon</a>, where me Miguel Cunhal and Sam … (sorry Sam, don’t know your last name), received a Raspberry Pi, coutesy of <a href="[https://twitter.com/ivyinfosystems]">Ivy IS</a> as a prize. We really hadn’t the time to complete the project, so I felt that I needed to give them (organization and community) more.</p>
 
-<p>Given that was a Rapesberry Pi largely used on IoT (Internet Of Things) projects, I will share what we can call <strong>Live Insight comming from IoT</strong> using Pentaho technology.</p>
+<p>Given that a Rapesberry Pi is largely used on IoT (Internet Of Things) projects, I will share what we I am calling <strong>Live Insight comming from IoT</strong>, using Pentaho technology.</p>
 
 <h3 id="quick-introduction">Quick introduction</h3>
 
-<p>When talking about IoT and Social Innovation (I feel like I should write a new blog post about my point of view about this terminology), for some use cases there is a need to display real-time data, comming from all kind of “things”. As one of the simpledt examples, a Rapesberry Pi that might have some sensors connected, a mobile phone, a twitter account, and many other “things”.</p>
+<p>When talking about IoT and Social Innovation (I feel like I should write a new blog post, about my point of view about this terminologies), there are some use cases were we need to display “real-time” data, coming from all kind of “things”.</p>
 
-<p>For now I will not call it real-time, and that’s because real-time in some areas of IoT, might mean milliseconds. Not that we can’t do it really fast, but it’s not fair for pleople working in some areas, like electronics, where the concept of real-time can be diferent from the one where we are displaying information on the bowser and comming from tne Internet.</p>
+<p>For the title of the blog post, I’ve used the name Live Insights and not real-time, that’s because real-time at the hardware level is done in milli/micro seconds. Not that we can’t do it really fast at the software level, but it’s not fair for people working in some areas, like electronics, where the concept of real-time can be different from the one where we are displaying information on the bowser and coming through. That’s the reason why I have used the title “Live Insight”, and just to make it clear, this is an example on how data being generated by sensors can be processed on the fly and be delivered (over the internet using) with low lattency with a lower lattency.</p>
 
-<p>I will call “Live Insight”, to the capability to display data from the devices maybe in small amount of time. So let’s start discussing one of the ways to create Live Insight in Analytics and applied to IoT.</p>
+<p>This is just one of the ways to do it, let’s start to cover it.</p>
+
+<p>A Rapesberry Pi that might have some sensors connected, a mobile phone, a twitter account, and many other “things”.</p>
 
 <p>When trying to display live data over the internet using a browser we need to keep in mind the internet lattency we might face, as also the time that might be needed to do some calculations, agreggations, clean up, etc..</p>
 
@@ -234,13 +236,13 @@
 
 <h3 id="small-video">Small video</h3>
 
-<p>I have build a small sample about one of the ways to achieved this, using Data Integration Streaming to process live data and how to display this live data on a Ctools dashboard. Here you can find a small video, to show it working.</p>
+<p>I have build a small sample about one of the ways to achieved this, using Data Integration Streaming to process live data and how to display this live data on a CTools dashboard. Here you can find a small video, to show it working, but keep in mind this is just an overview demo, it does not get into details (latter posts will detail).</p>
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/M0MKaTKrkAw" frameborder="0" allowfullscreen=""></iframe>
 
 <h3 id="future-work">Future work</h3>
 
-<p>I will write some more posts on this subject, giving some more details about the architecture, the back-end and front-end. Just write a <a href="https://twitter.com/migfgaspar">tweet</a> so that I can know how mutch detail will you want/need to get.</p>
+<p>I will write some more posts on this subject, giving some more details about the architecture, the back-end and front-end. Just write a <a href="https://twitter.com/migfgaspar">tweet</a> so that I can know how mutch detail will you want/need to get. Another post should be written to highlight some of the architecture for scaling.</p>
 
 <p>Also want to write some blog post/posts about how would be the full high leevl architecture for a real system that would allows to scale easly.</p>
 
@@ -250,7 +252,7 @@
 
 <h3 id="future-challenges">Future challenges</h3>
 
-<p>In the meantime, I wold like to start preparing a new series of blog posts about <strong>embedding Ctools visualizations in Augmented Reality applications</strong>? Who wants to send me some google glass to build the prooof-of-concept? Who dares to be involved?</p>
+<p>In the meantime, I wold like to start preparing a new series of blog posts about <strong>embedding CTools visualizations in Augmented Reality applications</strong>? Who wants to send me some google glass to build the prooof-of-concept? Who dares to be involved?</p>
 
 <p>Any questions please send email or contact me over <a href="https://www.facebook.com/miguel.ferreira.gaspar">Facebook</a>, or <a href="https://www.linkedin.com/in/mfgaspar">LinkedIn</a>.</p>
 
