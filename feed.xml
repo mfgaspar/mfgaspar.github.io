@@ -5,9 +5,29 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 18 Apr 2016 17:36:54 -0400</pubDate>
-    <lastBuildDate>Mon, 18 Apr 2016 17:36:54 -0400</lastBuildDate>
+    <pubDate>Tue, 19 Apr 2016 16:52:36 -0400</pubDate>
+    <lastBuildDate>Tue, 19 Apr 2016 16:52:36 -0400</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>Embedding Pentaho Analysis in Augmented Reality</title>
+        <description>&lt;p&gt;Embedding Pentaho in Augmented Reality&lt;/p&gt;
+
+&lt;p&gt;How about embedding Pentaho in augmented reality applications? It would be cool if we can have some augmented reality applications that can provide some analytics. It would be a great use case to be applied to Smart Cities.&lt;/p&gt;
+
+&lt;p&gt;I believe it is possible to do it and can be quite interesting so if someone have some google glasses that can send to me, please do it so that I can stat preparing the posts about It.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 18 Apr 2016 09:59:00 -0400</pubDate>
+        <link>http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</guid>
+        
+        <category>Embedding</category>
+        
+        
+        <category>Live Insights</category>
+        
+      </item>
     
       <item>
         <title>Live Insights using Pentaho and CTools - Part 1: Overview</title>
