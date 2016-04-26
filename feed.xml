@@ -5,32 +5,48 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 19 Apr 2016 16:52:36 -0400</pubDate>
-    <lastBuildDate>Tue, 19 Apr 2016 16:52:36 -0400</lastBuildDate>
+    <pubDate>Tue, 26 Apr 2016 21:09:09 +0100</pubDate>
+    <lastBuildDate>Tue, 26 Apr 2016 21:09:09 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
-        <title>Embedding Pentaho Analysis in Augmented Reality</title>
-        <description>&lt;p&gt;Embedding Pentaho in Augmented Reality&lt;/p&gt;
+        <title>Embedding Analytics in Augmented Reality</title>
+        <description>&lt;p&gt;Embedding Analytics in Augmented Reality&lt;/p&gt;
 
-&lt;p&gt;How about embedding Pentaho in augmented reality applications? It would be cool if we can have some augmented reality applications that can provide some analytics. It would be a great use case to be applied to Smart Cities.&lt;/p&gt;
+&lt;p&gt;I consider Augmented Reality to be the the integration of digital information with the user’s environment whose elements are augmented/supplemented by computer-generated sensory input such as sound, video, graphics or GPS data.  Unlike virtual reality, which creates a totally artificial environment, augmented reality uses the existing environment and overlays new information on top of it.&lt;/p&gt;
 
-&lt;p&gt;I believe it is possible to do it and can be quite interesting so if someone have some google glasses that can send to me, please do it so that I can stat preparing the posts about It.&lt;/p&gt;
+&lt;p&gt;How about bringing &lt;strong&gt;Analytics&lt;/strong&gt; to &lt;strong&gt;Augmented Reality&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;p&gt;A good use case would be applying this kind of merge in &lt;strong&gt;Smart Cities&lt;/strong&gt;, where we can bring analytics for the screen of our smart car, to our smart glasses or simple to our smartphones and tablets.&lt;/p&gt;
+
+&lt;p&gt;Would not only improve people live, allowing faster and more accurate decisions based on live insights coming always get the idea of using advanced mobile apps, smart glasses or even smart glass on vehicles that can help on navigation, get insights that can have as input sensors such as sound, video, graphics and GPS data.&lt;/p&gt;
+
+&lt;p&gt;There are already some applications that allows you to simplify user’s life that are provided to improve the experience of the user, so why not also bringing analytics and improve it even more?&lt;/p&gt;
+
+&lt;p&gt;I believe it is possible to do it and can be quite interesting, so, if someone have can sent me some google glasses and/or a descent smartphone, please do it so that I can start preparing the solution and create some posts about it.&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 18 Apr 2016 09:59:00 -0400</pubDate>
+        <pubDate>Mon, 18 Apr 2016 09:59:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</guid>
+        
+        <category>Augmented Reality</category>
+        
+        <category>Smart Cities</category>
         
         <category>Embedding</category>
         
         
-        <category>Live Insights</category>
+        <category>Augmented Reality</category>
+        
+        <category>Smart Cities</category>
+        
+        <category>Embedding</category>
         
       </item>
     
       <item>
-        <title>Live Insights using Pentaho and CTools - Part 1: Overview</title>
+        <title>Realtime/Live dashboard using Pentaho and CTools - Part 1: Overview</title>
         <description>&lt;p&gt;This series of posts/post has origins on the last Pentaho Community Meeting that took place in London, November last year, &lt;a href=&quot;https://github.com/PentahoCommunityMeetup2015/info&quot;&gt;PCM 2015&lt;/a&gt;. You can follow up on&lt;br /&gt;
 &lt;a href=&quot;https://twitter.com/search?q=%23pcm15%20pentaho&quot;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
 
@@ -42,7 +58,7 @@
 
 &lt;p&gt;When talking about IoT and Social Innovation (I feel like I should write a new blog post, about my point of view about this terminologies), there are some use cases were we need to display “real-time” data, coming from all kind of “things”.&lt;/p&gt;
 
-&lt;p&gt;For the title of the blog post, I’ve used the name Live Insights and not real-time, that’s because real-time at the hardware level is done in milli/micro seconds. Not that we can’t do it really fast at the software level, but it’s not fair for people working in some areas, like electronics, where the concept of real-time can be different from the one where we are displaying information on the bowser and coming through. That’s the reason why I have used the title “Live Insight”, and just to make it clear, this is an example on how data being generated by sensors can be processed on the fly and be delivered (over the internet using) with low lattency with a lower lattency.&lt;/p&gt;
+&lt;p&gt;For the title of the blog post, I’ve used the name “live data” and not real-time, that’s because real-time at the hardware level is done in milli/micro seconds. Not that we can’t do it really fast at the software level, but it’s not fair for people working in some areas, like electronics, where the concept of real-time can be different from the one where we are displaying information on the bowser and coming through. That’s the reason why I have used the title “live data”, and just to make it clear, this is an example on how data being generated by sensors can be processed on the fly and be delivered (over the internet using) with low lattency with a lower lattency.&lt;/p&gt;
 
 &lt;p&gt;This is just one of the ways to do it, let’s start to cover it.&lt;/p&gt;
 
@@ -68,7 +84,7 @@
 
 &lt;h3 id=&quot;putting-pieces-together&quot;&gt;Putting pieces together&lt;/h3&gt;
 
-&lt;p&gt;There are many ways to bring live Insights to a dashboard, and I have developed one sample, were I have considered the following requirements:&lt;/p&gt;
+&lt;p&gt;There are many ways to bring live data to a dashboard, and I have developed one sample, were I have considered the following requirements:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Messages should be sent to the dashboard, but the dashboard should also be able to send messages/instructions to the device.&lt;/li&gt;
@@ -104,7 +120,7 @@
 
 &lt;h3 id=&quot;small-video&quot;&gt;Small video&lt;/h3&gt;
 
-&lt;p&gt;As this a “live” solution and I don’t have the infrastructure to make it available for you to see it working, I have made a video that gives you a high level overview, just keep in mind this is just an overview, I won’t get lost in details (latter posts will detail).&lt;/p&gt;
+&lt;p&gt;As this a live/real-time solution and I don’t have the infrastructure to make it available for you to see it working, I have made a video that gives you a high level overview, just keep in mind this is just an overview, I won’t get lost in details (latter posts will detail).&lt;/p&gt;
 
 &lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/M0MKaTKrkAw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
@@ -117,7 +133,7 @@
 &lt;p&gt;I already start to think how I can make it work out-of-the-box in CDA/CDE, but that will take much more time.&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 04 Apr 2016 22:40:00 -0400</pubDate>
+        <pubDate>Mon, 04 Apr 2016 22:40:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-1/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-1/</guid>
         
@@ -168,7 +184,7 @@
 &lt;p&gt;Any questions please send email or contact me over &lt;a href=&quot;https://www.facebook.com/miguel.ferreira.gaspar&quot;&gt;Facebook&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;, or &lt;a href=&quot;https://www.linkedin.com/in/mfgaspar&quot;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 29 Mar 2016 20:15:00 -0400</pubDate>
+        <pubDate>Tue, 29 Mar 2016 20:15:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Ctools-Book/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Ctools-Book/</guid>
         
@@ -196,7 +212,7 @@
 &lt;p&gt;Looking foward to get feedback from you!&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 29 Mar 2016 20:05:00 -0400</pubDate>
+        <pubDate>Tue, 29 Mar 2016 20:05:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Welcome/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Welcome/</guid>
         
