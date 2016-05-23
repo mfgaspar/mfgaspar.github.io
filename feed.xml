@@ -5,27 +5,27 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 Apr 2016 21:33:27 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Apr 2016 21:33:27 +0100</lastBuildDate>
+    <pubDate>Mon, 23 May 2016 10:13:59 +0100</pubDate>
+    <lastBuildDate>Mon, 23 May 2016 10:13:59 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>Embedding Analytics in Augmented Reality</title>
         <description>&lt;p&gt;Embedding Analytics in Augmented Reality&lt;/p&gt;
 
-&lt;p&gt;I consider Augmented Reality to be the the integration of digital information with the user’s environment whose elements are augmented/supplemented by computer-generated sensory input such as sound, video, graphics or GPS data.  Unlike virtual reality, which creates a totally artificial environment, augmented reality uses the existing environment and overlays new information on top of it.&lt;/p&gt;
+&lt;p&gt;I consider Augmented Reality to be the integration of digital information with the user’s environment whose elements are augmented/supplemented by computer-generated sensory input such as sound, video, graphics or GPS data.  Unlike virtual reality, which creates a totally artificial environment, augmented reality uses the existing environment and overlays new information on top of it.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/EAIAR_Screncast_small.png&quot; alt=&quot;Analytics and Augemented Reality&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;How about bringing &lt;strong&gt;Analytics&lt;/strong&gt; to &lt;strong&gt;Augmented Reality&lt;/strong&gt;?&lt;/p&gt;
 
-&lt;p&gt;A good use case would be applying this into &lt;strong&gt;Smart Cities&lt;/strong&gt;, where we can project analytics to the screen of our smart car, to our smart glasses or simple to our smartphones and tablets.&lt;/p&gt;
+&lt;p&gt;A good example would be applying it into Smart Cities, where we can project analytics to the screen of our smart car, to our smart glasses or simple to our smartphones and tablets.&lt;/p&gt;
 
-&lt;p&gt;Would not only improve people live, allowing faster and more accurate decisions based on live insights. I really like the ideia of using advanced mobile apps, smart glasses or even smart glass on vehicles that can help on navigation and get insights that has as a starting point of input, sensors such as sound, video, graphics and GPS data.&lt;/p&gt;
+&lt;p&gt;Would not only improve peoples live, allowing faster and more accurate decisions but also would improve the ability to increase business opportunities.&lt;/p&gt;
 
-&lt;p&gt;There are already some applications that allows you to simplify user’s life and that are improving the experience of the user, so why not also bringing analytics and improve it even more?&lt;/p&gt;
+&lt;p&gt;I really like the idea of using advanced mobile apps, smart glasses or even smart glass on vehicles that can help on navigation and get insights that has as a starting point of input, sensors such as sound, video, graphics and GPS data. There are already some applications that allows you to simplify user’s life and that are improving the experience of the user, so why not also bringing analytics and improve it even more?&lt;/p&gt;
 
-&lt;p&gt;I believe it is possible to do it and can be quite interesting, so, if someone have a smart car with augmented reality in the front window please send it over to me … just joking. But, &lt;u&gt;if someone, can send me some google glasses and/or a descent smartphone/tablet&lt;/u&gt;, please do it, so that I can start preparing the solution and create some posts about it.&lt;/p&gt;
+&lt;p&gt;If someone has a smart car provided with augmented reality in the front window please send it over to me, so that I can create and test the solution. Just joking, but, if someone has some google glasses, smartphone and tablet, I can use to create this solution, please sent it to me, so that I can start preparing the solution and create some posts about it. Of course the sender will get some exclusive info on the solution/architecture ;)&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 26 Apr 2016 09:59:00 +0100</pubDate>
