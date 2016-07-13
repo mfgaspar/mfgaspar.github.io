@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Tags</title>
+  <title>Realtime/Live dashboard using Pentaho and CTools - Part 2: Streaming using PDI</title>
   <meta name="description" content="My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mfgaspar.github.io//tags/">
+  <link rel="canonical" href="http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -162,229 +162,101 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <h2>Tags:</h2>
-<div class="tags"> 
- 
-  <a href="#Cooking Analytics">Cooking Analytics</a>
- 
-  <a href="#Pentaho CTools Book">Pentaho CTools Book</a>
- 
-  <a href="#Live Insights">Live Insights</a>
- 
-  <a href="#Augmented Reality">Augmented Reality</a>
- 
-  <a href="#Smart Cities">Smart Cities</a>
- 
-  <a href="#Embedding">Embedding</a>
- 
-  <a href="#Action Sequences">Action Sequences</a>
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="15 Jun 2016" class="post-meta__date date">15 Jun 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span>
+    </div>
+    <h1 class="post-title">Realtime/Live dashboard using Pentaho and CTools - Part 2: Streaming using PDI</h1>
+  </header>
+  <section class="post">
+    <p>The <a href="http://www.meetup.com/Pentaho-London-User-Group/events/222548597/">last post</a> stated to cover one of the ways we could use to have “realtime” using Data Integration and CTools.</p>
 
+<p>The main goal here is to have a way to read from the “things” and show live insights on a dashboard or application. To do it we need to make information flow as fast as required, but we also need to process on it’s way, so why code everything when you can do easly with an amaizing tool.</p>
+
+<p>PDI works internally with streams to send rows from one step to another, so if we can use an input step that keeps looping, never ends, that would be streaming in PDI. Matt Castters published a post on his blog some years ago about it, you can check it <a href="????">here</a>. Not new!</p>
+
+<p>So, we now that we can use PDI for processing the stream of information but still need to get messages to and from PDI.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Messages &gt;&gt;&gt; Data Integration &gt;&gt;&gt; Messagess
+</code></pre>
 </div>
 
-<!-- iterate through all tags on the site --> 
- 
-  <!-- for each tag, create an anchor by using the tag name as an id --> 
-  <div id="Cooking Analytics">  
-    <h3> Cooking Analytics </h3>  <!-- for create a heading --> 
+<p>So what can we use to make it work? There s multiple ways to do it, but one that I really like because it’s easy to use but powerfull, it’s by using a publish/subscribe or queue system. So, this messaging system can act as the middle point between the “things” and kettle as also between kettle and the browser.</p>
 
-    <ul> <!-- create the list of posts -->
-      <!-- iterate through all the posts on the site --> 
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/Welcome/">Welcome to Cooking Analytics</a>
-            </li>
-        
-      
-    </ul>
-  </div>
- 
-  <!-- for each tag, create an anchor by using the tag name as an id --> 
-  <div id="Pentaho CTools Book">  
-    <h3> Pentaho CTools Book </h3>  <!-- for create a heading --> 
+<div class="highlighter-rouge"><pre class="highlight"><code>Messages &gt;&gt;&gt; Pub/Sub Messaging Broker &gt;&gt;&gt; Data Integration &gt;&gt;&gt; Pub/Sub Messaging Broker &gt;&gt;&gt; Messagess
+</code></pre>
+</div>
 
-    <ul> <!-- create the list of posts -->
-      <!-- iterate through all the posts on the site --> 
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/Ctools-Book/">Learning Pentaho CTools</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-      
-    </ul>
-  </div>
- 
-  <!-- for each tag, create an anchor by using the tag name as an id --> 
-  <div id="Live Insights">  
-    <h3> Live Insights </h3>  <!-- for create a heading --> 
+<p>There are multiple brokers we could use as also the standards being used between the brokers. I will for now refer to MQTT and AMQP. They are different from each other in the way they, so depending on your requirments you may wnat to use one or another. Both MQTT and AMQT are messaging-centric while you might find some data-centric standards is usually (not only) used to switch messages from server to server, while MQTT is more likely to be used as for machine to machine comunications.</p>
 
-    <ul> <!-- create the list of posts -->
-      <!-- iterate through all the posts on the site --> 
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/">Realtime/Live dashboard using Pentaho and CTools - Part 1: Overview</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-      
-    </ul>
-  </div>
- 
-  <!-- for each tag, create an anchor by using the tag name as an id --> 
-  <div id="Augmented Reality">  
-    <h3> Augmented Reality </h3>  <!-- for create a heading --> 
+<p>Comparing AMQP to MQTT:</p>
 
-    <ul> <!-- create the list of posts -->
-      <!-- iterate through all the posts on the site --> 
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/Embedding-Pentaho-in-Augmented-Reality-copy/">Embedding Analytics in Augmented Reality</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-      
-    </ul>
-  </div>
- 
-  <!-- for each tag, create an anchor by using the tag name as an id --> 
-  <div id="Smart Cities">  
-    <h3> Smart Cities </h3>  <!-- for create a heading --> 
+<div class="highlighter-rouge"><pre class="highlight"><code>// ADD SOME LINKS 
+</code></pre>
+</div>
 
-    <ul> <!-- create the list of posts -->
-      <!-- iterate through all the posts on the site --> 
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/Embedding-Pentaho-in-Augmented-Reality-copy/">Embedding Analytics in Augmented Reality</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-      
-    </ul>
-  </div>
- 
-  <!-- for each tag, create an anchor by using the tag name as an id --> 
-  <div id="Embedding">  
-    <h3> Embedding </h3>  <!-- for create a heading --> 
+<p>We will see later that when we need to scale AMQT will be a better fit, so when discussing how to scale it “big”, I will come back to it.</p>
 
-    <ul> <!-- create the list of posts -->
-      <!-- iterate through all the posts on the site --> 
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/Embedding-Pentaho-in-Augmented-Reality-copy/">Embedding Analytics in Augmented Reality</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-      
-    </ul>
-  </div>
- 
-  <!-- for each tag, create an anchor by using the tag name as an id --> 
-  <div id="Action Sequences">  
-    <h3> Action Sequences </h3>  <!-- for create a heading --> 
+<h3 id="how-does-mqtt-works">How does MQTT works?</h3>
 
-    <ul> <!-- create the list of posts -->
-      <!-- iterate through all the posts on the site --> 
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/Pentaho-Action-Sequences/">Pentaho and Custom Action Sequences</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-       
-        <!-- list only those which contain the current tag --> 
-        
-      
-    </ul>
-  </div>
+<div class="highlighter-rouge"><pre class="highlight"><code>// Add some links on how MQTT works  
+</code></pre>
+</div>
+
+<p>QoS might be a very intersting topic to discuss about. That’s because some projects will have diferent needs to have persistency of messages while others might not have, and some messages that might fail to get to the destination will not be a problem at all.</p>
+
+<p>Brokers</p>
+
+<p>…</p>
+
+<p>2
+Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
+
+
+  </section>
+  
+</article>
+ 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
+
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<!--
+<a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
+-->
+
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//cookinganalytics.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+
 
       </div>
 
