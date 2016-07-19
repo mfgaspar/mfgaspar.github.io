@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 19 Jul 2016 14:23:19 +0100</pubDate>
-    <lastBuildDate>Tue, 19 Jul 2016 14:23:19 +0100</lastBuildDate>
+    <pubDate>Tue, 19 Jul 2016 14:33:17 +0100</pubDate>
+    <lastBuildDate>Tue, 19 Jul 2016 14:33:17 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -217,8 +217,8 @@ There is  big pontential to generate business. Companies will see the advantage 
 
 </description>
         <pubDate>Tue, 12 Jul 2016 09:59:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality-copy/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality-copy/</guid>
+        <link>http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</guid>
         
         <category>Augmented Reality</category>
         
