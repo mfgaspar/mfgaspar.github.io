@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 19 Jul 2016 10:03:38 +0100</pubDate>
-    <lastBuildDate>Tue, 19 Jul 2016 10:03:38 +0100</lastBuildDate>
+    <pubDate>Tue, 19 Jul 2016 10:47:35 +0100</pubDate>
+    <lastBuildDate>Tue, 19 Jul 2016 10:47:35 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -175,6 +175,8 @@ a Action Sequence.&lt;/p&gt;
 &lt;p&gt;So, you saw that this in another extension point in Pentaho. If we don’t have an action that performs what we need, then it’s time to get our hands on code.&lt;/p&gt;
 
 &lt;p&gt;Hope you can use kettle instead, but if not, just write a message in here, and let others knows what you did!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/custom.code.action.sequence&quot;&gt;Sample code available here.&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 13 Jul 2016 09:59:00 +0100</pubDate>
