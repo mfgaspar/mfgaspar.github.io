@@ -5,12 +5,12 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 Jul 2016 23:52:39 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Jul 2016 23:52:39 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Jul 2016 23:53:34 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Jul 2016 23:53:34 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
-        <title>The evolution: OLTP, OLAP and now RTAP</title>
+        <title>The evolution of analysis: OLTP, OLAP ... RTAP</title>
         <description>&lt;p&gt;Bid Data and IoT brings new challenges but also new opportunities to get augmented results into our companies.&lt;/p&gt;
 
 &lt;p&gt;Over the time there was multiple ways to store, process and analyze data. We’ve started to build reports on top of OLTP, them we’ve evaluated to more intelligent analysis using OLAP concepts, but now given the volume the variety and the velocity of the data now a day, we might have new needs on how to analyze data. That’s what Real-time Analysis Processing (RTAP) can bring us. New ways to analyze a huge volume and variety of different data as also we need to analyze it faster.&lt;/p&gt;
