@@ -5,15 +5,15 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 Jul 2016 18:34:13 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Jul 2016 18:34:13 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Jul 2016 18:41:05 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Jul 2016 18:41:05 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>Live Insight Dashboard on Pentaho - Part 2: High level overview</title>
         <description>&lt;p&gt;The &lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;last post&lt;/a&gt; stated to cover one some concepts and technology used to have a “real-time” dashboard using Pentaho and CTools. This post will give you an overview of the solution an provide you the samples.&lt;/p&gt;
 
-&lt;h3 id=&quot;high-level-description-and-used-tools&quot;&gt;High level description and used Tools&lt;/h3&gt;
+&lt;h3 id=&quot;high-level-description-and-used-tools&quot;&gt;High level description and used tools&lt;/h3&gt;
 
 &lt;p&gt;So we know that at one end we will have IoT devices and at the other end we will have the browser. So data is being generated at one end and data is being displayed at the other end. At the middle we need to process the data that is being generated before it becomes ready to be processed.&lt;/p&gt;
 
@@ -397,7 +397,7 @@ There is  big pontential to generate business. Companies will see the advantage 
   &lt;li&gt;Messages should be sent to the dashboard, but the dashboard should also be able to send messages/instructions to the device.&lt;/li&gt;
   &lt;li&gt;Use Pentaho Data Integration (PDI) to process data, and it should be done as soon as messages arrives from the sensors;&lt;/li&gt;
   &lt;li&gt;Present live data in the dashboard as fast as possible, just for performance measurements on the front-end and back-end.&lt;/li&gt;
-  &lt;li&gt;Needs be presented on a CTools dashboard&lt;/li&gt;
+  &lt;li&gt;Needs be presented on a CTools dashboard, in a way to complement an existing dashboard&lt;/li&gt;
   &lt;li&gt;Save as much bandwidth as possible.&lt;/li&gt;
   &lt;li&gt;Should be able to work on mobile devices.&lt;/li&gt;
 &lt;/ul&gt;
