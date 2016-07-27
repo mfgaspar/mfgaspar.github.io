@@ -200,15 +200,18 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 
 <h3 id="get-the-samples-working">Get the samples working</h3>
 
+<p>Samples available <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho">here</a>.</p>
+
 <p>To have the solution working you will need to install</p>
 
 <ol>
   <li>Install Java</li>
   <li>Download and install Pentaho Data Integration</li>
   <li>Download and install Pentaho and CTools</li>
-  <li>Download PAHO source code (Java and JavaScript)</li>
+  <li>Download PAHO libraries</li>
   <li>Run a <a href="https://www.docker.com/">Docker</a> container with <a href="https://mosquitto.org/">Mosquitto</a></li>
   <li>Upload the dashboard (and resources) to the BA Server</li>
+  <li>Run the solution</li>
 </ol>
 
 <p>For each one of the steps here are some instructions:</p>
@@ -225,7 +228,7 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 
 <p>You will be able to use the Community version available <a href="http://community.pentaho.com/">here</a> or using the Enterprise Edition by following the instructions that are send to you when the deal is made. If using Community Edition, don’t forget to read the licenses carefully, you might be breaking the licenses agreement.</p>
 
-<p><strong>4. Download PAHO source code (Java and JavaScript)</strong></p>
+<p><strong>4. Download PAHO libraries</strong></p>
 
 <p>You will find in <a href="http://www.eclipse.org/paho/downloads.php">this</a> link, the download page for the Java version. You should copy the .jar file into your Pentaho folder at a location similar to ${PENTAHO_FOLDER}/tomcat/webapps/pentaho/WEB-INF/lib/ and restart Data Integration.</p>
 

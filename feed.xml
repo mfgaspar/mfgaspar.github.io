@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 Jul 2016 18:29:38 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Jul 2016 18:29:38 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Jul 2016 18:34:13 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Jul 2016 18:34:13 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -41,15 +41,18 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 
 &lt;h3 id=&quot;get-the-samples-working&quot;&gt;Get the samples working&lt;/h3&gt;
 
+&lt;p&gt;Samples available &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
 &lt;p&gt;To have the solution working you will need to install&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Install Java&lt;/li&gt;
   &lt;li&gt;Download and install Pentaho Data Integration&lt;/li&gt;
   &lt;li&gt;Download and install Pentaho and CTools&lt;/li&gt;
-  &lt;li&gt;Download PAHO source code (Java and JavaScript)&lt;/li&gt;
+  &lt;li&gt;Download PAHO libraries&lt;/li&gt;
   &lt;li&gt;Run a &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; container with &lt;a href=&quot;https://mosquitto.org/&quot;&gt;Mosquitto&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Upload the dashboard (and resources) to the BA Server&lt;/li&gt;
+  &lt;li&gt;Run the solution&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;For each one of the steps here are some instructions:&lt;/p&gt;
@@ -66,7 +69,7 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 
 &lt;p&gt;You will be able to use the Community version available &lt;a href=&quot;http://community.pentaho.com/&quot;&gt;here&lt;/a&gt; or using the Enterprise Edition by following the instructions that are send to you when the deal is made. If using Community Edition, don’t forget to read the licenses carefully, you might be breaking the licenses agreement.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;4. Download PAHO source code (Java and JavaScript)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. Download PAHO libraries&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;You will find in &lt;a href=&quot;http://www.eclipse.org/paho/downloads.php&quot;&gt;this&lt;/a&gt; link, the download page for the Java version. You should copy the .jar file into your Pentaho folder at a location similar to ${PENTAHO_FOLDER}/tomcat/webapps/pentaho/WEB-INF/lib/ and restart Data Integration.&lt;/p&gt;
 
