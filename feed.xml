@@ -5,9 +5,127 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 19 Jul 2016 14:33:17 +0100</pubDate>
-    <lastBuildDate>Tue, 19 Jul 2016 14:33:17 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Jul 2016 18:11:41 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Jul 2016 18:11:41 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>Streaming Data on a Pentaho CTools dashboard - Part 2: High level overview</title>
+        <description>&lt;p&gt;The &lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;last post&lt;/a&gt; stated to cover one some concepts and technology used to have a “real-time” dashboard using Pentaho and CTools. This post will give you an overview of the solution an provide you the samples.&lt;/p&gt;
+
+&lt;h3 id=&quot;high-level-description-and-used-tools&quot;&gt;High level description and used Tools&lt;/h3&gt;
+
+&lt;p&gt;So we know that at one end we will have IoT devices and at the other end we will have the browser. So data is being generated at one end and data is being displayed at the other end. At the middle we need to process the data that is being generated before it becomes ready to be processed.&lt;/p&gt;
+
+&lt;p&gt;At a high level our solution is something like the folowing diagram:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/realtime_diagram_1.png&quot; alt=&quot;Overview diagram of Solution&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The peace’s of hardware and software used on this mini POC were:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Raspberry PI with sensors&lt;/strong&gt; 
+Here you can use a kettle transformation to generate random data. Data is being send data from sensors, using a Rapesberry Pi and MQTT. Rapesberry Pi uses MQTT to publish messages into the message broker.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Pentaho Data Integration and &lt;a href=&quot;https://mosquitto.org/&quot;&gt;Mosquitto&lt;/a&gt; as the message broker&lt;/strong&gt; 
+Will let’s publish and subscribe to topics. 
+A PDI transformation is subscribed to a topic, as soon as messages are arriving, the messages are send to the PDI streaming to other steps, where we can do clean, enrich and aggregate. From there we just need to send the processed data in a message format to another topic of the message broker. Two topics were used, one that it’s just accepting data from sensors and another one that will handle the messages with the processed results.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Pentaho and CTools&lt;/strong&gt; to display live data in a dashboard.**
+The dashboard it’s subscribing a topic, and as soon as it gets a message, it will refresh the visualizations and show data from sensors but already processed.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;get-the-samples-working&quot;&gt;Get the samples working&lt;/h3&gt;
+
+&lt;p&gt;To have the solution working you will need to install&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Install Java&lt;/li&gt;
+  &lt;li&gt;Download and install Pentaho Data Integration&lt;/li&gt;
+  &lt;li&gt;Download and install Pentaho and CTools&lt;/li&gt;
+  &lt;li&gt;Download PAHO source code (Java and JavaScript)&lt;/li&gt;
+  &lt;li&gt;Run a &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; container with &lt;a href=&quot;https://mosquitto.org/&quot;&gt;Mosquitto&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Upload the dashboard (and resources) to the BA Server&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For each one of the steps here are some instructions:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Install Java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You will be able to download Java from the &lt;a href=&quot;https://java.com/en/download/&quot;&gt;this&lt;/a&gt; website. Just download the correct version of Java for your Operating System and run the installer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Download and install Pentaho Data Integration&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You will need to install Pentaho Data Integration making sure it is working. Don’t forget that for the Enterprise Edition you need to have the proper licenses. By the other hand if you want to use the Community Edition you can download it &lt;a href=&quot;http://community.pentaho.com/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Download and install Pentaho and CTools&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You will be able to use the Community version available &lt;a href=&quot;http://community.pentaho.com/&quot;&gt;here&lt;/a&gt; or using the Enterprise Edition by following the instructions that are send to you when the deal is made. If using Community Edition, don’t forget to read the licenses carefully, you might be breaking the licenses agreement.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Download PAHO source code (Java and JavaScript)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You will find in &lt;a href=&quot;http://www.eclipse.org/paho/downloads.php&quot;&gt;this&lt;/a&gt; link, the download page for the Java version. You should copy the .jar file into your Pentaho folder at a location similar to ${PENTAHO_FOLDER}/tomcat/webapps/pentaho/WEB-INF/lib/ and restart Data Integration.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. Run a &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; container with &lt;a href=&quot;https://mosquitto.org/&quot;&gt;Mosquitto&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You need to have Mosquitto running, so follow the steps bellow:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run toke/mosquitto
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;if you already have the container in your machine, you should be able to run it by typing something like:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker start mosquitto 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;6. Upload the dasboard (and resources) to the BA Server&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the samples provided &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples&quot;&gt;here&lt;/a&gt; you will find two folders:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Backend: The files needed to generate random messages emulating an IoT device, and the transformations to process the data:&lt;/li&gt;
+  &lt;li&gt;Frontend: Contains the dashboard files and all the resources that are needed to render it on the browser.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Create a Zip of the content of the frontend folder, and upload it to somewhere in the BA server repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. Run the solution&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;From the PDI folder, you need to run the transformations, first the one to process data, by running the following command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./pan.sh -file=${[PATH_TO_FILES}/mqtt-project-source-code/backend/iot-device-emulator.ktr -param:delaytime=200
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And next, the transformation, to emulate IoT device generating data, by using the command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./pan.sh -file=${[PATH_TO_FILES}/mqtt-IoT-poc/mqtt-project-source-code/backend/realtime-using-mqtt.ktr 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Last you need to start the dashboard you will find on the folder you’ve created in the BA Server, and press the “start”&lt;/p&gt;
+
+&lt;p&gt;You can stop and start the IoT device emulator transformation and change the value of the parameter &lt;em&gt;delaytime&lt;/em&gt; to be &lt;em&gt;1000&lt;/em&gt;. You will see that the values will be pushed slowly into the dashboard.&lt;/p&gt;
+
+&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 25 Jul 2016 19:54:00 +0100</pubDate>
+        <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</guid>
+        
+        <category>Live Insights</category>
+        
+        
+        <category>Live Insights</category>
+        
+      </item>
     
       <item>
         <title>Pentaho and Custom Action Sequences</title>
@@ -236,25 +354,21 @@ There is  big pontential to generate business. Companies will see the advantage 
       </item>
     
       <item>
-        <title>Realtime/Live dashboard using Pentaho and CTools - Part 1: Overview</title>
+        <title>Streaming Data on a Pentaho CTools dashboard - Part 1: Introduction</title>
         <description>&lt;p&gt;This series of posts/post has origins on the last Pentaho Community Meeting that took place in London, November last year, &lt;a href=&quot;https://github.com/PentahoCommunityMeetup2015/info&quot;&gt;PCM 2015&lt;/a&gt;. You can follow up on&lt;br /&gt;
 &lt;a href=&quot;https://twitter.com/search?q=%23pcm15%20pentaho&quot;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The first evening, there was a &lt;a href=&quot;http://www.meetup.com/Pentaho-London-User-Group/events/222548597/&quot;&gt;hackathon&lt;/a&gt;, where me Miguel Cunhal and Sam … (sorry Sam, don’t know your last name), received a Raspberry Pi, coutesy of &lt;a href=&quot;[https://twitter.com/ivyinfosystems]&quot;&gt;Ivy IS&lt;/a&gt; as a prize. We really hadn’t the time to complete the project, so I felt that I needed to give them (organization and community) more.&lt;/p&gt;
+&lt;p&gt;The first evening, there was a &lt;a href=&quot;http://www.meetup.com/Pentaho-London-User-Group/events/222548597/&quot;&gt;hackathon&lt;/a&gt;, where me Miguel Cunhal and Sam … (sorry Sam, can’t remenber your surname), received a Raspberry Pi, coutesy of &lt;a href=&quot;[https://twitter.com/ivyinfosystems]&quot;&gt;Ivy IS&lt;/a&gt; as a prize. We really hadn’t the time to complete the project, so I felt that I needed to contribute with something else.&lt;/p&gt;
 
-&lt;p&gt;Given that a Rapesberry Pi is largely used on IoT (Internet Of Things) projects, I will share what we I am calling &lt;strong&gt;Live Insight comming from IoT&lt;/strong&gt;, using Pentaho technology.&lt;/p&gt;
+&lt;p&gt;Given that the Rapesberry Pi is largely used on IoT (Internet Of Things) projects, I will share what we I am calling a &lt;strong&gt;Streaming Dashboard&lt;/strong&gt;, using Pentaho technology.&lt;/p&gt;
 
 &lt;h3 id=&quot;quick-introduction&quot;&gt;Quick introduction&lt;/h3&gt;
 
-&lt;p&gt;When talking about IoT and Social Innovation (I feel like I should write a new blog post, about my point of view about this terminologies), there are some use cases were we need to display “real-time” data, coming from all kind of “things”.&lt;/p&gt;
+&lt;p&gt;When talking about IoT and Social Innovation (I feel like I should write a new blog post, about my point of view about this terminologies), there are some use cases were we need to display “near real-time” or even “real-time” data, coming from all kind of “things”.&lt;/p&gt;
 
-&lt;p&gt;For the title of the blog post, I’ve used the name “live data” and not real-time, that’s because real-time at the hardware level is done in milli/micro seconds. Not that we can’t do it really fast at the software level, but it’s not fair for people working in some areas, like electronics, where the concept of real-time can be different from the one where we are displaying information on the bowser and coming through. That’s the reason why I have used the title “live data”, and just to make it clear, this is an example on how data being generated by sensors can be processed on the fly and be delivered (over the internet using) with low lattency with a lower lattency.&lt;/p&gt;
+&lt;p&gt;For the title of the blog post, I’ve used the name “Streaming” and not “Real-time”, that’s because don’t want to get into a discussion Electronic Engineers, where real-time is done in milli seconds. Not that we can’t do it really fast at the software level, but ir ight not be fair to use the same terminology. Let’s keep in mind that displaying information on the browser and comming from any place in the world, will probably take more than milli seconds.&lt;/p&gt;
 
-&lt;p&gt;This is just one of the ways to do it, let’s start to cover it.&lt;/p&gt;
-
-&lt;p&gt;A Rapesberry Pi that might have some sensors connected, a mobile phone, a twitter account, and many other “things”.&lt;/p&gt;
-
-&lt;p&gt;When trying to display live data over the internet using a browser we need to keep in mind the internet lattency we might face, as also the time that might be needed to do some calculations, agreggations, clean up, etc..&lt;/p&gt;
+&lt;p&gt;In this project I have used a Rapesberry Pi sending sensor data, but I might have used a mobile phone, a twitter account, a car and any other “thing”. For you to be able to test it and for the samples I am provideing, I’ve creates a kettle transformation were I am generating some random data emulating sensors.&lt;/p&gt;
 
 &lt;h3 id=&quot;considerations&quot;&gt;Considerations&lt;/h3&gt;
 
@@ -310,17 +424,17 @@ There is  big pontential to generate business. Companies will see the advantage 
 
 &lt;h3 id=&quot;small-video&quot;&gt;Small video&lt;/h3&gt;
 
-&lt;p&gt;As this a live/real-time solution and I don’t have the infrastructure to make it available for you to see it working, I have made a video that gives you a high level overview, just keep in mind this is just an overview, I won’t get lost in details (latter posts will detail).&lt;/p&gt;
+&lt;p&gt;As this a live/real-time solution and I don’t have the infrastructure to make it available for you to see it working, I have made a video that shows the dashboard working with live data.&lt;/p&gt;
 
 &lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/M0MKaTKrkAw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;future-work&quot;&gt;Future work&lt;/h3&gt;
 
-&lt;p&gt;I will write a couple more of posts under this subject, providing details about the architecture, the back-end and front-end as well as performance metrics like messages per second, memory/processor consumption, etc. If you want to see some specific details, please comment bellow.&lt;/p&gt;
+&lt;p&gt;I can’t cover all in this post, so I will write a couple more posts under this subject, providing details about the architecture, the back-end and front-end as well as performance metrics like messages per second, memory/processor consumption, etc. If you want to see some specific details, please comment bellow.&lt;/p&gt;
 
-&lt;p&gt;Another post should be written to highlight some of the architecture on how to scale it “big”. This is a solution based on message-centric concepts but I also want to bring some posts on it would work on a data-centric proof-of-concept, of course the architecture and technology will change a bit.&lt;/p&gt;
+&lt;p&gt;For sure you will find details about the architecture on how to scale the solution. This is a solution based on message-centric concepts but I also want to bring some posts on it would work on a data-centric proof-of-concept, of course the architecture and technology will change a bit.&lt;/p&gt;
 
-&lt;p&gt;I already start to think how I can make it work out-of-the-box in CDA/CDE, but that will take much more time.&lt;/p&gt;
+&lt;p&gt;I already started to think how I can make it work out-of-the-box in CDA/CDE, but that will take much more time to develop it. If there are some folks that wnat’s to help, just send a message and let’s work together.&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 04 Apr 2016 22:40:00 +0100</pubDate>

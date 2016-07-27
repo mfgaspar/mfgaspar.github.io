@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Streaming Data on a Pentaho CTools dashboard - Part 1: Introduction</title>
+  <title>Streaming Data on a Pentaho CTools dashboard - Part 2: High level overview</title>
   <meta name="description" content="My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-1/">
+  <link rel="canonical" href="http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -165,91 +165,114 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="4 Apr 2016" class="post-meta__date date">4 Apr 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span>
+      <time datetime="25 Jul 2016" class="post-meta__date date">25 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span>
     </div>
-    <h1 class="post-title">Streaming Data on a Pentaho CTools dashboard - Part 1: Introduction</h1>
+    <h1 class="post-title">Streaming Data on a Pentaho CTools dashboard - Part 2: High level overview</h1>
   </header>
   <section class="post">
-    <p>This series of posts/post has origins on the last Pentaho Community Meeting that took place in London, November last year, <a href="https://github.com/PentahoCommunityMeetup2015/info">PCM 2015</a>. You can follow up on<br />
-<a href="https://twitter.com/search?q=%23pcm15%20pentaho">Twitter</a>.</p>
+    <p>The <a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/">last post</a> stated to cover one some concepts and technology used to have a “real-time” dashboard using Pentaho and CTools. This post will give you an overview of the solution an provide you the samples.</p>
 
-<p>The first evening, there was a <a href="http://www.meetup.com/Pentaho-London-User-Group/events/222548597/">hackathon</a>, where me Miguel Cunhal and Sam … (sorry Sam, can’t remenber your surname), received a Raspberry Pi, coutesy of <a href="[https://twitter.com/ivyinfosystems]">Ivy IS</a> as a prize. We really hadn’t the time to complete the project, so I felt that I needed to contribute with something else.</p>
+<h3 id="high-level-description-and-used-tools">High level description and used Tools</h3>
 
-<p>Given that the Rapesberry Pi is largely used on IoT (Internet Of Things) projects, I will share what we I am calling a <strong>Streaming Dashboard</strong>, using Pentaho technology.</p>
+<p>So we know that at one end we will have IoT devices and at the other end we will have the browser. So data is being generated at one end and data is being displayed at the other end. At the middle we need to process the data that is being generated before it becomes ready to be processed.</p>
 
-<h3 id="quick-introduction">Quick introduction</h3>
+<p>At a high level our solution is something like the folowing diagram:</p>
 
-<p>When talking about IoT and Social Innovation (I feel like I should write a new blog post, about my point of view about this terminologies), there are some use cases were we need to display “near real-time” or even “real-time” data, coming from all kind of “things”.</p>
+<p><img src="http://mfgaspar.github.io/assets/realtime_diagram_1.png" alt="Overview diagram of Solution" /></p>
 
-<p>For the title of the blog post, I’ve used the name “Streaming” and not “Real-time”, that’s because don’t want to get into a discussion Electronic Engineers, where real-time is done in milli seconds. Not that we can’t do it really fast at the software level, but ir ight not be fair to use the same terminology. Let’s keep in mind that displaying information on the browser and comming from any place in the world, will probably take more than milli seconds.</p>
-
-<p>In this project I have used a Rapesberry Pi sending sensor data, but I might have used a mobile phone, a twitter account, a car and any other “thing”. For you to be able to test it and for the samples I am provideing, I’ve creates a kettle transformation were I am generating some random data emulating sensors.</p>
-
-<h3 id="considerations">Considerations</h3>
-
-<p>There are a huge demand for real-time dashboards, and there are a couple of questions you may need to consider before starting with this kind of projects:</p>
+<p>The peace’s of hardware and software used on this mini POC were:</p>
 
 <ul>
   <li>
-    <p>How often is it important to have data refreshed in the dashboard? Usually, after making this question you might realize that you wont need a high refresh rate as you first might though about. A refresh rate of one, two, …, five seconds or more might be more than enough. Even if you have your device is gathering data faster, it might make sense to display it at that refresh rate and you might want to consider to do some aggregation, apply some signal processing algorithms, etc. Of course that always depends on the use case.</p>
+    <p><strong>Raspberry PI with sensors</strong> 
+Here you can use a kettle transformation to generate random data. Data is being send data from sensors, using a Rapesberry Pi and MQTT. Rapesberry Pi uses MQTT to publish messages into the message broker.</p>
   </li>
   <li>
-    <p>Can the users really understand what you are displaying when data is being refreshed too fast? Well I don’t believe so unless, of course some users might be able to do it, but does it makes sense? Usually the user will get lost just when trying to interpret results faster than he is able to. His mind might be so focused about not missing anything that his mind might lost focus on interpreting the values/results. Your end-user should always be able to easily understand what it’s being presented. Once again don’t do it more times than necessary.</p>
+    <p><strong>Pentaho Data Integration and <a href="https://mosquitto.org/">Mosquitto</a> as the message broker</strong> 
+Will let’s publish and subscribe to topics. 
+A PDI transformation is subscribed to a topic, as soon as messages are arriving, the messages are send to the PDI streaming to other steps, where we can do clean, enrich and aggregate. From there we just need to send the processed data in a message format to another topic of the message broker. Two topics were used, one that it’s just accepting data from sensors and another one that will handle the messages with the processed results.</p>
   </li>
   <li>
-    <p>Another question that was already slightly touched is. Should we keep the same speed the device is using to sent new information? Not always, specially when the refresh rate is too high. We might want to do some aggregations, display just some part of the values, just keep in mind to process all the values. Let’s suppose you are getting sensor values from an engine and you want to get warnings on values below/above a certain threshold. You can’t simple discard the values, before checking if it’s above or below the thresholds but you might be able to do it after. Another way is to implement that login on your back-end. The dashboard just need to receive notifications about the breaking the thresholds.</p>
+    <p><strong>Pentaho and CTools</strong> to display live data in a dashboard.**
+The dashboard it’s subscribing a topic, and as soon as it gets a message, it will refresh the visualizations and show data from sensors but already processed.</p>
   </li>
 </ul>
 
-<h3 id="putting-pieces-together">Putting pieces together</h3>
+<h3 id="get-the-samples-working">Get the samples working</h3>
 
-<p>There are many ways to bring live data to a dashboard, and I have developed one sample, were I have considered the following requirements:</p>
+<p>To have the solution working you will need to install</p>
+
+<ol>
+  <li>Install Java</li>
+  <li>Download and install Pentaho Data Integration</li>
+  <li>Download and install Pentaho and CTools</li>
+  <li>Download PAHO source code (Java and JavaScript)</li>
+  <li>Run a <a href="https://www.docker.com/">Docker</a> container with <a href="https://mosquitto.org/">Mosquitto</a></li>
+  <li>Upload the dashboard (and resources) to the BA Server</li>
+</ol>
+
+<p>For each one of the steps here are some instructions:</p>
+
+<p><strong>1. Install Java</strong></p>
+
+<p>You will be able to download Java from the <a href="https://java.com/en/download/">this</a> website. Just download the correct version of Java for your Operating System and run the installer.</p>
+
+<p><strong>2. Download and install Pentaho Data Integration</strong></p>
+
+<p>You will need to install Pentaho Data Integration making sure it is working. Don’t forget that for the Enterprise Edition you need to have the proper licenses. By the other hand if you want to use the Community Edition you can download it <a href="http://community.pentaho.com/">here</a>.</p>
+
+<p><strong>3. Download and install Pentaho and CTools</strong></p>
+
+<p>You will be able to use the Community version available <a href="http://community.pentaho.com/">here</a> or using the Enterprise Edition by following the instructions that are send to you when the deal is made. If using Community Edition, don’t forget to read the licenses carefully, you might be breaking the licenses agreement.</p>
+
+<p><strong>4. Download PAHO source code (Java and JavaScript)</strong></p>
+
+<p>You will find in <a href="http://www.eclipse.org/paho/downloads.php">this</a> link, the download page for the Java version. You should copy the .jar file into your Pentaho folder at a location similar to ${PENTAHO_FOLDER}/tomcat/webapps/pentaho/WEB-INF/lib/ and restart Data Integration.</p>
+
+<p><strong>5. Run a <a href="https://www.docker.com/">Docker</a> container with <a href="https://mosquitto.org/">Mosquitto</a></strong></p>
+
+<p>You need to have Mosquitto running, so follow the steps bellow:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>docker run toke/mosquitto
+</code></pre>
+</div>
+
+<p>if you already have the container in your machine, you should be able to run it by typing something like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>docker start mosquitto 
+</code></pre>
+</div>
+
+<p><strong>6. Upload the dasboard (and resources) to the BA Server</strong></p>
+
+<p>In the samples provided <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples">here</a> you will find two folders:</p>
 
 <ul>
-  <li>Messages should be sent to the dashboard, but the dashboard should also be able to send messages/instructions to the device.</li>
-  <li>Use Pentaho Data Integration (PDI) to process data, and it should be done as soon as messages arrives from the sensors;</li>
-  <li>Present live data in the dashboard as fast as possible, just for performance measurements on the front-end and back-end.</li>
-  <li>Needs be presented on a CTools dashboard</li>
-  <li>Save as much bandwidth as possible.</li>
-  <li>Should be able to work on mobile devices.</li>
+  <li>Backend: The files needed to generate random messages emulating an IoT device, and the transformations to process the data:</li>
+  <li>Frontend: Contains the dashboard files and all the resources that are needed to render it on the browser.</li>
 </ul>
 
-<p>Even if I am going to get into details in latter posts, let me inform you ahead about the technologies that were used:</p>
+<p>Create a Zip of the content of the frontend folder, and upload it to somewhere in the BA server repository.</p>
 
-<ul>
-  <li>Pentaho BA Server, CTools &amp; Pentaho Data Integration;
-    <ul>
-      <li>Pentaho BA Server (version 6.0);</li>
-      <li>Ctools (last stable);</li>
-      <li>Pentaho DI (version 6.0);</li>
-    </ul>
-  </li>
-  <li>MQTT protocol and libraries <a href="http://mqtt.org/">MQTT</a>, as the protocol to exchange messages:
-    <ul>
-      <li>I have used <a href="https://eclipse.org/paho/clients/java/">Paho</a> for the back-end;</li>
-      <li>and <a href="https://github.com/mqttjs/MQTT.js">MQTT.js</a> for the front-end;</li>
-    </ul>
-  </li>
-  <li>Mosquitto <a href="http://mosquitto.org/">Mosquitto</a>, a publish/subscribe MQTT Message Broker;
-    <ul>
-      <li>I have used it in a Docker container.</li>
-    </ul>
-  </li>
-</ul>
+<p><strong>7. Run the solution</strong></p>
 
-<h3 id="small-video">Small video</h3>
+<p>From the PDI folder, you need to run the transformations, first the one to process data, by running the following command:</p>
 
-<p>As this a live/real-time solution and I don’t have the infrastructure to make it available for you to see it working, I have made a video that shows the dashboard working with live data.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>./pan.sh -file=${[PATH_TO_FILES}/mqtt-project-source-code/backend/iot-device-emulator.ktr -param:delaytime=200
+</code></pre>
+</div>
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/M0MKaTKrkAw" frameborder="0" allowfullscreen=""></iframe>
+<p>And next, the transformation, to emulate IoT device generating data, by using the command:</p>
 
-<h3 id="future-work">Future work</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>./pan.sh -file=${[PATH_TO_FILES}/mqtt-IoT-poc/mqtt-project-source-code/backend/realtime-using-mqtt.ktr 
+</code></pre>
+</div>
 
-<p>I can’t cover all in this post, so I will write a couple more posts under this subject, providing details about the architecture, the back-end and front-end as well as performance metrics like messages per second, memory/processor consumption, etc. If you want to see some specific details, please comment bellow.</p>
+<p>Last you need to start the dashboard you will find on the folder you’ve created in the BA Server, and press the “start”</p>
 
-<p>For sure you will find details about the architecture on how to scale the solution. This is a solution based on message-centric concepts but I also want to bring some posts on it would work on a data-centric proof-of-concept, of course the architecture and technology will change a bit.</p>
+<p>You can stop and start the IoT device emulator transformation and change the value of the parameter <em>delaytime</em> to be <em>1000</em>. You will see that the values will be pushed slowly into the dashboard.</p>
 
-<p>I already started to think how I can make it work out-of-the-box in CDA/CDE, but that will take much more time to develop it. If there are some folks that wnat’s to help, just send a message and let’s work together.</p>
+<p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
 
 
   </section>
@@ -259,13 +282,13 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
 
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
 <!--
 <a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
 -->
