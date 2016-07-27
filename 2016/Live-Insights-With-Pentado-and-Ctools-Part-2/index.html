@@ -184,17 +184,16 @@
 
 <ul>
   <li>
-    <p><strong>Raspberry PI with sensors</strong> 
-Here you can use a kettle transformation to generate random data. Data is being send data from sensors, using a Rapesberry Pi and MQTT. Rapesberry Pi uses MQTT to publish messages into the message broker.</p>
+    <p><strong>Raspberry PI with sensors.</strong> 
+Here you can use a kettle transformation to generate random data. Data is being send data from sensors, using a Rapesberry Pi and MQTT. Rapesberry Pi uses MQTT to publish messages into the message broker. For you to be able to use and test the samples, I have also included a transformation that generate random messages.</p>
   </li>
   <li>
-    <p><strong>Pentaho Data Integration and <a href="https://mosquitto.org/">Mosquitto</a> as the message broker</strong> 
-Will let’s publish and subscribe to topics. 
-A PDI transformation is subscribed to a topic, as soon as messages are arriving, the messages are send to the PDI streaming to other steps, where we can do clean, enrich and aggregate. From there we just need to send the processed data in a message format to another topic of the message broker. Two topics were used, one that it’s just accepting data from sensors and another one that will handle the messages with the processed results.</p>
+    <p><strong>Pentaho Data Integration and <a href="https://mosquitto.org/">Mosquitto</a> as the message broker.</strong> 
+Will let’s publish and subscribe to topics. A PDI transformation is subscribed to a topic, as soon as messages are arriving, the messages are send to the PDI streaming to other steps, where we can do clean, enrich and aggregate. From there we just need to send the processed data in a message format to another topic of the message broker. Two topics were used, one that it’s just accepting data from sensors and another one that will handle the messages with the processed results. I have selected MQTT as the protocol to exchange messages, anyhow other protocols might be used. Since we don’t have MQTT steps to be used in PDI, I have written some quick code in a <a href="http://type-exit.org/adventures-with-open-source-bi/2010/10/the-user-defined-java-class-step/">UDJC</a>. There is still the need to improve the code a bit, maybe fixing some issues and develop some PDI plugins that can make use of MQTT to get data into PDI.</p>
   </li>
   <li>
-    <p><strong>Pentaho and CTools</strong> to display live data in a dashboard.**
-The dashboard it’s subscribing a topic, and as soon as it gets a message, it will refresh the visualizations and show data from sensors but already processed.</p>
+    <p><strong>Pentaho and CTools to display live data in a dashboard.</strong>
+The dashboard it’s subscribing a topic, and as soon as it gets a message, it will refresh the visualizations and show data from sensors but already processed. The components used on the dashboard are not doing queries againts CDA but subscibing to a topic, so on a message arrives, the visualizations are updated accordly. The best option would be to use <a href="https://d3js.org/">D3.js</a> but to simplify your life a bit when looking to the samples I have used <a href="http://www.chartjs.org/">Charts.js</a>. Will latter provide you the samples using D3.</p>
   </li>
 </ul>
 

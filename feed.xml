@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 Jul 2016 18:43:29 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Jul 2016 18:43:29 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Jul 2016 18:53:07 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Jul 2016 18:53:07 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -25,17 +25,16 @@
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Raspberry PI with sensors&lt;/strong&gt; 
-Here you can use a kettle transformation to generate random data. Data is being send data from sensors, using a Rapesberry Pi and MQTT. Rapesberry Pi uses MQTT to publish messages into the message broker.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Raspberry PI with sensors.&lt;/strong&gt; 
+Here you can use a kettle transformation to generate random data. Data is being send data from sensors, using a Rapesberry Pi and MQTT. Rapesberry Pi uses MQTT to publish messages into the message broker. For you to be able to use and test the samples, I have also included a transformation that generate random messages.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Pentaho Data Integration and &lt;a href=&quot;https://mosquitto.org/&quot;&gt;Mosquitto&lt;/a&gt; as the message broker&lt;/strong&gt; 
-Will let’s publish and subscribe to topics. 
-A PDI transformation is subscribed to a topic, as soon as messages are arriving, the messages are send to the PDI streaming to other steps, where we can do clean, enrich and aggregate. From there we just need to send the processed data in a message format to another topic of the message broker. Two topics were used, one that it’s just accepting data from sensors and another one that will handle the messages with the processed results.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Pentaho Data Integration and &lt;a href=&quot;https://mosquitto.org/&quot;&gt;Mosquitto&lt;/a&gt; as the message broker.&lt;/strong&gt; 
+Will let’s publish and subscribe to topics. A PDI transformation is subscribed to a topic, as soon as messages are arriving, the messages are send to the PDI streaming to other steps, where we can do clean, enrich and aggregate. From there we just need to send the processed data in a message format to another topic of the message broker. Two topics were used, one that it’s just accepting data from sensors and another one that will handle the messages with the processed results. I have selected MQTT as the protocol to exchange messages, anyhow other protocols might be used. Since we don’t have MQTT steps to be used in PDI, I have written some quick code in a &lt;a href=&quot;http://type-exit.org/adventures-with-open-source-bi/2010/10/the-user-defined-java-class-step/&quot;&gt;UDJC&lt;/a&gt;. There is still the need to improve the code a bit, maybe fixing some issues and develop some PDI plugins that can make use of MQTT to get data into PDI.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Pentaho and CTools&lt;/strong&gt; to display live data in a dashboard.**
-The dashboard it’s subscribing a topic, and as soon as it gets a message, it will refresh the visualizations and show data from sensors but already processed.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Pentaho and CTools to display live data in a dashboard.&lt;/strong&gt;
+The dashboard it’s subscribing a topic, and as soon as it gets a message, it will refresh the visualizations and show data from sensors but already processed. The components used on the dashboard are not doing queries againts CDA but subscibing to a topic, so on a message arrives, the visualizations are updated accordly. The best option would be to use &lt;a href=&quot;https://d3js.org/&quot;&gt;D3.js&lt;/a&gt; but to simplify your life a bit when looking to the samples I have used &lt;a href=&quot;http://www.chartjs.org/&quot;&gt;Charts.js&lt;/a&gt;. Will latter provide you the samples using D3.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
