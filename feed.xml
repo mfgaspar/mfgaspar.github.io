@@ -5,13 +5,13 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 Jul 2016 18:41:05 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Jul 2016 18:41:05 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Jul 2016 18:43:29 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Jul 2016 18:43:29 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>Live Insight Dashboard on Pentaho - Part 2: High level overview</title>
-        <description>&lt;p&gt;The &lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;last post&lt;/a&gt; stated to cover one some concepts and technology used to have a “real-time” dashboard using Pentaho and CTools. This post will give you an overview of the solution an provide you the samples.&lt;/p&gt;
+        <description>&lt;p&gt;The &lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;last post&lt;/a&gt; stated to cover some concepts and technology used to have a “real-time” dashboard using Pentaho and on a CTools dashboard. This post will give you an overview of the solution an provide you the samples.&lt;/p&gt;
 
 &lt;h3 id=&quot;high-level-description-and-used-tools&quot;&gt;High level description and used tools&lt;/h3&gt;
 
