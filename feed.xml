@@ -5,12 +5,12 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 Jul 2016 18:25:50 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Jul 2016 18:25:50 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Jul 2016 18:27:59 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Jul 2016 18:27:59 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
-        <title>Live Insight Dashobaord on Pentaho - Part 2: High level overview</title>
+        <title>Live Insight Dashboard on Pentaho - Part 2: High level overview</title>
         <description>&lt;p&gt;The &lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;last post&lt;/a&gt; stated to cover one some concepts and technology used to have a “real-time” dashboard using Pentaho and CTools. This post will give you an overview of the solution an provide you the samples.&lt;/p&gt;
 
 &lt;h3 id=&quot;high-level-description-and-used-tools&quot;&gt;High level description and used Tools&lt;/h3&gt;
@@ -354,7 +354,7 @@ There is  big pontential to generate business. Companies will see the advantage 
       </item>
     
       <item>
-        <title>Live Insight Dashobaord on Pentaho - Part 1: Introduction</title>
+        <title>Live Insight Dashboard on Pentaho - Part 1: Introduction</title>
         <description>&lt;p&gt;This series of posts/post has origins on the last Pentaho Community Meeting that took place in London, November last year, &lt;a href=&quot;https://github.com/PentahoCommunityMeetup2015/info&quot;&gt;PCM 2015&lt;/a&gt;. You can follow up on&lt;br /&gt;
 &lt;a href=&quot;https://twitter.com/search?q=%23pcm15%20pentaho&quot;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
 
