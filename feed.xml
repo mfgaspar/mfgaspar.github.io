@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 Jul 2016 23:57:31 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Jul 2016 23:57:31 +0100</lastBuildDate>
+    <pubDate>Thu, 28 Jul 2016 09:31:28 +0100</pubDate>
+    <lastBuildDate>Thu, 28 Jul 2016 09:31:28 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -19,7 +19,7 @@
 
 &lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/rtap_evolution_chart.png&quot; alt=&quot;Evolution over time&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;once-up-on-a-time-we-could-build-analysis-on-oltp-&quot;&gt;Once up on a time we could build analysis on OLTP …&lt;/h3&gt;
+&lt;h3 id=&quot;once-up-on-a-time-we-could-build-reports-on-oltp-&quot;&gt;Once up on a time we could build reports on OLTP …&lt;/h3&gt;
 
 &lt;p&gt;Once up on a time, companies had the need to summarize data to take decision, but the queries and reports that were built at the time, did take some time to developed and usually were built on demand. t was impossible to determine if you had the right version of a spreadsheet, with the most current data and logic in it. I am not too old (at least I like to think that way), but I can remember companies were building reports on top of a OLTP database, that could be nice because business users would get fresh results, but sometimes causing performance issues on their day to day work.&lt;/p&gt;
 
