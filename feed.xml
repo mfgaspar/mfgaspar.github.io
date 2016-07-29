@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 29 Jul 2016 16:33:57 +0100</pubDate>
-    <lastBuildDate>Fri, 29 Jul 2016 16:33:57 +0100</lastBuildDate>
+    <pubDate>Fri, 29 Jul 2016 16:35:17 +0100</pubDate>
+    <lastBuildDate>Fri, 29 Jul 2016 16:35:17 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -47,7 +47,7 @@
 
 &lt;p&gt;We are able to use data in motion to predict business opportunities, while at the same time we can improve business operations, identify risks and comply with laws or regulatory requirements, among many others. This is not new, but there are now new ways to bring them to companies.&lt;/p&gt;
 
-&lt;p&gt;There are still some customers, that mix the concepts trying to build analysis on top of OLTP, or just trying to apply Real-time on top of OLAP, and many other cases. There are customs that don’t even know we have all these capabilities now a day. It’s up on us, consultants and expertise on the area, to help them to understand, to get them to know what are the options, what they need to build and use based on their real requirements, and not based what they think they need.&lt;/p&gt;
+&lt;p&gt;There are still some customers, that mix the concepts trying to build analysis on top of OLTP, or just trying to have Real-time on top of OLAP, and many other cases. There are customs that don’t even know we have all these capabilities now a day. It’s up on us, consultants and expertise on the area, to help them to understand, to get them to know what are the options, what they need to build and use based on their real requirements, and not based what they think they need.&lt;/p&gt;
 
 &lt;p&gt;It doens’t mean that OLAP will be oput of equation, it’s still great and we take leverage and take advantages of most part of it’s concepts, but we need to work them in other ways and not the traditional ones. Depending on the requirments, we will have better solutions if we do RTAP and mix OLAP concepts.&lt;/p&gt;
 
