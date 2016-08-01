@@ -5,45 +5,9 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 01 Aug 2016 11:52:06 +0100</pubDate>
-    <lastBuildDate>Mon, 01 Aug 2016 11:52:06 +0100</lastBuildDate>
+    <pubDate>Mon, 01 Aug 2016 11:53:59 +0100</pubDate>
+    <lastBuildDate>Mon, 01 Aug 2016 11:53:59 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
-    
-      <item>
-        <title>Live Insight Dashboard on Pentaho - Part 3: MQTT and the Message Broker</title>
-        <description>&lt;p&gt;MQTT and the message Brokers&lt;/p&gt;
-
-&lt;p&gt;The first step is to get sensor data and send it to a broker, as a message. This way we can handle the messages processing to the message broker. For this post I have used PDI to generate data and send it to the message broker using MQTT. The message broker used is Mosquitto, that implements the MQTT protocol versions and provides a lightweight method of carrying out messaging using a publish/subscribe model. As referred in &lt;a href=&quot;http://mqtt.org/&quot;&gt;MQTT.org&lt;/a&gt;, MQTT is “a machine-to-machine (M2M)/”Internet of Things” connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport”.&lt;/p&gt;
-
-&lt;p&gt;You will get lot’s of good information about MQTT &lt;a href=&quot;http://www.hivemq.com/blog/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;As you can see there, MQTT is able to provide Quality of Service (QoS) level is an agreement between sender and receiver of a message regarding the guarantees of delivering a message. There are 3 QoS levels in MQTT:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;At most once (0)&lt;/li&gt;
-  &lt;li&gt;At least once (1)&lt;/li&gt;
-  &lt;li&gt;Exactly once (2).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;From project to project, the requirements can be quite different, you may not need to receive all messages, but you may also have the need to process all data and guarantee that all messages have been delivered. So just need to set up the correct configurations. At the example provide I have used QoS equals to “0”, or “at most once”, and means that I won’t mind to lose some messages.&lt;/p&gt;
-
-&lt;p&gt;To be able to send messages from PDI I have used &lt;a href=&quot;http://www.eclipse.org/paho/&quot;&gt;PAHO&lt;/a&gt;, that provides open-source client implementations of MQTT for many different languages. To send data to kettle, I have used Java and to get messages pushed into the dashboard I have used JavaScript directly on the dashboard.&lt;/p&gt;
-
-&lt;p&gt;One interesting change of paradigm on the CTools dashboard, is that I am not doing pulls to a database, but instead, data is being pushed into to the dashboard, that refresh’s the visualizations as soon as a message arrives.&lt;/p&gt;
-
-&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 30 Jul 2016 20:59:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</guid>
-        
-        <category>Live Insights</category>
-        
-        
-        <category>Live Insights</category>
-        
-      </item>
     
       <item>
         <title>The evolution of analysis: OLTP, OLAP ... RTAP</title>
