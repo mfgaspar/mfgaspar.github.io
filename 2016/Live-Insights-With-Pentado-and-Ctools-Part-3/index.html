@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Cooking Analytics</title>
+  <title>Live Insight Dashboard on Pentaho - Part 3: MQTT and the Message Broker</title>
   <meta name="description" content="My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mfgaspar.github.io//">
+  <link rel="canonical" href="http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -162,90 +162,81 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <div class="main-post-list">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="30 Jul 2016" class="post-meta__date date">30 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span>
+    </div>
+    <h1 class="post-title">Live Insight Dashboard on Pentaho - Part 3: MQTT and the Message Broker</h1>
+  </header>
+  <section class="post">
+    <p>MQTT and the message Brokers</p>
 
-  <ol class="post-list">
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/" title="Live Insight Dashboard on Pentaho - Part 3: MQTT and the Message Broker">Live Insight Dashboard on Pentaho - Part 3: MQTT and the Message Broker</a></h2>
-        <p class="excerpt">MQTT and the message Brokers
+<p>The first step is to get sensor data and send it to a broker, as a message. This way we can handle the messages processing to the message broker. For this post I have used PDI to generate data and send it to the message broker using MQTT. The message broker used is Mosquitto, that implements the MQTT protocol versions and provides a lightweight method of carrying out messaging using a publish/subscribe model. As referred in <a href="http://mqtt.org/">MQTT.org</a>, MQTT is “a machine-to-machine (M2M)/”Internet of Things” connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport”.</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="30 Jul 2016" class="post-list__meta--date date">30 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/OLTP-vs-OLAP-vs-RTAP/" title="The evolution of analysis: OLTP, OLAP ... RTAP">The evolution of analysis: OLTP, OLAP ... RTAP</a></h2>
-        <p class="excerpt">Big Data and IoT brings new challenges but also new opportunities to get augmented results into our companies.
+<p>You will get lot’s of good information about MQTT <a href="http://www.hivemq.com/blog/">here</a>.</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="27 Jul 2016" class="post-list__meta--date date">27 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Big Data">Big Data</a> <a href="/tags/#IoT">IoT</a> <a href="/tags/#Analytics">Analytics</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/" title="Live Insight Dashboard on Pentaho - Part 2: High level overview">Live Insight Dashboard on Pentaho - Part 2: High level overview</a></h2>
-        <p class="excerpt">The <a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/">last post</a> stated to cover some concepts and technology used to have a “real-time” dashboard using Pentaho and on a CTools dashboard. This post will give you an overview of the solution an provide you the samples.
+<p>As you can see there, MQTT is able to provide Quality of Service (QoS) level is an agreement between sender and receiver of a message regarding the guarantees of delivering a message. There are 3 QoS levels in MQTT:</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="25 Jul 2016" class="post-list__meta--date date">25 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Pentaho-Action-Sequences/" title="Pentaho and Custom Action Sequences">Pentaho and Custom Action Sequences</a></h2>
-        <p class="excerpt">The Action Sequences or xAction, as you like to call them, are getting less used, because we now have better alternatives as using kettle, anyhow they are still useful in some cases.
+<ul>
+  <li>At most once (0)</li>
+  <li>At least once (1)</li>
+  <li>Exactly once (2).</li>
+</ul>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="13 Jul 2016" class="post-list__meta--date date">13 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Action Sequences">Action Sequences</a> <a href="/tags/#Action Sequences">Action Sequences</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Embedding-Pentaho-in-Augmented-Reality/" title="Embedding Analytics in Augmented Reality">Embedding Analytics in Augmented Reality</a></h2>
-        <p class="excerpt">Embedding Analytics in Augmented Reality
+<p>From project to project, the requirements can be quite different, you may not need to receive all messages, but you may also have the need to process all data and guarantee that all messages have been delivered. So just need to set up the correct configurations. At the example provide I have used QoS equals to “0”, or “at most once”, and means that I won’t mind to lose some messages.</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="12 Jul 2016" class="post-list__meta--date date">12 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Augmented Reality">Augmented Reality</a> <a href="/tags/#Smart Cities">Smart Cities</a> <a href="/tags/#Embedding">Embedding</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/" title="Live Insight Dashboard on Pentaho - Part 1: Introduction">Live Insight Dashboard on Pentaho - Part 1: Introduction</a></h2>
-        <p class="excerpt">This series of posts/post has origins on the last Pentaho Community Meeting that took place in London, November last year, <a href="https://github.com/PentahoCommunityMeetup2015/info">PCM 2015</a>. You can follow up on<br />
-<a href="https://twitter.com/search?q=%23pcm15%20pentaho">Twitter</a>.
+<p>To be able to send messages from PDI I have used <a href="http://www.eclipse.org/paho/">PAHO</a>, that provides open-source client implementations of MQTT for many different languages. To send data to kettle, I have used Java and to get messages pushed into the dashboard I have used JavaScript directly on the dashboard.</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="4 Apr 2016" class="post-list__meta--date date">4 Apr 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Ctools-Book/" title="Learning Pentaho CTools">Learning Pentaho CTools</a></h2>
-        <p class="excerpt">Pentaho and CTools are two of the fastest and most rapidly growing tools for practical solutions not found in any other tool available on the market. Using Pentaho allows you to build a complete analytics solution, and CTools brings an advanced flexibility to customizing them in a remarkable way. CTools provides its users with the ability to utilize Web technologies and data visualization concepts, and make the most of best practices to create a huge visual impact.
+<p>One interesting change of paradigm on the CTools dashboard, is that I am not doing pulls to a database, but instead, data is being pushed into to the dashboard, that refresh’s the visualizations as soon as a message arrives.</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Mar 2016" class="post-list__meta--date date">29 Mar 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Pentaho CTools Book">Pentaho CTools Book</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Welcome/" title="Welcome to Cooking Analytics">Welcome to Cooking Analytics</a></h2>
-        <p class="excerpt">I hope you can find this Blog interesting, where you will be able to read about Analytics solutions bringing architecture discussions, development technics that can be aplied to Big Data solutions, IoT or Social Innovation solutions, most of the time focused in Pentaho.
+<p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Mar 2016" class="post-list__meta--date date">29 Mar 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Cooking Analytics">Cooking Analytics</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-  </ol>
 
-  <hr class="post-list__divider ">
-
+  </section>
   
+</article>
+ 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
 
-</div>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<!--
+<a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
+-->
+
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//cookinganalytics.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
       </div>
 
       <footer class="footer">

@@ -235,13 +235,7 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 
 <p>You need to have Mosquitto running, so follow the steps bellow:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>docker run toke/mosquitto
-</code></pre>
-</div>
-
-<p>if you already have the container in your machine, you should be able to run it by typing something like:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>docker start mosquitto 
+<div class="highlighter-rouge"><pre class="highlight"><code>docker run -d -p 1883:1883 -p 9001:9001 toke/mosquitto
 </code></pre>
 </div>
 
