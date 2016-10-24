@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Embeding Dashboards - Externally consuming/generating events</title>
+  <title>Cooking Analytics</title>
   <meta name="description" content="My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/">
+  <link rel="canonical" href="http://mfgaspar.github.io//page2/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -162,132 +162,38 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <article class="post-container post-container--single">
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="16 Oct 2016" class="post-meta__date date">16 Oct 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Embedding">Embedding</a> </span>
-    </div>
-    <h1 class="post-title">Embeding Dashboards - Externally consuming/generating events</h1>
-  </header>
-  <section class="post">
-    <p>On the last blog post, I have talked about embedding dashboards. Now let’s see how we can consume or generate events.</p>
+        <div class="main-post-list">
 
-<p>When embedding a dashboard, does not matter if it’s a CDF or CDE dashboard, you can trigger or listen to events to or from embedded dashboards. This way you can create interaction between the element of your page and a CDF/CDE dashboard, as also the opposite.</p>
+  <ol class="post-list">
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2016/Welcome/" title="Welcome to Cooking Analytics">Welcome to Cooking Analytics</a></h2>
+        <p class="excerpt">I hope you can find this Blog interesting, where you will be able to read about Analytics solutions bringing architecture discussions, development technics that can be aplied to Big Data solutions, IoT or Social Innovation solutions, most of the time focused in Pentaho.
 
-<p>##Events that can be consumed externally</p>
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="29 Mar 2016" class="post-list__meta--date date">29 Mar 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Cooking Analytics">Cooking Analytics</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+  </ol>
 
-<p>The events functionality, is an extension of <a href="http://backbonejs.org/#Events">Backbone</a>, and below you will find a list of useful events you can use with CDF/CDE. When we need to respond or trigger some actions we can listen or trigger them:</p>
+  <hr class="post-list__divider ">
 
-<p>Events triggered by the dashboard object:</p>
-
-<p>###Parameters:</p>
-
-<ul>
-  <li>Parameter changes - When a parameter changes its value, the events ‘<parametername>:fireChange' are triggered.</parametername></li>
-</ul>
-
-<p>###Dashboard Lifecycle:</p>
-
-<ul>
-  <li>Dashboard preInit - When the dashboard finishes running the preInit method, the event ‘cdf:preInit’ is triggered.</li>
-  <li>Dashboard postInit - When the dashboard finishes running the postInit methods, the event ‘cdf:postInit’ is triggered.</li>
-</ul>
-
-<p>###Components Lyfecycle:</p>
-
-<ul>
-  <li>PreExecution - When the component finishes running the preExecution, the event ‘cdf:preExecution’ is triggered.</li>
-  <li>PostFetch - When the component finishes running the postFetch runs, the event ‘cdf:postFetch’ is triggered.</li>
-  <li>Render - When the component runs the triggerAjax successfully, the event ‘cdf:render’ is triggered.</li>
-  <li>PostExecution - When the component finishes running the postExecution, the event ‘cdf cdf:postExecution’ is triggered.</li>
-</ul>
-
-<p>###Debugging and error handling:</p>
-
-<ul>
-  <li>Error - If an error is triggered during component execution, the event ‘cdf:error’ is triggered.</li>
-  <li>User not logged in - When the dashboard detects that an user is no longer logged in, the event ‘cdf:loginError’ is triggered.</li>
-  <li>Server error - If a call to the server returns an error, the event ‘cdf:serverError’ is triggered.</li>
-</ul>
-
-<p>Per instance, if you want to send a message to a remote webservice each time the dashboard is rendered, you can do something like:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>require(['cdf/Dashboard.Bootstrap','cdf/Logger'], 
-	function(Dashboard, Logger) {
-		var dashboard = new Dashboard();
-  		dashboard.on('cdf:postInit', function(e) {
-    		sendMessageOnDashboardPostInit();
-  		});
-	}
-);
-</code></pre>
-</div>
-
-<p>Or, let’s suppose we have two dashboards, one that has a filter, and another own that has a line chart, and you want to trigger a change on the chart when you change the selected options on the filter, you can do something like:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>require(['dash!/public/dash/selectorDash.wcdf'], 'dash!/public/dash/lineChartDash.wcdf'],
-	function(SelectorDash, LineChartDash) {
-		var selectorDash = new SelectorDash("selector");
-		selectorDash.render();
-		var lineChartDash= new LineChartDash("lineChart");
-		lineChartDash.render();
-		selectorDash.on("productLine:fireChange", function (evt) {
-			lineChartDash.fireChange("productLine", evt.value);
-		});
-	}
-);
-</code></pre>
-</div>
-
-<p>The way to interact with your webpage/webapp can be similar to the example above. Note that when you need to apply some changes to a dashboard you can do a fireChange. Use the “on” function to listen to events, that will trigger some actions.</p>
-
-<p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
-
-
-  </section>
   
-</article>
- 
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
+      <nav class="pagination" role="navigation">
+  
+    
+      <a rel="prev" class="posts newer btn small" href="/#blog" title="Previous Page">← Newer Posts</a>
+    
+  
 
+  <span class="pagination__page-number">Page 2 of 2</span>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2016/Embeding-CDF-and-CDE-Dashboards-Part-2/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+  
+</nav>
+  
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2016/Embeding-CDF-and-CDE-Dashboards-Part-2/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
-
-<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2016/Embeding-CDF-and-CDE-Dashboards-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
-
-<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2016/Embeding-CDF-and-CDE-Dashboards-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
-<!--
-<a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
--->
-
-<div id="disqus_thread"></div>
-<script>
-/**
-* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = '//cookinganalytics.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-
-
-
-
-
+</div>
       </div>
 
       <footer class="footer">

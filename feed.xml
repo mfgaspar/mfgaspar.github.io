@@ -5,9 +5,165 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 23 Oct 2016 19:37:22 -0500</pubDate>
-    <lastBuildDate>Sun, 23 Oct 2016 19:37:22 -0500</lastBuildDate>
+    <pubDate>Sun, 23 Oct 2016 23:41:10 -0500</pubDate>
+    <lastBuildDate>Sun, 23 Oct 2016 23:41:10 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>Startup Actions on Pentaho: PentahoHttpSession VS UserSession</title>
+        <description>&lt;p&gt;There might be easier ways to deal with some actions that you need to execute during the user login or during the start of the server itself, anyhow action sequences are still very usefull. For sure you already know about te content of this post, anyhow I needed to write it as an introduction for the next post I will be writting.&lt;/p&gt;
+
+&lt;p&gt;Pentaho created a tools called (Startup Rule Engine](http://pedroalves-bi.blogspot.com/2014/02/startup-rule-engine-new-sparkl-app-in.html) and wa covered in Pedro Alves blog, some time ago, but that’s what will covered in this blogpost.&lt;/p&gt;
+
+&lt;p&gt;When we have a multitenant environment, or we need to have one, we can use an Action Sequence to run some actions. Mondrian is capable of handling multitenancy in different ways, and one of ways is to use a DSP (Dynamic Schema Processor), information that can be found in the help pages of Pentaho, &lt;a href=&quot;https://help.pentaho.com/Documentation/6.1/0R0/070/Multi-Tenancy&quot;&gt;here&lt;/a&gt;. When using a DSP, most probably, you will need to create session variables that can be used latter in the DSP. Besides that, Startup Rule Engine, Action Sequences can easily be set and used to set the sessions variables you will need.&lt;/p&gt;
+
+&lt;p&gt;Please keep in mind that a session variable is already set when a user is logged in, and you can use it, but the value will be the username of the user that logged in. So it can be used when you are able to use it to do the filtering of the data that will be available. Otherwise you need to use some alternatives.  An example is when a user does the login we can trigger a SQL query that will set the session variable with the tenant id to be used, where the tenant id is not the username. That can later be used on Mondrian.&lt;/p&gt;
+
+&lt;p&gt;The example bellow, is from an xaction that depending on the user that logged in, sets the value for a session variable named “REGION”. If the logged in user it’s “joe”, the xaction will create a session variable with the values “APAC” so we will be able to restrict the access to user “joe”, to be only able to see “APAC” results, while “suzy” will could have access to “EMEA” and the remaining users will have access to all.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-sequence&amp;gt;&lt;/span&gt; 
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;session-region.xaction&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;%title&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;logging-level&amp;gt;&lt;/span&gt;debug&lt;span class=&quot;nt&quot;&gt;&amp;lt;/logging-level&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;documentation&amp;gt;&lt;/span&gt; 
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;author&amp;gt;&lt;/span&gt;%author&lt;span class=&quot;nt&quot;&gt;&amp;lt;/author&amp;gt;&lt;/span&gt;  
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;%desciption&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;  
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;help/&amp;gt;&lt;/span&gt; 
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/documentation&amp;gt;&lt;/span&gt;
+
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;inputs&amp;gt;&lt;/span&gt; 
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;user&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;sources&amp;gt;&lt;/span&gt; 
+	        &lt;span class=&quot;nt&quot;&gt;&amp;lt;session&amp;gt;&lt;/span&gt;name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/session&amp;gt;&lt;/span&gt; 
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/sources&amp;gt;&lt;/span&gt; 
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/user&amp;gt;&lt;/span&gt;  
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/inputs&amp;gt;&lt;/span&gt;
+
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;outputs&amp;gt;&lt;/span&gt; 
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;user&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;destinations&amp;gt;&lt;/span&gt;
+	        &lt;span class=&quot;nt&quot;&gt;&amp;lt;session&amp;gt;&lt;/span&gt;user&lt;span class=&quot;nt&quot;&gt;&amp;lt;/session&amp;gt;&lt;/span&gt;
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/destinations&amp;gt;&lt;/span&gt;
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/user&amp;gt;&lt;/span&gt;
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;REGION&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;destinations&amp;gt;&lt;/span&gt;
+	        &lt;span class=&quot;nt&quot;&gt;&amp;lt;session&amp;gt;&lt;/span&gt;REGION&lt;span class=&quot;nt&quot;&gt;&amp;lt;/session&amp;gt;&lt;/span&gt;
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/destinations&amp;gt;&lt;/span&gt;
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/REGION&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/outputs&amp;gt;&lt;/span&gt;
+
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;resources/&amp;gt;&lt;/span&gt;
+	  
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;actions&amp;gt;&lt;/span&gt; 
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;action-definition&amp;gt;&lt;/span&gt; 
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;component-name&amp;gt;&lt;/span&gt;JavascriptRule&lt;span class=&quot;nt&quot;&gt;&amp;lt;/component-name&amp;gt;&lt;/span&gt;
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;action-type&amp;gt;&lt;/span&gt;JavaScript To Build User Specific Result Set&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-type&amp;gt;&lt;/span&gt;
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;action-inputs&amp;gt;&lt;/span&gt; 
+	        &lt;span class=&quot;nt&quot;&gt;&amp;lt;user&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-inputs&amp;gt;&lt;/span&gt;
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;action-outputs&amp;gt;&lt;/span&gt; 
+	        &lt;span class=&quot;nt&quot;&gt;&amp;lt;REGION&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-outputs&amp;gt;&lt;/span&gt;
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;component-definition&amp;gt;&lt;/span&gt; 
+	        &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[function getRegions( user ) {
+						    var region = &quot;none&quot;;
+				      	if( user == &#39;joe&#39; ) { region = &quot;APAC&quot;; } 
+				      	else if( user == &#39;suzy&#39; ) { region = &quot;EMEA&quot;; } 
+	              else { region = &quot;EMEA, APAC, ...&quot;; }
+				      	return res;
+				      }
+	            getRegions( user );
+	        ]]&amp;gt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt; 
+	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/component-definition&amp;gt;&lt;/span&gt; 
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-definition&amp;gt;&lt;/span&gt;
+	 
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/actions&amp;gt;&lt;/span&gt; 
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-sequence&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once you have the action sequence ready, you need to upload it to the repository to be able to execute it, and if you execute from the Pentaho User Console when using the user “Suzy”, you will get something like:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Action Successful
+-----------------
+user=suzy
+REGION=EMEA
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now that you have the action sequence in place, you need to make sure to execute it when the user logs in. For that we need to edit the file: ../pentaho-solutions/system/sessionStartupActions.xml. There you will find something like:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Start of PentahoHttpSession startup actions. --&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.pentaho.platform.engine.core.system.SessionStartupAction&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sessionType&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.pentaho.platform.web.http.session.PentahoHttpSession&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;actionPath&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/public/your_xaction_path_and_file.xaction&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;actionOutputScope&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;session&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- End of PentahoHttpSession startup actions. --&amp;gt;&lt;/span&gt;				
+	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Start of UserSession startup actions. --&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.pentaho.platform.engine.core.system.SessionStartupAction&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sessionType&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.pentaho.platform.engine.core.system.UserSession&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;actionPath&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/public/your_xaction_path_and_file.xaction&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;actionOutputScope&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;session&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- End of UserSession startup actions. --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Start of Global startup actions. --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;bean class=&quot;org.pentaho.platform.engine.core.system.SessionStartupAction&quot;&amp;gt;
+    	&amp;lt;property name=&quot;sessionType&quot; value=&quot;org.pentaho.platform.engine.security.session.TrustedSystemStartupSession&quot;/&amp;gt;
+        &amp;lt;property name=&quot;actionPath&quot; value=&quot;/public/your_xaction_path_and_file.xaction&quot;/&amp;gt;
+        &amp;lt;property name=&quot;actionOutputScope&quot; value=&quot;global&quot;/&amp;gt;
+    &amp;lt;/bean&amp;gt; --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- End of Global startup actions. --&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can see 3 groups starting by the tag &lt;bean&gt;. By default, they are commented and you can uncomment them if you want to have startup actions to run when the user performs a login or when Pentaho is starting. Each one of this groups is identified by the type and very important the action sequence path to be executed. The actionPath needs to be set, pointing to the folder/file of the xaction we want to be execute.  You will see session type is what makes the bid difference from group to group, and it can get the following values:&lt;/bean&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;org.pentaho.platform.web.http.session.PentahoHttpSession&lt;/li&gt;
+  &lt;li&gt;org.pentaho.platform.engine.core.system.UserSession&lt;/li&gt;
+  &lt;li&gt;org.pentaho.platform.engine.security.session.TrustedSystemStartupSession&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s see them as just:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;PentahoHttpSession: runs the specified action sequence when a session is created using HTTP. Useful to run some actions, as creating a session variable to be used on a DSP when the user is logged in from a browser.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;UserSession: runs the specified action sequence when a user session is created. Useful to create or run actions like creating a session variable when a session is created, not specifically from the browser, but per instance when the scheduler need to run a report on behalf of the user.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;TrustedSystemStartupSession: runs the specified action sequence when the Pentaho Server is starting. Useful when you want to execute some operations at the start of the system. Please note that this is executed on the system, so it is globally applied, not for a specific user.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;if you upload the action sequence that is included as example and if you remove the comments from both PentahoHttpSession and UserSession, the session variable will be created when a session is created for a user, independently if it was created from the browser by the user, or by the Pentaho scheduler.&lt;/p&gt;
+
+&lt;p&gt;Please keep in mind that you can also use the Startup Rule Engine to perform what was explainded here for the xaction.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Before making use of a multitenant environment when using Pentaho Community Edition, make sure to completely read the terms and conditions of the software licenses.&lt;/p&gt;
+
+&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 23 Oct 2016 10:43:00 -0500</pubDate>
+        <link>http://mfgaspar.github.io//2016/Startup-Actions-on-Pentaho/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Startup-Actions-on-Pentaho/</guid>
+        
+        <category>Startup Actions</category>
+        
+        <category>Action Sequences</category>
+        
+        
+        <category>Startup Actions</category>
+        
+        <category>Action Sequences</category>
+        
+      </item>
     
       <item>
         <title>Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration.</title>
@@ -78,20 +234,20 @@
 
 &lt;p&gt;Events triggered by the dashboard object:&lt;/p&gt;
 
-&lt;p&gt;Parameters:&lt;/p&gt;
+&lt;p&gt;###Parameters:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Parameter changes - When a parameter changes its value, the events ‘&lt;parametername&gt;:fireChange&#39; are triggered.&lt;/parametername&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Dashboard Lifecycle:&lt;/p&gt;
+&lt;p&gt;###Dashboard Lifecycle:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Dashboard preInit - When the dashboard finishes running the preInit method, the event ‘cdf:preInit’ is triggered.&lt;/li&gt;
   &lt;li&gt;Dashboard postInit - When the dashboard finishes running the postInit methods, the event ‘cdf:postInit’ is triggered.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Components Lyfecycle:&lt;/p&gt;
+&lt;p&gt;###Components Lyfecycle:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;PreExecution - When the component finishes running the preExecution, the event ‘cdf:preExecution’ is triggered.&lt;/li&gt;
@@ -100,7 +256,7 @@
   &lt;li&gt;PostExecution - When the component finishes running the postExecution, the event ‘cdf cdf:postExecution’ is triggered.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Debugging and error handling:&lt;/p&gt;
+&lt;p&gt;###Debugging and error handling:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Error - If an error is triggered during component execution, the event ‘cdf:error’ is triggered.&lt;/li&gt;
@@ -108,13 +264,13 @@
   &lt;li&gt;Server error - If a call to the server returns an error, the event ‘cdf:serverError’ is triggered.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Per instance, if you want to increment the times that the dashboard was rendered, you can do something like:&lt;/p&gt;
+&lt;p&gt;Per instance, if you want to send a message to a remote webservice each time the dashboard is rendered, you can do something like:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require([&#39;cdf/Dashboard.Bootstrap&#39;,&#39;cdf/Logger&#39;], 
 	function(Dashboard, Logger) {
 		var dashboard = new Dashboard();
   		dashboard.on(&#39;cdf:postInit&#39;, function(e) {
-    		incrementDashboardPostInitCounter();
+    		sendMessageOnDashboardPostInit();
   		});
 	}
 );
@@ -137,7 +293,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;The way to interact with your webpage/webapp can be similar to the example above. Note that when you need to apply some changes to a dashboard you can do a fireChange. To get to know the changes that are happening on a dahboard, you can use the “on” function.&lt;/p&gt;
+&lt;p&gt;The way to interact with your webpage/webapp can be similar to the example above. Note that when you need to apply some changes to a dashboard you can do a fireChange. Use the “on” function to listen to events, that will trigger some actions.&lt;/p&gt;
 
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
@@ -843,34 +999,6 @@ There is  big pontential to generate business. Companies will see the advantage 
         
         
         <category>Pentaho CTools Book</category>
-        
-      </item>
-    
-      <item>
-        <title>Welcome to Cooking Analytics</title>
-        <description>&lt;p&gt;I hope you can find this Blog interesting, where you will be able to read about Analytics solutions bringing architecture discussions, development technics that can be aplied to Big Data solutions, IoT or Social Innovation solutions, most of the time focused in Pentaho.&lt;/p&gt;
-
-&lt;p&gt;Some of the times you will find just pointers to some other blogs and posts with very intersting stuff, that I believe it might bring value to the topics being discussed. It’s important for me to get feedback from you so that I can go in your way, at the end the blog is for you, so I will relly on you!&lt;/p&gt;
-
-&lt;p&gt;Let me also apologise for the poor English that you might find in the posts, I am getting better day-by-day but still with lots to improve.&lt;/p&gt;
-
-&lt;p&gt;I will try to complement the text with images and videos as mutch as I can. Not sure I will be able to add a section for comments, but will investigate how it can it be done using this or another theme.&lt;/p&gt;
-
-&lt;p&gt;Anyhow, I would prefer to use twitter, facebook for comments, discussions, … and contributions.&lt;/p&gt;
-
-&lt;p&gt;Send me an email if it’s a private comment or question.&lt;/p&gt;
-
-&lt;p&gt;Looking foward to get feedback from you!&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 29 Mar 2016 20:05:00 -0500</pubDate>
-        <link>http://mfgaspar.github.io//2016/Welcome/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Welcome/</guid>
-        
-        <category>Cooking Analytics</category>
-        
-        
-        <category>Cooking Analytics</category>
         
       </item>
     
