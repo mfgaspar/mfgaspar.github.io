@@ -5,9 +5,296 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 01 Aug 2016 11:53:59 +0100</pubDate>
-    <lastBuildDate>Mon, 01 Aug 2016 11:53:59 +0100</lastBuildDate>
+    <pubDate>Sun, 23 Oct 2016 19:27:28 -0500</pubDate>
+    <lastBuildDate>Sun, 23 Oct 2016 19:27:28 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration.</title>
+        <description>&lt;p&gt;One of the first steps when developing a IoT solution, when in the development or discovery phases starts, is to get the sensors data and send it somewhere to be processed. Depending on requirements we can go to a message centric or data centric approach.&lt;/p&gt;
+
+&lt;h2 id=&quot;mqtt-and-the-message-brokers&quot;&gt;MQTT and the message Brokers&lt;/h2&gt;
+
+&lt;p&gt;When using a message centric approach, there are multiple protocols we can use to send messages with sensor data. In this project I have used MQTT because it’s simple, powerful, easy to use and well adopted by IoT community. As referred in &lt;a href=&quot;http://mqtt.org/&quot;&gt;MQTT.org&lt;/a&gt;, MQTT is “a machine-to-machine (M2M)/”Internet of Things” connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport”. Great part of the IoT Industry/community it’s using MQTT as the protocol to get sensor data. if we take a look to some of the protocols, this is one of the most suitable protocols to get information to one end to another. Not the only, but one of the most used for now.&lt;/p&gt;
+
+&lt;p&gt;For this small POC, “Live Insight Dashboard on Pentaho”, initially I have used a “Raspberry Pi” to get sensor that, and it was very easy to send it over messages to an MQTT broker.  The message broker used it’s “Mosquitto”, that implements the MQTT protocol versions and provides a lightweight method of carrying out messaging using a publish/subscribe model, perfect for this POC.&lt;/p&gt;
+
+&lt;p&gt;You will get lots of good information about MQTT &lt;a href=&quot;http://www.hivemq.com/blog/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As you can see there that MQTT is able to provide Quality of Service (QoS) level is an agreement between sender and receiver of a message regarding the guarantees of delivering a message. There are 3 QoS levels in MQTT:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;At most once (0)&lt;/li&gt;
+  &lt;li&gt;At least once (1)&lt;/li&gt;
+  &lt;li&gt;Exactly once (2).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;From project to project, the requirements can be quite different, you may not need to receive all messages, but you may also have the need to process all data and guarantee that all messages have been delivered. So just need to set up the correct configurations. At the example provide I have used QoS equals to “0”, or “at most once”, and means that I won’t mind to lose some of the messages. Once again that will be related with the requirements.&lt;/p&gt;
+
+&lt;p&gt;Also, MQTT has some security options that can be used, even if in my opinion there is yet a lot to do about security.&lt;/p&gt;
+
+&lt;p&gt;Since I wanted to be able to share this examples, I couldn’t share my “Rapsberry Pi”, so I just created some PDI transformations that could simulate sensor data, so that anyone could get working without a “Rapsberry Pi” or other hardware besides your PC.&lt;/p&gt;
+
+&lt;p&gt;So in reality I was just sending sensor data from PDI to a message broker (Mosquitto) and latter process those messages again in another transformation, in order to do some basic aggregations, statistics or even windowing. Here, you can aslso use PDI and his steps to persist data in a database or whathever you need to do. Once again it depends on requirments and the goals.&lt;/p&gt;
+
+&lt;p&gt;To be able to send messages from PDI to the MQTT broker, I have used &lt;a href=&quot;http://www.eclipse.org/paho/&quot;&gt;PAHO&lt;/a&gt;, that provides open-source client implementations of MQTT for many different languages. To send data to kettle, I have used some custom Java code in a UDJC (User Defined Java Class) in PDI. In the meanwhile, and based on some code that was written initially, &lt;strong&gt;Daniel Salgueiral&lt;/strong&gt; already contributed with PDI steps (both consumer/producer) to be possible to work with MQTT in PDI, available &lt;a href=&quot;https://github.com/danielams/kettle-mqtt-plugin&quot;&gt;here&lt;/a&gt;. To be honest I haven’t tested them yet, but challenge you to try them and contribute with some code to improve them, or just get feedback to Daniel.&lt;/p&gt;
+
+&lt;p&gt;After being processed the messages are delivered to the message broker again, but using a different topic and ready to be consumed by the dashboards or other systems that might want to use the already processed data.&lt;/p&gt;
+
+&lt;p&gt;The following diagram show what I was explaining above:
+&lt;img src=&quot;http://mfgaspar.github.io/assets/realtime_diagram_2.png&quot; alt=&quot;Samples Diagram on Live Insights Dashboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also see on the diagram the main transformation using 2 UDJC steps, the first and last steps, one to consume messages and the last one to work as producer, after data being processed. The remaining steps are just steps that will process data according your requirements. In my case and depending in some parameters it can perform different operations, you can even set the name of the sub-transformation to execute, so without many changes you can have this solution working as a gateway. Very useful if your system needs to scale, and useful to make use of different protocols like AMQP or even make use of Kafka, while the communication between devices and gateways is done via MQTT, or any other.&lt;/p&gt;
+
+&lt;p&gt;You can check the samples provided in last blog post about the subject &lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;On the frontend, one interesting change of paradigm on the CTools dashboard, is that I am not doing pulls to a database, but instead, data is being pushed into to the dashboard, that refresh’s the visualizations as soon as a message arrives. But this is another story that I will cover in a new blog post, so keep an eye in the blog. Anyhow let give some info in advanced, MQTT has a client library that can be used directly on the browser and inside a CTools dashboard.&lt;/p&gt;
+
+&lt;p&gt;Are there any options besides MQTT? Yes, there is a lot of options as also a lot of tools to use in IoT and to produce incredible analytics, once again, it all depend on the requirements.&lt;/p&gt;
+
+&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 20 Oct 2016 20:59:00 -0500</pubDate>
+        <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</guid>
+        
+        <category>Live Insights</category>
+        
+        
+        <category>Live Insights</category>
+        
+      </item>
+    
+      <item>
+        <title>Embeding Dashboards - Externally consuming/generating events</title>
+        <description>&lt;p&gt;On the last blog post, I have talked about embedding dashboards. Now let’s see how we can consume or generate events.&lt;/p&gt;
+
+&lt;p&gt;When embedding a dashboard, does not matter if it’s a CDF or CDE dashboard, you can trigger or listen to events to or from embedded dashboards. This way you can create interaction between the element of your page and a CDF/CDE dashboard, as also the opposite.&lt;/p&gt;
+
+&lt;p&gt;##Events that can be consumed externally&lt;/p&gt;
+
+&lt;p&gt;The events functionality, is an extension of &lt;a href=&quot;http://backbonejs.org/#Events&quot;&gt;Backbone&lt;/a&gt;, and below you will find a list of useful events you can use with CDF/CDE. When we need to respond or trigger some actions we can listen or trigger them:&lt;/p&gt;
+
+&lt;p&gt;Events triggered by the dashboard object:&lt;/p&gt;
+
+&lt;p&gt;Parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Parameter changes - When a parameter changes its value, the events ‘&lt;parametername&gt;:fireChange&#39; are triggered.&lt;/parametername&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Dashboard Lifecycle:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dashboard preInit - When the dashboard finishes running the preInit method, the event ‘cdf:preInit’ is triggered.&lt;/li&gt;
+  &lt;li&gt;Dashboard postInit - When the dashboard finishes running the postInit methods, the event ‘cdf:postInit’ is triggered.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Components Lyfecycle:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PreExecution - When the component finishes running the preExecution, the event ‘cdf:preExecution’ is triggered.&lt;/li&gt;
+  &lt;li&gt;PostFetch - When the component finishes running the postFetch runs, the event ‘cdf:postFetch’ is triggered.&lt;/li&gt;
+  &lt;li&gt;Render - When the component runs the triggerAjax successfully, the event ‘cdf:render’ is triggered.&lt;/li&gt;
+  &lt;li&gt;PostExecution - When the component finishes running the postExecution, the event ‘cdf cdf:postExecution’ is triggered.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Debugging and error handling:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Error - If an error is triggered during component execution, the event ‘cdf:error’ is triggered.&lt;/li&gt;
+  &lt;li&gt;User not logged in - When the dashboard detects that an user is no longer logged in, the event ‘cdf:loginError’ is triggered.&lt;/li&gt;
+  &lt;li&gt;Server error - If a call to the server returns an error, the event ‘cdf:serverError’ is triggered.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Per instance, if you want to increment the times that the dashboard was rendered, you can do something like:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require([&#39;cdf/Dashboard.Bootstrap&#39;,&#39;cdf/Logger&#39;], 
+	function(Dashboard, Logger) {
+		var dashboard = new Dashboard();
+  		dashboard.on(&#39;cdf:postInit&#39;, function(e) {
+    		incrementDashboardPostInitCounter();
+  		});
+	}
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Or, let’s suppose we have two dashboards, one that has a filter, and another own that has a line chart, and you want to trigger a change on the chart when you change the selected options on the filter, you can do something like:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require([&#39;dash!/public/dash/selectorDash.wcdf&#39;], &#39;dash!/public/dash/lineChartDash.wcdf&#39;],
+	function(SelectorDash, LineChartDash) {
+		var selectorDash = new SelectorDash(&quot;selector&quot;);
+		selectorDash.render();
+		var lineChartDash= new LineChartDash(&quot;lineChart&quot;);
+		lineChartDash.render();
+		selectorDash.on(&quot;productLine:fireChange&quot;, function (evt) {
+			lineChartDash.fireChange(&quot;productLine&quot;, evt.value);
+		});
+	}
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The way to interact with your webpage/webapp can be similar to the example above. Note that when you need to apply some changes to a dashboard you can do a fireChange. To get to know the changes that are happening on a dahboard, you can use the “on” function.&lt;/p&gt;
+
+&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 16 Oct 2016 22:54:00 -0500</pubDate>
+        <link>http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</guid>
+        
+        <category>Embedding</category>
+        
+        
+        <category>Embedding</category>
+        
+      </item>
+    
+      <item>
+        <title>Embeding Dashboards - The Basics</title>
+        <description>&lt;p&gt;In a earlier &lt;a href=&quot;http://pedroalves-bi.blogspot.pt/2013/08/embedded-analytics-in-pentaho-with.html&quot;&gt;post&lt;/a&gt;, Pedro Alves talked about embedding CTools dashboards in two different ways: using “div” and “iframe” integration.&lt;/p&gt;
+
+&lt;p&gt;Now that we have RequireJS, there are better ways to integrate dashboards in other application.&lt;/p&gt;
+
+&lt;p&gt;As you should now there are two kinds of custom dashboards in Pentaho:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CDF dashboards,&lt;/li&gt;
+  &lt;li&gt;CDE dashboards;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To be able to embed the dashboards you first need to create them, so let’s suppose you already have some dashboards you want to be part of your website/webapp. The dashboards, build with RequireJS can also be embedded via RequireJS, so let’s cover how.&lt;/p&gt;
+
+&lt;h2 id=&quot;embedding-cdf-dashboards&quot;&gt;Embedding CDF dashboards&lt;/h2&gt;
+
+&lt;p&gt;If you have some requirements were you need to have a complete control of your html and code being executed, then for sure you want to build a CDF dashboard. You can write the code of your dashboard in the page were you are embedding it. To do it, there is one mandatory script you need to include, that’s the script with the code that will allows us to call the CDF dashboard. For that you need to make the requests
+ to your Pentaho Server, so that the server can return the script. 
+You just need the following script tag:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cdf-embed.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Per instance, if your server is in the same machine,localhost, and running in port 8080:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cdf-embed.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This will give your acess to the CDF framework.&lt;/p&gt;
+
+&lt;p&gt;You jut need to build your dashboard code inside an HTML page or just include the code that’s on another file and that way you will be able to reuse it.&lt;/p&gt;
+
+&lt;p&gt;An HTML page where you are embeding your dashboard can llok like:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content-type&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/html; charset=utf-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;mySample&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cdfembed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/head&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;am&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;embedding&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CDF&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dashboard&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;HTML&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;		&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Here&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Will&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;have&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;own&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;		&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;And&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;here&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;will&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;embed&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; 
+			&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sampleObject&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;			&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;cdf/Dashboard.Blueprint&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;cdf/components/SelectComponent&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+					&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SelectComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+						&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myDashboard&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+						&lt;span class=&quot;nx&quot;&gt;myDashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addParameter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;region&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+						&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectComponent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SelectComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+							&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;regionSelector&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+							&lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;select&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+							&lt;span class=&quot;na&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
+							&lt;span class=&quot;na&quot;&gt;valuesArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Lisbon&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Dusseldorf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]],&lt;/span&gt;
+							&lt;span class=&quot;na&quot;&gt;parameter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;region&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+							&lt;span class=&quot;na&quot;&gt;valueAsId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+							&lt;span class=&quot;na&quot;&gt;htmlObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sampleObject&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+							&lt;span class=&quot;na&quot;&gt;executeAtStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+							&lt;span class=&quot;na&quot;&gt;postChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+								&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;choice&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myDashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getParameterValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+								&lt;span class=&quot;nx&quot;&gt;parameter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+								&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;You chose: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;choice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+							&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+						&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+						&lt;span class=&quot;nx&quot;&gt;myDashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+						&lt;span class=&quot;nx&quot;&gt;myDashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+					&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you can see on the code above, we start by addind a script tag to include the CDF framework in our webpage, and latter we are able to use the framework to build a CDF dashboard that is embedded in the webpage/webapp.&lt;/p&gt;
+
+&lt;h2 id=&quot;embedding-cde-dashboards&quot;&gt;Embedding CDE dashboards&lt;/h2&gt;
+
+&lt;p&gt;If you are the king of developer that wants to save some time, than you can build your dashboard using CDE, than it’s also possible to embed it.&lt;br /&gt;
+To embed a CDE dashboard, you really must have the dashboard already built and you just need to require it on your webpage/webapp. To do it you also need to include a script tag to call for the dashboard. Here you won’t need to include the CDF framework, but you will need to require the CDE framework, that will automatically include CDF.&lt;/p&gt;
+
+&lt;p&gt;The way to call it is like following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cde-embed.js&quot;&amp;gt;&amp;lt;/script&amp;gt; 80&quot;: 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Per instance, if your server is in “localhost”, and running in port “80
+	&lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cde-embed.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you did it you are able to require for your dashboard, by directly calling the getDashboard available in CDE or by making use of the “dash” RequireJS plugin.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require([&#39;/pentaho/plugin/pentaho-cdf-dd/api/renderer/getDashboard?path=/public/dash /sample.wcdf&#39;], 
+	function(SampleDash) {
+		var sampleDash = new SampleDash(&quot;content1&quot;);
+		sampleDash.render();
+	}
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Or:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require([&#39;dash!/public/dash /sample.wcdf&#39;], 
+	function(SampleDash) {
+		var sampleDash = new SampleDash(&quot;content1&quot;);
+		sampleDash.render();
+	}
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here you can render your dashboard in your webpage/webapp by calling the &lt;strong&gt;render()&lt;/strong&gt; method of your dashboard, but another option is to use &lt;strong&gt;setupDOM()&lt;/strong&gt; followed by &lt;strong&gt;renderDashboard()&lt;/strong&gt;. The great advantage of using the setupDOM() first you will get the DOM in your page and you will be able to manipulate it before starting the lifecycle of the dashboard.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; please keep in mind that the scripts tags that were used as example also can be called using RequireJS. but for that you need to include RequireJS in your page.&lt;/p&gt;
+
+&lt;h2 id=&quot;avoid-cross-site-domain-request&quot;&gt;Avoid Cross Site Domain Request&lt;/h2&gt;
+
+&lt;p&gt;When embedding dashboards from a different server we might get some denial, because the server won’t allow Cross Domain Requests. There is on one extra setting that we can make use of to avoid it. To be possible to embed the dashboard with this issue, we can set the following property of the settings.xml file of CDF or CDE plugins:&lt;/p&gt;
+
+&lt;allow-cross-domain-resources&gt;true&lt;/allow-cross-domain-resources&gt;
+
+&lt;p&gt;You are now able to delight your users with amazing analytics, without completely  getting out of your website/webapp and without letting the user know what technologies are you using to leverage some of the work.&lt;/p&gt;
+
+&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 15 Oct 2016 22:22:00 -0500</pubDate>
+        <link>http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</guid>
+        
+        <category>Embedding</category>
+        
+        
+        <category>Embedding</category>
+        
+      </item>
     
       <item>
         <title>The evolution of analysis: OLTP, OLAP ... RTAP</title>
@@ -54,7 +341,7 @@
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 27 Jul 2016 22:20:00 +0100</pubDate>
+        <pubDate>Wed, 27 Jul 2016 22:20:00 -0500</pubDate>
         <link>http://mfgaspar.github.io//2016/OLTP-vs-OLAP-vs-RTAP/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/OLTP-vs-OLAP-vs-RTAP/</guid>
         
@@ -174,7 +461,7 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 25 Jul 2016 19:54:00 +0100</pubDate>
+        <pubDate>Mon, 25 Jul 2016 19:54:00 -0500</pubDate>
         <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</guid>
         
@@ -355,7 +642,7 @@ a Action Sequence.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/custom.code.action.sequence&quot;&gt;Sample code available here.&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 13 Jul 2016 09:59:00 +0100</pubDate>
+        <pubDate>Wed, 13 Jul 2016 09:59:00 -0500</pubDate>
         <link>http://mfgaspar.github.io//2016/Pentaho-Action-Sequences/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Pentaho-Action-Sequences/</guid>
         
@@ -392,7 +679,7 @@ There is  big pontential to generate business. Companies will see the advantage 
 &lt;p&gt;&lt;strong&gt;[UPDATE from the 19th of July 2016]&lt;/strong&gt; Maybe that one of these days I will have Insights on top of Pockémon Go. Just need Nintent to release an API that we can interact with! Do you wnat to know how many where catch on a specific area and if some of your friends did it? Well I was kidding about it, but who know!&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 12 Jul 2016 09:59:00 +0100</pubDate>
+        <pubDate>Tue, 12 Jul 2016 09:59:00 -0500</pubDate>
         <link>http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</guid>
         
@@ -495,7 +782,7 @@ There is  big pontential to generate business. Companies will see the advantage 
 &lt;p&gt;I already started to think how I can make it work out-of-the-box in CDA/CDE, but that will take much more time to develop it. If there are some folks that wnat’s to help, just send a message and let’s work together.&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 04 Apr 2016 22:40:00 +0100</pubDate>
+        <pubDate>Mon, 04 Apr 2016 22:40:00 -0500</pubDate>
         <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-1/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-1/</guid>
         
@@ -548,7 +835,7 @@ There is  big pontential to generate business. Companies will see the advantage 
 &lt;p&gt;Any questions please send email or contact me over &lt;a href=&quot;https://www.facebook.com/miguel.ferreira.gaspar&quot;&gt;Facebook&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;, or &lt;a href=&quot;https://www.linkedin.com/in/mfgaspar&quot;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 29 Mar 2016 20:15:00 +0100</pubDate>
+        <pubDate>Tue, 29 Mar 2016 20:15:00 -0500</pubDate>
         <link>http://mfgaspar.github.io//2016/Ctools-Book/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Ctools-Book/</guid>
         
@@ -576,7 +863,7 @@ There is  big pontential to generate business. Companies will see the advantage 
 &lt;p&gt;Looking foward to get feedback from you!&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 29 Mar 2016 20:05:00 +0100</pubDate>
+        <pubDate>Tue, 29 Mar 2016 20:05:00 -0500</pubDate>
         <link>http://mfgaspar.github.io//2016/Welcome/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Welcome/</guid>
         

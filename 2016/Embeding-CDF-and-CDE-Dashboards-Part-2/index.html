@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Cooking Analytics</title>
+  <title>Embeding Dashboards - Externally consuming/generating events</title>
   <meta name="description" content="My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mfgaspar.github.io//">
+  <link rel="canonical" href="http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -162,108 +162,132 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <div class="main-post-list">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="16 Oct 2016" class="post-meta__date date">16 Oct 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Embedding">Embedding</a> </span>
+    </div>
+    <h1 class="post-title">Embeding Dashboards - Externally consuming/generating events</h1>
+  </header>
+  <section class="post">
+    <p>On the last blog post, I have talked about embedding dashboards. Now let’s see how we can consume or generate events.</p>
 
-  <ol class="post-list">
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/" title="Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration.">Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration.</a></h2>
-        <p class="excerpt">One of the first steps when developing a IoT solution, when in the development or discovery phases starts, is to get the sensors data and send it somewhere to be processed. Depending on requirements we can go to a message centric or data centric approach.
+<p>When embedding a dashboard, does not matter if it’s a CDF or CDE dashboard, you can trigger or listen to events to or from embedded dashboards. This way you can create interaction between the element of your page and a CDF/CDE dashboard, as also the opposite.</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="20 Oct 2016" class="post-list__meta--date date">20 Oct 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Embeding-CDF-and-CDE-Dashboards-Part-2/" title="Embeding Dashboards - Externally consuming/generating events">Embeding Dashboards - Externally consuming/generating events</a></h2>
-        <p class="excerpt">On the last blog post, I have talked about embedding dashboards. Now let’s see how we can consume or generate events.
+<p>##Events that can be consumed externally</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="16 Oct 2016" class="post-list__meta--date date">16 Oct 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Embedding">Embedding</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Embeding-CDF-and-CDE-Dashboards-Part-1/" title="Embeding Dashboards - The Basics">Embeding Dashboards - The Basics</a></h2>
-        <p class="excerpt">In a earlier <a href="http://pedroalves-bi.blogspot.pt/2013/08/embedded-analytics-in-pentaho-with.html">post</a>, Pedro Alves talked about embedding CTools dashboards in two different ways: using “div” and “iframe” integration.
+<p>The events functionality, is an extension of <a href="http://backbonejs.org/#Events">Backbone</a>, and below you will find a list of useful events you can use with CDF/CDE. When we need to respond or trigger some actions we can listen or trigger them:</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="15 Oct 2016" class="post-list__meta--date date">15 Oct 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Embedding">Embedding</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/OLTP-vs-OLAP-vs-RTAP/" title="The evolution of analysis: OLTP, OLAP ... RTAP">The evolution of analysis: OLTP, OLAP ... RTAP</a></h2>
-        <p class="excerpt">Big Data and IoT brings new challenges but also new opportunities to get augmented results into our companies.
+<p>Events triggered by the dashboard object:</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="27 Jul 2016" class="post-list__meta--date date">27 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Big Data">Big Data</a> <a href="/tags/#IoT">IoT</a> <a href="/tags/#Analytics">Analytics</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/" title="Live Insight Dashboard on Pentaho - Part 2: High level overview">Live Insight Dashboard on Pentaho - Part 2: High level overview</a></h2>
-        <p class="excerpt">The <a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/">last post</a> stated to cover some concepts and technology used to have a “real-time” dashboard using Pentaho and on a CTools dashboard. This post will give you an overview of the solution an provide you the samples.
+<p>Parameters:</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="25 Jul 2016" class="post-list__meta--date date">25 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Pentaho-Action-Sequences/" title="Pentaho and Custom Action Sequences">Pentaho and Custom Action Sequences</a></h2>
-        <p class="excerpt">The Action Sequences or xAction, as you like to call them, are getting less used, because we now have better alternatives as using kettle, anyhow they are still useful in some cases.
+<ul>
+  <li>Parameter changes - When a parameter changes its value, the events ‘<parametername>:fireChange' are triggered.</parametername></li>
+</ul>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="13 Jul 2016" class="post-list__meta--date date">13 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Action Sequences">Action Sequences</a> <a href="/tags/#Action Sequences">Action Sequences</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Embedding-Pentaho-in-Augmented-Reality/" title="Embedding Analytics in Augmented Reality">Embedding Analytics in Augmented Reality</a></h2>
-        <p class="excerpt">Embedding Analytics in Augmented Reality
+<p>Dashboard Lifecycle:</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="12 Jul 2016" class="post-list__meta--date date">12 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Augmented Reality">Augmented Reality</a> <a href="/tags/#Smart Cities">Smart Cities</a> <a href="/tags/#Embedding">Embedding</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/" title="Live Insight Dashboard on Pentaho - Part 1: Introduction">Live Insight Dashboard on Pentaho - Part 1: Introduction</a></h2>
-        <p class="excerpt">This series of posts/post has origins on the last Pentaho Community Meeting that took place in London, November last year, <a href="https://github.com/PentahoCommunityMeetup2015/info">PCM 2015</a>. You can follow up on<br />
-<a href="https://twitter.com/search?q=%23pcm15%20pentaho">Twitter</a>.
+<ul>
+  <li>Dashboard preInit - When the dashboard finishes running the preInit method, the event ‘cdf:preInit’ is triggered.</li>
+  <li>Dashboard postInit - When the dashboard finishes running the postInit methods, the event ‘cdf:postInit’ is triggered.</li>
+</ul>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="4 Apr 2016" class="post-list__meta--date date">4 Apr 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Live Insights">Live Insights</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Ctools-Book/" title="Learning Pentaho CTools">Learning Pentaho CTools</a></h2>
-        <p class="excerpt">Pentaho and CTools are two of the fastest and most rapidly growing tools for practical solutions not found in any other tool available on the market. Using Pentaho allows you to build a complete analytics solution, and CTools brings an advanced flexibility to customizing them in a remarkable way. CTools provides its users with the ability to utilize Web technologies and data visualization concepts, and make the most of best practices to create a huge visual impact.
+<p>Components Lyfecycle:</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Mar 2016" class="post-list__meta--date date">29 Mar 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Pentaho CTools Book">Pentaho CTools Book</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/Welcome/" title="Welcome to Cooking Analytics">Welcome to Cooking Analytics</a></h2>
-        <p class="excerpt">I hope you can find this Blog interesting, where you will be able to read about Analytics solutions bringing architecture discussions, development technics that can be aplied to Big Data solutions, IoT or Social Innovation solutions, most of the time focused in Pentaho.
+<ul>
+  <li>PreExecution - When the component finishes running the preExecution, the event ‘cdf:preExecution’ is triggered.</li>
+  <li>PostFetch - When the component finishes running the postFetch runs, the event ‘cdf:postFetch’ is triggered.</li>
+  <li>Render - When the component runs the triggerAjax successfully, the event ‘cdf:render’ is triggered.</li>
+  <li>PostExecution - When the component finishes running the postExecution, the event ‘cdf cdf:postExecution’ is triggered.</li>
+</ul>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Mar 2016" class="post-list__meta--date date">29 Mar 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Cooking Analytics">Cooking Analytics</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-  </ol>
+<p>Debugging and error handling:</p>
 
-  <hr class="post-list__divider ">
+<ul>
+  <li>Error - If an error is triggered during component execution, the event ‘cdf:error’ is triggered.</li>
+  <li>User not logged in - When the dashboard detects that an user is no longer logged in, the event ‘cdf:loginError’ is triggered.</li>
+  <li>Server error - If a call to the server returns an error, the event ‘cdf:serverError’ is triggered.</li>
+</ul>
 
-  
+<p>Per instance, if you want to increment the times that the dashboard was rendered, you can do something like:</p>
 
+<div class="highlighter-rouge"><pre class="highlight"><code>require(['cdf/Dashboard.Bootstrap','cdf/Logger'], 
+	function(Dashboard, Logger) {
+		var dashboard = new Dashboard();
+  		dashboard.on('cdf:postInit', function(e) {
+    		incrementDashboardPostInitCounter();
+  		});
+	}
+);
+</code></pre>
 </div>
+
+<p>Or, let’s suppose we have two dashboards, one that has a filter, and another own that has a line chart, and you want to trigger a change on the chart when you change the selected options on the filter, you can do something like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>require(['dash!/public/dash/selectorDash.wcdf'], 'dash!/public/dash/lineChartDash.wcdf'],
+	function(SelectorDash, LineChartDash) {
+		var selectorDash = new SelectorDash("selector");
+		selectorDash.render();
+		var lineChartDash= new LineChartDash("lineChart");
+		lineChartDash.render();
+		selectorDash.on("productLine:fireChange", function (evt) {
+			lineChartDash.fireChange("productLine", evt.value);
+		});
+	}
+);
+</code></pre>
+</div>
+
+<p>The way to interact with your webpage/webapp can be similar to the example above. Note that when you need to apply some changes to a dashboard you can do a fireChange. To get to know the changes that are happening on a dahboard, you can use the “on” function.</p>
+
+<p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
+
+
+  </section>
+  
+</article>
+ 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
+
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2016/Embeding-CDF-and-CDE-Dashboards-Part-2/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2016/Embeding-CDF-and-CDE-Dashboards-Part-2/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2016/Embeding-CDF-and-CDE-Dashboards-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2016/Embeding-CDF-and-CDE-Dashboards-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<!--
+<a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
+-->
+
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//cookinganalytics.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
       </div>
 
       <footer class="footer">
