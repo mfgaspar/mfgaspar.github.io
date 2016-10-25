@@ -189,13 +189,13 @@
  to your Pentaho Server, so that the server can return the script. 
 You just need the following script tag:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script type="text/javascript" src="http://SERVERNAME&lt;:PORT&gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cdf-embed.js"&gt;&lt;/script&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://SERVERNAME&lt;:PORT&gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cdf-embed.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
 </div>
 
 <p>Per instance, if your server is in the same machine,localhost, and running in port 8080:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script type="text/javascript" src="http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cdf-embed.js"&gt;&lt;/script&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cdf-embed.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
 </div>
 
@@ -256,32 +256,35 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 <p>The way to call it is like following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script type="text/javascript" src="http://SERVERNAME&lt;:PORT&gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cde-embed.js"&gt;&lt;/script&gt; 80": 
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://SERVERNAME&lt;:PORT&gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cde-embed.js"</span><span class="nt">&gt;&lt;/script&gt;</span> 
 </code></pre>
 </div>
 
-<p>Per instance, if your server is in “localhost”, and running in port “80
-	<script type="text/javascript" src="http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cde-embed.js"></script></p>
+<p>Per instance, if your server is in “localhost”, and running in port “8080”:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cde-embed.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+</div>
 
 <p>Once you did it you are able to require for your dashboard, by directly calling the getDashboard available in CDE or by making use of the “dash” RequireJS plugin.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>require(['/pentaho/plugin/pentaho-cdf-dd/api/renderer/getDashboard?path=/public/dash /sample.wcdf'], 
-	function(SampleDash) {
-		var sampleDash = new SampleDash("content1");
-		sampleDash.render();
-	}
-);
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s1">'/pentaho/plugin/pentaho-cdf-dd/api/renderer/getDashboard?path=/public/dash /sample.wcdf'</span><span class="p">],</span> 
+	<span class="kd">function</span><span class="p">(</span><span class="nx">SampleDash</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">sampleDash</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SampleDash</span><span class="p">(</span><span class="s2">"content1"</span><span class="p">);</span>
+		<span class="nx">sampleDash</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">);</span>
 </code></pre>
 </div>
 
 <p>Or:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>require(['dash!/public/dash /sample.wcdf'], 
-	function(SampleDash) {
-		var sampleDash = new SampleDash("content1");
-		sampleDash.render();
-	}
-);
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s1">'dash!/public/dash /sample.wcdf'</span><span class="p">],</span> 
+	<span class="kd">function</span><span class="p">(</span><span class="nx">SampleDash</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">sampleDash</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SampleDash</span><span class="p">(</span><span class="s2">"content1"</span><span class="p">);</span>
+		<span class="nx">sampleDash</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">);</span>
 </code></pre>
 </div>
 
@@ -293,7 +296,9 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 <p>When embedding dashboards from a different server we might get some denial, because the server won’t allow Cross Domain Requests. There is on one extra setting that we can make use of to avoid it. To be possible to embed the dashboard with this issue, we can set the following property of the settings.xml file of CDF or CDE plugins:</p>
 
-<allow-cross-domain-resources>true</allow-cross-domain-resources>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;allow-cross-domain-resources&gt;</span>true<span class="nt">&lt;/allow-cross-domain-resources&gt;</span>
+</code></pre>
+</div>
 
 <p>You are now able to delight your users with amazing analytics, without completely  getting out of your website/webapp and without letting the user know what technologies are you using to leverage some of the work.</p>
 

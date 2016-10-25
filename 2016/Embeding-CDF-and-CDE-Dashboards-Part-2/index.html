@@ -174,26 +174,26 @@
 
 <p>When embedding a dashboard, does not matter if it’s a CDF or CDE dashboard, you can trigger or listen to events to or from embedded dashboards. This way you can create interaction between the element of your page and a CDF/CDE dashboard, as also the opposite.</p>
 
-<p>##Events that can be consumed externally</p>
+<h2 id="events-that-can-be-consumed-externally">Events that can be consumed externally</h2>
 
 <p>The events functionality, is an extension of <a href="http://backbonejs.org/#Events">Backbone</a>, and below you will find a list of useful events you can use with CDF/CDE. When we need to respond or trigger some actions we can listen or trigger them:</p>
 
 <p>Events triggered by the dashboard object:</p>
 
-<p>###Parameters:</p>
+<h3 id="parameters">Parameters:</h3>
 
 <ul>
   <li>Parameter changes - When a parameter changes its value, the events ‘<parametername>:fireChange' are triggered.</parametername></li>
 </ul>
 
-<p>###Dashboard Lifecycle:</p>
+<h3 id="dashboard-lifecycle">Dashboard Lifecycle:</h3>
 
 <ul>
   <li>Dashboard preInit - When the dashboard finishes running the preInit method, the event ‘cdf:preInit’ is triggered.</li>
   <li>Dashboard postInit - When the dashboard finishes running the postInit methods, the event ‘cdf:postInit’ is triggered.</li>
 </ul>
 
-<p>###Components Lyfecycle:</p>
+<h3 id="components-lyfecycle">Components Lyfecycle:</h3>
 
 <ul>
   <li>PreExecution - When the component finishes running the preExecution, the event ‘cdf:preExecution’ is triggered.</li>
@@ -202,7 +202,7 @@
   <li>PostExecution - When the component finishes running the postExecution, the event ‘cdf cdf:postExecution’ is triggered.</li>
 </ul>
 
-<p>###Debugging and error handling:</p>
+<h3 id="debugging-and-error-handling">Debugging and error handling:</h3>
 
 <ul>
   <li>Error - If an error is triggered during component execution, the event ‘cdf:error’ is triggered.</li>
@@ -212,30 +212,30 @@
 
 <p>Per instance, if you want to send a message to a remote webservice each time the dashboard is rendered, you can do something like:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>require(['cdf/Dashboard.Bootstrap','cdf/Logger'], 
-	function(Dashboard, Logger) {
-		var dashboard = new Dashboard();
-  		dashboard.on('cdf:postInit', function(e) {
-    		sendMessageOnDashboardPostInit();
-  		});
-	}
-);
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s1">'cdf/Dashboard.Bootstrap'</span><span class="p">,</span><span class="s1">'cdf/Logger'</span><span class="p">],</span> 
+	<span class="kd">function</span><span class="p">(</span><span class="nx">Dashboard</span><span class="p">,</span> <span class="nx">Logger</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">dashboard</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dashboard</span><span class="p">();</span>
+  		<span class="nx">dashboard</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'cdf:postInit'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    		<span class="nx">sendMessageOnDashboardPostInit</span><span class="p">();</span>
+  		<span class="p">});</span>
+	<span class="p">}</span>
+<span class="p">);</span>
 </code></pre>
 </div>
 
 <p>Or, let’s suppose we have two dashboards, one that has a filter, and another own that has a line chart, and you want to trigger a change on the chart when you change the selected options on the filter, you can do something like:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>require(['dash!/public/dash/selectorDash.wcdf'], 'dash!/public/dash/lineChartDash.wcdf'],
-	function(SelectorDash, LineChartDash) {
-		var selectorDash = new SelectorDash("selector");
-		selectorDash.render();
-		var lineChartDash= new LineChartDash("lineChart");
-		lineChartDash.render();
-		selectorDash.on("productLine:fireChange", function (evt) {
-			lineChartDash.fireChange("productLine", evt.value);
-		});
-	}
-);
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s1">'dash!/public/dash/selectorDash.wcdf'</span><span class="p">],</span> <span class="s1">'dash!/public/dash/lineChartDash.wcdf'</span><span class="p">],</span>
+	<span class="kd">function</span><span class="p">(</span><span class="nx">SelectorDash</span><span class="p">,</span> <span class="nx">LineChartDash</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">selectorDash</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SelectorDash</span><span class="p">(</span><span class="s2">"selector"</span><span class="p">);</span>
+		<span class="nx">selectorDash</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+		<span class="kd">var</span> <span class="nx">lineChartDash</span><span class="o">=</span> <span class="k">new</span> <span class="nx">LineChartDash</span><span class="p">(</span><span class="s2">"lineChart"</span><span class="p">);</span>
+		<span class="nx">lineChartDash</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+		<span class="nx">selectorDash</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"productLine:fireChange"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">lineChartDash</span><span class="p">.</span><span class="nx">fireChange</span><span class="p">(</span><span class="s2">"productLine"</span><span class="p">,</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+		<span class="p">});</span>
+	<span class="p">}</span>
+<span class="p">);</span>
 </code></pre>
 </div>
 

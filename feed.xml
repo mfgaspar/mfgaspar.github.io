@@ -5,15 +5,15 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 23 Oct 2016 23:41:10 -0500</pubDate>
-    <lastBuildDate>Sun, 23 Oct 2016 23:41:10 -0500</lastBuildDate>
+    <pubDate>Mon, 24 Oct 2016 22:36:01 -0500</pubDate>
+    <lastBuildDate>Mon, 24 Oct 2016 22:36:01 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>Startup Actions on Pentaho: PentahoHttpSession VS UserSession</title>
         <description>&lt;p&gt;There might be easier ways to deal with some actions that you need to execute during the user login or during the start of the server itself, anyhow action sequences are still very usefull. For sure you already know about te content of this post, anyhow I needed to write it as an introduction for the next post I will be writting.&lt;/p&gt;
 
-&lt;p&gt;Pentaho created a tools called (Startup Rule Engine](http://pedroalves-bi.blogspot.com/2014/02/startup-rule-engine-new-sparkl-app-in.html) and wa covered in Pedro Alves blog, some time ago, but that’s what will covered in this blogpost.&lt;/p&gt;
+&lt;p&gt;Pentaho created a tools called &lt;a href=&quot;http://pedroalves-bi.blogspot.com/2014/02/startup-rule-engine-new-sparkl-app-in.html&quot;&gt;Startup Rule Engine&lt;/a&gt; and was covered in Pedro Alves blog, some time ago, but that’s what will covered in this blogpost.&lt;/p&gt;
 
 &lt;p&gt;When we have a multitenant environment, or we need to have one, we can use an Action Sequence to run some actions. Mondrian is capable of handling multitenancy in different ways, and one of ways is to use a DSP (Dynamic Schema Processor), information that can be found in the help pages of Pentaho, &lt;a href=&quot;https://help.pentaho.com/Documentation/6.1/0R0/070/Multi-Tenancy&quot;&gt;here&lt;/a&gt;. When using a DSP, most probably, you will need to create session variables that can be used latter in the DSP. Besides that, Startup Rule Engine, Action Sequences can easily be set and used to set the sessions variables you will need.&lt;/p&gt;
 
@@ -228,26 +228,26 @@ REGION=EMEA
 
 &lt;p&gt;When embedding a dashboard, does not matter if it’s a CDF or CDE dashboard, you can trigger or listen to events to or from embedded dashboards. This way you can create interaction between the element of your page and a CDF/CDE dashboard, as also the opposite.&lt;/p&gt;
 
-&lt;p&gt;##Events that can be consumed externally&lt;/p&gt;
+&lt;h2 id=&quot;events-that-can-be-consumed-externally&quot;&gt;Events that can be consumed externally&lt;/h2&gt;
 
 &lt;p&gt;The events functionality, is an extension of &lt;a href=&quot;http://backbonejs.org/#Events&quot;&gt;Backbone&lt;/a&gt;, and below you will find a list of useful events you can use with CDF/CDE. When we need to respond or trigger some actions we can listen or trigger them:&lt;/p&gt;
 
 &lt;p&gt;Events triggered by the dashboard object:&lt;/p&gt;
 
-&lt;p&gt;###Parameters:&lt;/p&gt;
+&lt;h3 id=&quot;parameters&quot;&gt;Parameters:&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Parameter changes - When a parameter changes its value, the events ‘&lt;parametername&gt;:fireChange&#39; are triggered.&lt;/parametername&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;###Dashboard Lifecycle:&lt;/p&gt;
+&lt;h3 id=&quot;dashboard-lifecycle&quot;&gt;Dashboard Lifecycle:&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Dashboard preInit - When the dashboard finishes running the preInit method, the event ‘cdf:preInit’ is triggered.&lt;/li&gt;
   &lt;li&gt;Dashboard postInit - When the dashboard finishes running the postInit methods, the event ‘cdf:postInit’ is triggered.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;###Components Lyfecycle:&lt;/p&gt;
+&lt;h3 id=&quot;components-lyfecycle&quot;&gt;Components Lyfecycle:&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;PreExecution - When the component finishes running the preExecution, the event ‘cdf:preExecution’ is triggered.&lt;/li&gt;
@@ -256,7 +256,7 @@ REGION=EMEA
   &lt;li&gt;PostExecution - When the component finishes running the postExecution, the event ‘cdf cdf:postExecution’ is triggered.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;###Debugging and error handling:&lt;/p&gt;
+&lt;h3 id=&quot;debugging-and-error-handling&quot;&gt;Debugging and error handling:&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Error - If an error is triggered during component execution, the event ‘cdf:error’ is triggered.&lt;/li&gt;
@@ -266,30 +266,30 @@ REGION=EMEA
 
 &lt;p&gt;Per instance, if you want to send a message to a remote webservice each time the dashboard is rendered, you can do something like:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require([&#39;cdf/Dashboard.Bootstrap&#39;,&#39;cdf/Logger&#39;], 
-	function(Dashboard, Logger) {
-		var dashboard = new Dashboard();
-  		dashboard.on(&#39;cdf:postInit&#39;, function(e) {
-    		sendMessageOnDashboardPostInit();
-  		});
-	}
-);
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;cdf/Dashboard.Bootstrap&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;cdf/Logger&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
+	&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dashboard&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  		&lt;span class=&quot;nx&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;cdf:postInit&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    		&lt;span class=&quot;nx&quot;&gt;sendMessageOnDashboardPostInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  		&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Or, let’s suppose we have two dashboards, one that has a filter, and another own that has a line chart, and you want to trigger a change on the chart when you change the selected options on the filter, you can do something like:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require([&#39;dash!/public/dash/selectorDash.wcdf&#39;], &#39;dash!/public/dash/lineChartDash.wcdf&#39;],
-	function(SelectorDash, LineChartDash) {
-		var selectorDash = new SelectorDash(&quot;selector&quot;);
-		selectorDash.render();
-		var lineChartDash= new LineChartDash(&quot;lineChart&quot;);
-		lineChartDash.render();
-		selectorDash.on(&quot;productLine:fireChange&quot;, function (evt) {
-			lineChartDash.fireChange(&quot;productLine&quot;, evt.value);
-		});
-	}
-);
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;dash!/public/dash/selectorDash.wcdf&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;dash!/public/dash/lineChartDash.wcdf&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SelectorDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LineChartDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectorDash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SelectorDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;selector&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;selectorDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lineChartDash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LineChartDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;lineChart&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;lineChartDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;selectorDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;productLine:fireChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;lineChartDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fireChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;productLine&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -330,13 +330,13 @@ REGION=EMEA
  to your Pentaho Server, so that the server can return the script. 
 You just need the following script tag:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cdf-embed.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cdf-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Per instance, if your server is in the same machine,localhost, and running in port 8080:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cdf-embed.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cdf-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -397,32 +397,35 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 &lt;p&gt;The way to call it is like following:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cde-embed.js&quot;&amp;gt;&amp;lt;/script&amp;gt; 80&quot;: 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cde-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Per instance, if your server is in “localhost”, and running in port “80
-	&lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cde-embed.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;Per instance, if your server is in “localhost”, and running in port “8080”:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cde-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Once you did it you are able to require for your dashboard, by directly calling the getDashboard available in CDE or by making use of the “dash” RequireJS plugin.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require([&#39;/pentaho/plugin/pentaho-cdf-dd/api/renderer/getDashboard?path=/public/dash /sample.wcdf&#39;], 
-	function(SampleDash) {
-		var sampleDash = new SampleDash(&quot;content1&quot;);
-		sampleDash.render();
-	}
-);
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;/pentaho/plugin/pentaho-cdf-dd/api/renderer/getDashboard?path=/public/dash /sample.wcdf&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
+	&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sampleDash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;content1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;sampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Or:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require([&#39;dash!/public/dash /sample.wcdf&#39;], 
-	function(SampleDash) {
-		var sampleDash = new SampleDash(&quot;content1&quot;);
-		sampleDash.render();
-	}
-);
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;dash!/public/dash /sample.wcdf&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
+	&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sampleDash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;content1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;sampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -434,7 +437,9 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 &lt;p&gt;When embedding dashboards from a different server we might get some denial, because the server won’t allow Cross Domain Requests. There is on one extra setting that we can make use of to avoid it. To be possible to embed the dashboard with this issue, we can set the following property of the settings.xml file of CDF or CDE plugins:&lt;/p&gt;
 
-&lt;allow-cross-domain-resources&gt;true&lt;/allow-cross-domain-resources&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-cross-domain-resources&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/allow-cross-domain-resources&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;You are now able to delight your users with amazing analytics, without completely  getting out of your website/webapp and without letting the user know what technologies are you using to leverage some of the work.&lt;/p&gt;
 
