@@ -5,9 +5,43 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 24 Oct 2016 22:36:01 -0500</pubDate>
-    <lastBuildDate>Mon, 24 Oct 2016 22:36:01 -0500</lastBuildDate>
+    <pubDate>Sat, 17 Dec 2016 16:25:02 +0000</pubDate>
+    <lastBuildDate>Sat, 17 Dec 2016 16:25:02 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>Pentaho Scheduler in a Multitenant Environment</title>
+        <description>&lt;p&gt;Earlier this year I have made some posts and provided some samples on how we could stream data from the IoT devices and displaying the info on a dashboard, using Pentaho Data Integration and MQTT protocol.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;First blog post&lt;/a&gt;
+&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&quot;&gt;Second blog post&lt;/a&gt;
+&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&quot;&gt;Third blog post&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I am still missing some blog posts on how to scale a solution on this and how to use D3.js as the chart library, among other updates.&lt;/p&gt;
+
+&lt;p&gt;The good news is that Pentaho Labs announced the release of MQTT steps, even if not yet supported. I guess it is just a matter of time now.&lt;/p&gt;
+
+&lt;p&gt;The steps are ready to be used and available in marketplace.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/new-mqtt-plugin-pdi.png&quot; alt=&quot;MQTT on PDI&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Check the &lt;a href=&quot;http://www.pentaho.com/blog/pentaho-mqtt-iot&quot;&gt;link&lt;/a&gt; where Pentaho labs is announcing it.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 17 Dec 2016 12:00:00 +0000</pubDate>
+        <link>http://mfgaspar.github.io//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</guid>
+        
+        <category>IoT</category>
+        
+        <category>MQTT</category>
+        
+        
+        <category>IoT</category>
+        
+        <category>MQTT</category>
+        
+      </item>
     
       <item>
         <title>Startup Actions on Pentaho: PentahoHttpSession VS UserSession</title>
@@ -150,7 +184,7 @@ REGION=EMEA
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 23 Oct 2016 10:43:00 -0500</pubDate>
+        <pubDate>Sun, 23 Oct 2016 10:43:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Startup-Actions-on-Pentaho/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Startup-Actions-on-Pentaho/</guid>
         
@@ -211,7 +245,7 @@ REGION=EMEA
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Thu, 20 Oct 2016 20:59:00 -0500</pubDate>
+        <pubDate>Thu, 20 Oct 2016 20:59:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</guid>
         
@@ -298,7 +332,7 @@ REGION=EMEA
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 16 Oct 2016 22:54:00 -0500</pubDate>
+        <pubDate>Sun, 16 Oct 2016 22:54:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</guid>
         
@@ -446,7 +480,7 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Sat, 15 Oct 2016 22:22:00 -0500</pubDate>
+        <pubDate>Sat, 15 Oct 2016 22:22:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</guid>
         
@@ -502,7 +536,7 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 27 Jul 2016 22:20:00 -0500</pubDate>
+        <pubDate>Wed, 27 Jul 2016 22:20:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/OLTP-vs-OLAP-vs-RTAP/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/OLTP-vs-OLAP-vs-RTAP/</guid>
         
@@ -622,7 +656,7 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 25 Jul 2016 19:54:00 -0500</pubDate>
+        <pubDate>Mon, 25 Jul 2016 19:54:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</guid>
         
@@ -803,7 +837,7 @@ a Action Sequence.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/custom.code.action.sequence&quot;&gt;Sample code available here.&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 13 Jul 2016 09:59:00 -0500</pubDate>
+        <pubDate>Wed, 13 Jul 2016 09:59:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Pentaho-Action-Sequences/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Pentaho-Action-Sequences/</guid>
         
@@ -840,7 +874,7 @@ There is  big pontential to generate business. Companies will see the advantage 
 &lt;p&gt;&lt;strong&gt;[UPDATE from the 19th of July 2016]&lt;/strong&gt; Maybe that one of these days I will have Insights on top of Pockémon Go. Just need Nintent to release an API that we can interact with! Do you wnat to know how many where catch on a specific area and if some of your friends did it? Well I was kidding about it, but who know!&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 12 Jul 2016 09:59:00 -0500</pubDate>
+        <pubDate>Tue, 12 Jul 2016 09:59:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</guid>
         
@@ -943,7 +977,7 @@ There is  big pontential to generate business. Companies will see the advantage 
 &lt;p&gt;I already started to think how I can make it work out-of-the-box in CDA/CDE, but that will take much more time to develop it. If there are some folks that wnat’s to help, just send a message and let’s work together.&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 04 Apr 2016 22:40:00 -0500</pubDate>
+        <pubDate>Mon, 04 Apr 2016 22:40:00 +0100</pubDate>
         <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-1/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-1/</guid>
         
@@ -951,59 +985,6 @@ There is  big pontential to generate business. Companies will see the advantage 
         
         
         <category>Live Insights</category>
-        
-      </item>
-    
-      <item>
-        <title>Learning Pentaho CTools</title>
-        <description>&lt;p&gt;Pentaho and CTools are two of the fastest and most rapidly growing tools for practical solutions not found in any other tool available on the market. Using Pentaho allows you to build a complete analytics solution, and CTools brings an advanced flexibility to customizing them in a remarkable way. CTools provides its users with the ability to utilize Web technologies and data visualization concepts, and make the most of best practices to create a huge visual impact.&lt;/p&gt;
-
-&lt;p&gt;The cover was already released: 
-&lt;img src=&quot;http://mfgaspar.github.io/assets/B04770_BookCover_small.png&quot; alt=&quot;Learning Pentaho CTools Cover&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;book-overview&quot;&gt;Book Overview&lt;/h3&gt;
-
-&lt;p&gt;The book starts with the basics of the framework and how to get data to your dashboards. We’ll take you all the way through to create your custom and advanced dashboards that will create an effective visual impact and provide the best user experience. You will be given deep insights into the lifecycle of dashboards and the working of various components. Further, you will create a custom dashboard using the Community Dashboards Editor and use data sources to load data on the components. You will also create custom content using Query, the Freeform Addins Popup, and text components. Next, you will make use of widgets to create similar sections and duplicate components to reproduce other components on a dashboard. You will then learn to build a plugin without writing Java code, use Pentaho App Builder as a CPK plugin manager, and understand the application of deployment and version control to dashboard development. Finally, you will learn tips and tricks that can be very useful while embedding dashboards into other applications.&lt;/p&gt;
-
-&lt;p&gt;This guide is an invaluable tutorial if you are planning to use custom and advanced dashboards among the solutions that you are building with Pentaho.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-you-will-learn&quot;&gt;What You Will Learn&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Install Community Tools on Pentaho; and understand the necessary concepts and considerations when creating an exciting dashboard design&lt;/li&gt;
-  &lt;li&gt;Get data from many different Pentaho data sources and deliver it in different formats (CSV, XLS, XML, or JSON)&lt;/li&gt;
-  &lt;li&gt;Use the Community Data Access (CDA) as the data abstraction layer and understand the concepts in the Community Dashboard Framework (CDF)&lt;/li&gt;
-  &lt;li&gt;Create a Community Dashboard Editor (CDE) dashboard and make the most of the main components&lt;/li&gt;
-  &lt;li&gt;Create and make use of widgets and use duplicate components to have data-driven sections on the dashboard&lt;/li&gt;
-  &lt;li&gt;Customize and create interaction between all components, including charts, using the Community Charts Components&lt;/li&gt;
-  &lt;li&gt;Create and embed dashboards in a better and new way&lt;/li&gt;
-  &lt;li&gt;Create a Pentaho plugin using the Pentaho App Builder&lt;/li&gt;
-  &lt;li&gt;Create plugins and make use of parameters inside Pentaho without writing code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;who-this-book-is-for&quot;&gt;Who This Book Is For&lt;/h3&gt;
-
-&lt;p&gt;If you are a CTools developer and would like to expand your knowledge and create attractive dashboards and frameworks, this book is the go-to-guide for you. A basic knowledge of JavaScript and Cascading Style Sheets (CSS) is highly recommended. Definitely a knowledge on Pentaho is a requirement.&lt;/p&gt;
-
-&lt;p&gt;The book is available at &lt;a href=&quot;https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-CTools&quot;&gt;Packt&lt;/a&gt; and &lt;a href=&quot;http://www.amazon.com/Learning-Pentaho-CTools-Miguel-Gaspar-ebook/dp/B0171UHJJ6/&quot;&gt;Amazon&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;It was expected to be out at the end of this month, but since tomorrow is the last day of the month, It will get a bit delayed :(&lt;/p&gt;
-
-&lt;p&gt;New date points to the &lt;strong&gt;22th of April&lt;/strong&gt;, let’s hope we can keep this date.&lt;/p&gt;
-
-&lt;p&gt;UPDATE:  Book has been released at May, 31&lt;/p&gt;
-
-&lt;p&gt;Any questions please send email or contact me over &lt;a href=&quot;https://www.facebook.com/miguel.ferreira.gaspar&quot;&gt;Facebook&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;, or &lt;a href=&quot;https://www.linkedin.com/in/mfgaspar&quot;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 29 Mar 2016 20:15:00 -0500</pubDate>
-        <link>http://mfgaspar.github.io//2016/Ctools-Book/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Ctools-Book/</guid>
-        
-        <category>Pentaho CTools Book</category>
-        
-        
-        <category>Pentaho CTools Book</category>
         
       </item>
     
