@@ -5,12 +5,12 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 17 Dec 2016 16:29:29 +0000</pubDate>
-    <lastBuildDate>Sat, 17 Dec 2016 16:29:29 +0000</lastBuildDate>
+    <pubDate>Sat, 17 Dec 2016 16:32:06 +0000</pubDate>
+    <lastBuildDate>Sat, 17 Dec 2016 16:32:06 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
-        <title>Pentaho Scheduler in a Multitenant Environment</title>
+        <title>IoT on Pentaho using MQTT - New MQTT steps for PDI are available</title>
         <description>&lt;p&gt;Earlier this year I have made some posts and provided some samples on how we could stream data from the IoT devices and displaying the info on a dashboard, using Pentaho Data Integration and MQTT protocol.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;First blog post&lt;/a&gt;
