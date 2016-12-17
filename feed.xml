@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 17 Dec 2016 16:25:02 +0000</pubDate>
-    <lastBuildDate>Sat, 17 Dec 2016 16:25:02 +0000</lastBuildDate>
+    <pubDate>Sat, 17 Dec 2016 16:29:29 +0000</pubDate>
+    <lastBuildDate>Sat, 17 Dec 2016 16:29:29 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -28,7 +28,7 @@
 &lt;p&gt;Check the &lt;a href=&quot;http://www.pentaho.com/blog/pentaho-mqtt-iot&quot;&gt;link&lt;/a&gt; where Pentaho labs is announcing it.&lt;/p&gt;
 
 </description>
-        <pubDate>Sat, 17 Dec 2016 12:00:00 +0000</pubDate>
+        <pubDate>Fri, 16 Dec 2016 12:00:00 +0000</pubDate>
         <link>http://mfgaspar.github.io//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</link>
         <guid isPermaLink="true">http://mfgaspar.github.io//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</guid>
         
