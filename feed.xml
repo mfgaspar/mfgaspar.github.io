@@ -5,27 +5,27 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 17 Dec 2016 16:32:06 +0000</pubDate>
-    <lastBuildDate>Sat, 17 Dec 2016 16:32:06 +0000</lastBuildDate>
+    <pubDate>Sat, 17 Dec 2016 16:35:36 +0000</pubDate>
+    <lastBuildDate>Sat, 17 Dec 2016 16:35:36 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>IoT on Pentaho using MQTT - New MQTT steps for PDI are available</title>
         <description>&lt;p&gt;Earlier this year I have made some posts and provided some samples on how we could stream data from the IoT devices and displaying the info on a dashboard, using Pentaho Data Integration and MQTT protocol.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;First blog post&lt;/a&gt;
-&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&quot;&gt;Second blog post&lt;/a&gt;
-&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&quot;&gt;Third blog post&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;First blog post&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;I am still missing some blog posts on how to scale a solution on this and how to use D3.js as the chart library, among other updates.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&quot;&gt;Second blog post&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;The good news is that Pentaho Labs announced the release of MQTT steps, even if not yet supported. I guess it is just a matter of time now.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&quot;&gt;Third blog post&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I am still missing some blog posts on how to scale a solution on this and how to use D3.js as the chart library, among other updates. The good news is that Pentaho Labs announced the release of MQTT steps, even if not yet supported. I guess it is just a matter of time now.&lt;/p&gt;
 
 &lt;p&gt;The steps are ready to be used and available in marketplace.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/new-mqtt-plugin-pdi.png&quot; alt=&quot;MQTT on PDI&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.pentaho.com/blog/pentaho-mqtt-iot&quot;&gt;Here the link&lt;/a&gt; where Pentaho labs is announcing it.&lt;/p&gt;
 
-&lt;p&gt;Check the &lt;a href=&quot;http://www.pentaho.com/blog/pentaho-mqtt-iot&quot;&gt;link&lt;/a&gt; where Pentaho labs is announcing it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/new-mqtt-plugin-pdi.png&quot; alt=&quot;MQTT on PDI&quot; /&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Fri, 16 Dec 2016 12:00:00 +0000</pubDate>
