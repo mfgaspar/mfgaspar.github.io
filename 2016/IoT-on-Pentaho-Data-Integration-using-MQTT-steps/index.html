@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>IoT on Pentaho using MQTT - New MQTT steps for PDI are available</title>
+  <title>IoT on Pentaho using MQTT - New MQTT steps for PDI are available in Marketplace</title>
   <meta name="description" content="My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -167,7 +167,7 @@
     <div class="post-meta">
       <time datetime="16 Dec 2016" class="post-meta__date date">16 Dec 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#IoT">IoT</a> <a href="/tags/#MQTT">MQTT</a> </span>
     </div>
-    <h1 class="post-title">IoT on Pentaho using MQTT - New MQTT steps for PDI are available</h1>
+    <h1 class="post-title">IoT on Pentaho using MQTT - New MQTT steps for PDI are available in Marketplace</h1>
   </header>
   <section class="post">
     <p>Earlier this year I have made some posts and provided some samples on how we could stream data from the IoT devices and displaying the info on a dashboard, using Pentaho Data Integration and MQTT protocol.</p>
@@ -192,7 +192,11 @@
 
 <p>Please keep in mind that the most interesting part is not the live dashboard, it is the data streaming capabilities on PDI. You can nos make use of the new steps to be closer to IoT and possible to use Data Integration for the ingestion of data coming from devices. This also makes clear tht might be possible to use other protocols.</p>
 
-<p>One clear advantage is that you don’t need to write all your code, you can build a gateway using PDI and withoput writing one linne of code. Aslo llok at the samples, you will notice we can switch the data processing transformation we want to use, and you can do it using a parameters.</p>
+<p><img src="http://mfgaspar.github.io/assets/row-processing-transformation.png" alt="MQTT on PDI" /></p>
+
+<p>One clear advantage is that you don’t need to write all your code, you can build a gateway using PDI and without writing one line of code. Also look at the samples, you will notice we can switch the data processing transformation we want to use, and you can do it using a parameters. Also from the image above you can see that you are able to group rows based on number of rows or time.</p>
+
+<p>Usefull also if you write to a permanent storage, like Cassandra/HBase or other depending on golas and requirments.</p>
 
 
   </section>
