@@ -192,9 +192,11 @@
 
 <p>Please keep in mind that the most interesting part is not the live dashboard, it is the data streaming capabilities on PDI. You can nos make use of the new steps to be closer to IoT and possible to use Data Integration for the ingestion of data coming from devices. This also makes clear tht might be possible to use other protocols.</p>
 
-<p><img src="http://mfgaspar.github.io/assets/row-processing-transformation.png" alt="MQTT on PDI" /></p>
+<p><img src="http://mfgaspar.github.io/assets/row-processing-transformation.png" alt="Main and row processing transformations" /></p>
 
 <p>One clear advantage is that you don’t need to write all your code, you can build a gateway using PDI and without writing one line of code. Also look at the samples, you will notice we can switch the data processing transformation we want to use, and you can do it using a parameters. Also from the image above you can see that you are able to group rows based on number of rows or time.</p>
+
+<p>Also notice that the case, based on the values opf a parameter named “rowsGroupingType” will decide if we need to go and process rows based of the number, based on time, or not group them at all.</p>
 
 <p>Usefull also if you write to a permanent storage, like Cassandra/HBase or other depending on golas and requirments.</p>
 

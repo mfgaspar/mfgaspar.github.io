@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 19 Dec 2016 16:38:29 +0000</pubDate>
-    <lastBuildDate>Mon, 19 Dec 2016 16:38:29 +0000</lastBuildDate>
+    <pubDate>Mon, 19 Dec 2016 16:46:59 +0000</pubDate>
+    <lastBuildDate>Mon, 19 Dec 2016 16:46:59 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -33,9 +33,11 @@
 
 &lt;p&gt;Please keep in mind that the most interesting part is not the live dashboard, it is the data streaming capabilities on PDI. You can nos make use of the new steps to be closer to IoT and possible to use Data Integration for the ingestion of data coming from devices. This also makes clear tht might be possible to use other protocols.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/row-processing-transformation.png&quot; alt=&quot;MQTT on PDI&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/row-processing-transformation.png&quot; alt=&quot;Main and row processing transformations&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;One clear advantage is that you don’t need to write all your code, you can build a gateway using PDI and without writing one line of code. Also look at the samples, you will notice we can switch the data processing transformation we want to use, and you can do it using a parameters. Also from the image above you can see that you are able to group rows based on number of rows or time.&lt;/p&gt;
+
+&lt;p&gt;Also notice that the case, based on the values opf a parameter named “rowsGroupingType” will decide if we need to go and process rows based of the number, based on time, or not group them at all.&lt;/p&gt;
 
 &lt;p&gt;Usefull also if you write to a permanent storage, like Cassandra/HBase or other depending on golas and requirments.&lt;/p&gt;
 
