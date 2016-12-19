@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog is focused on Analytics solutions, providing architectural and development recipes, ..., that can be applied not only to traditional Business Analytics solutions but also to some hot topics like Big Data, IoT and Social Innovation. The content will mostly be based in the use of Pentaho technology.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 19 Dec 2016 15:58:32 +0000</pubDate>
-    <lastBuildDate>Mon, 19 Dec 2016 15:58:32 +0000</lastBuildDate>
+    <pubDate>Mon, 19 Dec 2016 16:00:06 +0000</pubDate>
+    <lastBuildDate>Mon, 19 Dec 2016 16:00:06 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -27,9 +27,9 @@
 
 &lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/new-mqtt-plugin-pdi.png&quot; alt=&quot;MQTT on PDI&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;You can watch the video video below with the updates, and the samples are available &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/iot.pdi.mqtt.samples&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can watch the &lt;a href=&quot;http://www.youtube.com/watch?v=q4gspdUhlU4&quot;&gt;video&lt;/a&gt; with the updates.&lt;/p&gt;
 
-&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/watch?v=q4gspdUhlU4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Samples are available &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/iot.pdi.mqtt.samples&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Please keep in mind that the most interesting part is not the live dashboard, it is the data streaming capabilities on PDI. You can nos make use of the new steps to be closer to IoT and possible to use Data Integration for the ingestion of data coming from devices. This also makes clear tht might be possible to use other protocols.&lt;/p&gt;
 
