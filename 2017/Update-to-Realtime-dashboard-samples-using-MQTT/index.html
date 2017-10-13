@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Welcome to Jekyll!</title>
+  <title>Update to Realtime dashboard and PDI transformation sample using MQTT</title>
   <meta name="description" content="My name is Miguel Gaspar and this blog will be focused on Analytics, providing architectural and technical solutions. I will provide "recipes", that can be applied to Big Data, IoT and Social Innovation envolving edge technologies. Hope you like it.">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mfgaspar.github.io//2016/welcome-to-jekyll/">
+  <link rel="canonical" href="http://mfgaspar.github.io//2017/Update-to-Realtime-dashboard-samples-using-MQTT/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -165,26 +165,42 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="8 Jan 2016" class="post-meta__date date">8 Jan 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#jekyll">jekyll</a> </span>
+      <time datetime="12 Oct 2017" class="post-meta__date date">12 Oct 2017</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Realtime">Realtime</a> <a href="/tags/#MQTT">MQTT</a> <a href="/tags/#CTools">CTools</a> <a href="/tags/#PDI">PDI</a> <a href="/tags/#Streaming">Streaming</a> </span>
     </div>
-    <h1 class="post-title">Welcome to Jekyll!</h1>
+    <h1 class="post-title">Update to Realtime dashboard and PDI transformation sample using MQTT</h1>
   </header>
   <section class="post">
-    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve --watch</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+    <p>More than 1 year ago I have released a series of blog posts about a real-time dashboard using CTools and MQTT protocol. This covers how we could build a real-time dashboard for IoT showing real-time sensor data in a CTools dashboard.</p>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>The posts also show how we can perform data streaming in PDI, by using non-ending transformations (and don’t try to do it with jobs, at least not for now).</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<p>Here are the links:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span>
-</code></pre>
-</div>
+<ul>
+  <li><a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/">Live Insight Dashboard on Pentaho - Part 1: Introduction</a></li>
+  <li><a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/">Live Insight Dashboard on Pentaho - Part 2: High level overview</a></li>
+  <li><a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/">Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration.</a></li>
+</ul>
 
-<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://github.com/jekyll/jekyll-help">Jekyll’s dedicated Help repository</a>.</p>
+<p>The samples I’ve created were using some custom code on PDI, but in the meanwhile, Pentaho Labs released MQTT steps on marketplace.</p>
+
+<p>I have updated my samples to use the MQTT steps in Pentaho Marketplace, and also updated the libraries used of the frontend. 
+The samples are simpler to execute since I am now using a public MQTT broker.</p>
+
+<p>You can download them from the <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/mqtt.project.source.code">link</a></p>
+
+<p>Instruction to get them working:</p>
+
+<ul>
+  <li>Download the files;</li>
+  <li>Run <strong><em>iot-device-emulator.ktr</em></strong> and <strong><em>streaming-using-mqtt.ktr</em></strong> kettle transformations available inside the backend folder;</li>
+  <li>Upload the files inside frontend folder to your Pentaho server;</li>
+  <li>Run the CTools dashboard.</li>
+</ul>
+
+<p>At this point, you should be able to see the charts and map being updated automatically without any pull request. All data is pushed directly from Pentaho Data Integration and the broker using the MQTT protocol.</p>
+
+<p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
 
 
   </section>
@@ -194,13 +210,13 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
 
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2016/welcome-to-jekyll/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2017/Update-to-Realtime-dashboard-samples-using-MQTT/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2016/welcome-to-jekyll/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2017/Update-to-Realtime-dashboard-samples-using-MQTT/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2016/welcome-to-jekyll/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2017/Update-to-Realtime-dashboard-samples-using-MQTT/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2016/welcome-to-jekyll/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2017/Update-to-Realtime-dashboard-samples-using-MQTT/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
 <!--
 <a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
 -->

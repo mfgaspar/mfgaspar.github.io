@@ -5,9 +5,71 @@
     <description>My name is Miguel Gaspar and this blog will be focused on Analytics, providing architectural and technical solutions. I will provide &quot;recipes&quot;, that can be applied to Big Data, IoT and Social Innovation envolving edge technologies. Hope you like it.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 13 Oct 2017 15:36:10 +0100</pubDate>
-    <lastBuildDate>Fri, 13 Oct 2017 15:36:10 +0100</lastBuildDate>
+    <pubDate>Fri, 13 Oct 2017 17:09:00 +0100</pubDate>
+    <lastBuildDate>Fri, 13 Oct 2017 17:09:00 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>Update to Realtime dashboard and PDI transformation sample using MQTT</title>
+        <description>&lt;p&gt;More than 1 year ago I have released a series of blog posts about a real-time dashboard using CTools and MQTT protocol. This covers how we could build a real-time dashboard for IoT showing real-time sensor data in a CTools dashboard.&lt;/p&gt;
+
+&lt;p&gt;The posts also show how we can perform data streaming in PDI, by using non-ending transformations (and don’t try to do it with jobs, at least not for now).&lt;/p&gt;
+
+&lt;p&gt;Here are the links:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;Live Insight Dashboard on Pentaho - Part 1: Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&quot;&gt;Live Insight Dashboard on Pentaho - Part 2: High level overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&quot;&gt;Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The samples I’ve created were using some custom code on PDI, but in the meanwhile, Pentaho Labs released MQTT steps on marketplace.&lt;/p&gt;
+
+&lt;p&gt;I have updated my samples to use the MQTT steps in Pentaho Marketplace, and also updated the libraries used of the frontend. 
+The samples are simpler to execute since I am now using a public MQTT broker.&lt;/p&gt;
+
+&lt;p&gt;You can download them from the &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/mqtt.project.source.code&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Instruction to get them working:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the files;&lt;/li&gt;
+  &lt;li&gt;Run &lt;strong&gt;&lt;em&gt;iot-device-emulator.ktr&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;streaming-using-mqtt.ktr&lt;/em&gt;&lt;/strong&gt; kettle transformations available inside the backend folder;&lt;/li&gt;
+  &lt;li&gt;Upload the files inside frontend folder to your Pentaho server;&lt;/li&gt;
+  &lt;li&gt;Run the CTools dashboard.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At this point, you should be able to see the charts and map being updated automatically without any pull request. All data is pushed directly from Pentaho Data Integration and the broker using the MQTT protocol.&lt;/p&gt;
+
+&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 12 Oct 2017 09:59:00 +0100</pubDate>
+        <link>http://mfgaspar.github.io//2017/Update-to-Realtime-dashboard-samples-using-MQTT/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2017/Update-to-Realtime-dashboard-samples-using-MQTT/</guid>
+        
+        <category>Realtime</category>
+        
+        <category>MQTT</category>
+        
+        <category>CTools</category>
+        
+        <category>PDI</category>
+        
+        <category>Streaming</category>
+        
+        
+        <category>Realtime</category>
+        
+        <category>MQTT</category>
+        
+        <category>CTools</category>
+        
+        <category>PDI</category>
+        
+        <category>Streaming</category>
+        
+      </item>
     
       <item>
         <title>Logging user authentication events</title>
@@ -141,6 +203,90 @@
         <category>Security</category>
         
         <category>Logging</category>
+        
+      </item>
+    
+      <item>
+        <title>Great events comming up!</title>
+        <description>&lt;p&gt;Sorry about being so many time hidden without creating any posts, I m back again.&lt;/p&gt;
+
+&lt;p&gt;There are great events coming up, &lt;strong&gt;*Pentaho World 2017&lt;/strong&gt; and &lt;strong&gt;Pentaho Community Meeting 2017&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;pentaho-world-2017httpswwwpentahoworldcom&quot;&gt;&lt;a href=&quot;https://www.pentahoworld.com&quot;&gt;Pentaho World 2017&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Pentaho World will be held in Orlando, October 25 to 27. It has great speakers, topics and sponsors. You can get to know better Pentaho and what’s being done by and on Customers.&lt;/p&gt;
+
+&lt;p&gt;Real use cases with where companies are sharing their success, and who know you are there next year.&lt;/p&gt;
+
+&lt;p&gt;Go to meet the experts on one-to-one sessions of 45 minutes where you can get advice for your unique use case from the Pentaho experts.
+You can also take your laptop and get hands on training where you get to know more about specific topics&lt;/p&gt;
+
+&lt;p&gt;You will only have one problem, you might need to decide on your agenda. With the great agenda that was prepared the only problem will be that you wont be able to do so much as you would like.&lt;/p&gt;
+
+&lt;p&gt;Get a better idea by looking at the blog pots &lt;strong&gt;“10 Reasons to Attend Pentaho World 2017”&lt;/strong&gt; that you can access using &lt;a href=&quot;http://www.pentaho.com/blog/10-reasons-attend-pentahoworld-2017&quot;&gt;this link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some direct links: 
+- Agenda is available &lt;a href=&quot;https://www.pentahoworld.com/agenda&quot;&gt;here&lt;/a&gt;
+- Some of the speakers list &lt;a href=&quot;https://www.pentahoworld.com/speakers&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;pentaho-community-meeting-pcm17httpsit-novumcomenpcm17&quot;&gt;&lt;a href=&quot;https://it-novum.com/en/pcm17/&quot;&gt;Pentaho Community Meeting (PCM17)&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;I have attend the PCM for the last 3 years, and I can tell you I also can’t miss it this year. If you can attend, you should not hesitate!
+There are 2 rooms, so once again, the only problem is to select one or the other.&lt;/p&gt;
+
+&lt;p&gt;It all starts with the hackathon and, great news, this year PCM will also have technical short talks.&lt;/p&gt;
+
+&lt;p&gt;For the main event there are lots of interesting topics, here is a small summary of topics:
+- All about Pentaho 8.0
+- What’s new in PDI 8.0?
+- What’s brewing in the Pentaho Labs?
+- A framework for IOT, rules for implementation at the Edge, Gateway, and Data Lake.
+- Running PDI on AWS Lambda
+- Updates on webSpoon and other innovations from Hitachi R&amp;amp;D
+- Understanding the NewMapComponent
+- Pentaho 8 Reporting for Java Developers
+- Machine Learning in PDI - What’s new in the Marketplace?
+- Working with Automated Machine Learning (AutoML) and Pentaho
+- Pentaho PDI and the rule engine. Enhanced agility - enhanced quality
+- 10 WTF moments in PDI
+- Load Supervision Dashboard
+- Pentaho Solution Code Artefacts with Big Agile Teams
+- Testing Pentaho ETL solutions
+- How to gain control over SAP data with Pentaho
+- IoT, Big Data Science and the process of research and development and innovation
+- Using a BI tool to improve the management of health data in Mozambique
+- Health Information Systems Senior Specialist at Jhpiego
+- All about Pentaho 8.0
+- What’s new in PDI 8.0?
+- Environmental data management and analysis
+- A Pentaho-based analytics software for production sites
+- What’s brewing in the Pentaho Labs?
+- CERN’s Business Computing Accelerated by Pentaho
+- Essent Belgium: Migrating from on-premises Microsoft BI to AWS (cloud-) based Pentaho BI
+- eazyBI - Using Mondrian to Build the Top BI App on Atlassian Marketplace
+- Pentaho in a Startup&lt;/p&gt;
+
+&lt;p&gt;Uauauu!&lt;/p&gt;
+
+&lt;p&gt;For sure you will also love networking, networking, networking as also tasting a lot of German beer!&lt;/p&gt;
+
+&lt;p&gt;Keep up to date on twitter, here is the link, &lt;a href=&quot;https://twitter.com/hashtag/pcm17&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 Oct 2017 09:59:00 +0100</pubDate>
+        <link>http://mfgaspar.github.io//2017/Great-events-comming/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2017/Great-events-comming/</guid>
+        
+        <category>PCM</category>
+        
+        <category>PentahoWorld</category>
+        
+        
+        <category>PCM</category>
+        
+        <category>PentahoWorld</category>
         
       </item>
     
@@ -813,232 +959,6 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
         
         
         <category>Live Insights</category>
-        
-      </item>
-    
-      <item>
-        <title>Pentaho and Custom Action Sequences</title>
-        <description>&lt;p&gt;The Action Sequences or xAction, as you like to call them, are getting less used, because we now have better alternatives as using kettle, anyhow they are still useful in some cases.&lt;/p&gt;
-
-&lt;h2 id=&quot;quick-introduction&quot;&gt;Quick introduction&lt;/h2&gt;
-
-&lt;p&gt;From Action Sequences we can call transformations, so in reality, we can use an Action Sequence that calls a kettle transformation and to all the work (inclusive creating a session variable, but that was a bit slow on versions previous to 6.1. So, if we needed something that works faster, the alternative would be 
-a Action Sequence.&lt;/p&gt;
-
-&lt;p&gt;If we want to do something simple as running a query and create a session variable based on the result of the query, we can just use the standard and available actions of an Action Sequence. But, when we need to create some more complex logic for a specific use case where we can’t do it just by using the “easy” actions of an Action Sequence, we can also write some custom code.&lt;/p&gt;
-
-&lt;p&gt;There is on action in a Action Sequence with the name “Custom”, that it’s very interesting. We can build our own Java code, pass parameters from the Action Sequence to the code we want to execute and get back the result of the execution of that custom code.&lt;/p&gt;
-
-&lt;h3 id=&quot;creating-custom-action-sequence&quot;&gt;Creating custom Action Sequence&lt;/h3&gt;
-
-&lt;p&gt;Let’s suppose we want to build a “Hello World!”. Well we can do it with the JavaScript step, but not if we wnat to set a session variable with a value that comes fom LDAP, based on the use that is logged in.&lt;/p&gt;
-
-&lt;p&gt;So, let’s pick the example of the “Hello World!”. The goal here would be, to get the user name that is logged in, apppend a hello message, and let the Action Sequence return the message to be displayed on the screen.&lt;/p&gt;
-
-&lt;p&gt;Since we won’t have the “JavaScript” action for every thing, I’ve used the “Custom” action to create a “Hello World!” example.&lt;/p&gt;
-
-&lt;p&gt;First we need to create the Action Sequence and add an input variable. We need the variable to have the name of the user that is logged in.&lt;/p&gt;
-
-&lt;p&gt;If using the Eclipse Plugin for Pentaho Action Sequences, you should be creating something as the image below.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/custom_xaction_1.png&quot; alt=&quot;Custom Action Sequence - Adding an input variable&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Else if using a text editor, you will need to add something as:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;inputs&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;username&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;sources&amp;gt;&lt;/span&gt; 
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;security&amp;gt;&lt;/span&gt;principalName&lt;span class=&quot;nt&quot;&gt;&amp;lt;/security&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/sources&amp;gt;&lt;/span&gt; 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/username&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/inputs&amp;gt;&lt;/span&gt;
-    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;The next step is to add the custom action where we need to:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Add a name to the action;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Add the name of the class that will make the call of our Java Class with the custom code. this will always be defined to be:&lt;/p&gt;
-
-    &lt;p&gt;“org.pentaho.platform.engine.services.solution.PojoComponent”.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Add the input variable with the value to be passed to the code;&lt;/li&gt;
-  &lt;li&gt;Add the output variable and the mapping to the Action Sequence variable to where the custom code will return the result.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The image below, show exactly those inputs and outputs as the name of the class that will make the call to our custom code.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/custom_xaction_2.png&quot; alt=&quot;Custom Action Sequence - Adding an input variable&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If using a text editor you will need to write the following code:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;actions&amp;gt;&lt;/span&gt; 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-definition&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;component-name&amp;gt;&lt;/span&gt;
-			org.pentaho.platform.engine.services.solution.PojoComponent
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/component-name&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-type&amp;gt;&lt;/span&gt;Custom&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-type&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-inputs&amp;gt;&lt;/span&gt; 
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;name&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-inputs&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-resources/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-outputs&amp;gt;&lt;/span&gt; 
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;output&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;outputmessage&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-outputs&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;component-definition&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;class&amp;gt;&lt;/span&gt;
-				com.github.mfgaspar.pentaho.Action Sequence.CustomCodeForActionSequence
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/class&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/component-definition&amp;gt;&lt;/span&gt; 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-definition&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/actions&amp;gt;&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;At last we need to have one output message to display on the screen, so we need to add an output to the Action Sequence. You can see an example on the image bellow.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/custom_xaction_3.png&quot; alt=&quot;Custom Action Sequence - Adding an input variable&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If using a text editor the code will look like:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;outputs&amp;gt;&lt;/span&gt; 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;outputmessage&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/outputs&amp;gt;&lt;/span&gt;
-  	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;We already saw the code of the Action Sequence, but we haven’t saw the java code that will be executed. In the code below you will see that we need to reference 2 interfaces IAcceptsRuntimeInputs and IProducesRuntimeOutputs, so that we can accept inputs and write to outputs.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mfgaspar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pentaho&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Action&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sequence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.pentaho.platform.api.engine.IAcceptsRuntimeInputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.pentaho.platform.api.engine.IActionSequenceResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.pentaho.platform.api.engine.IProducesRuntimeOutputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.commons.logging.Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.commons.logging.LogFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// This small sample accepts one name to whom we are sending back a message saying Hello &lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@SuppressWarnings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;all&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CustomCodeForActionSequence&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IAcceptsRuntimeInputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IProducesRuntimeOutputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LogFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CustomCodeForActionSequence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IActionSequenceResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// Here you need to write the custom code you need to execute&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Get the name from the inputs &lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Prepend &quot;Hello, &quot; to the name &lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputMessage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;&quot;Hello, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Set the hello message in the outputs to be returned to the Action Sequence &lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;output&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Log the message to the console, don&#39;t forget to include the class and/or change the log level&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Return the status of execution  &lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// Set the resources set in the Action Sequence&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setResources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IActionSequenceResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// Set the inputs coming from the Action Sequence  &lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setInputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// Return outputs to the Action Sequence&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getOutputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;There are 3 main functions we need to code:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;public void setInputs( Map&amp;lt;String, Object&amp;gt; inputs ) : That is executed at the begining to get the inpt variable values.&lt;/li&gt;
-  &lt;li&gt;public boolean execute(): With the code to be executed. At the time we already have the inputs and we can write to outputs. Here we are just prepending “Hello” to the name of the user coming from the inputs and write it to the output.&lt;/li&gt;
-  &lt;li&gt;public Map&amp;lt;String, Object&amp;gt; getOutputs(): Called at the end of the execution of the last function to return the message to the Action Sequence.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There is one other function we can use, if we are using resources on the Action Sequence and that function is:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;public void setResources( Map&amp;lt;String, IActionSequenceResource&amp;gt; resources): In case we want to use resources.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This Java code needs to be compiled and the jar file needs to be added to Pentaho webapp library, and that’s all.&lt;/p&gt;
-
-&lt;p&gt;At the end of the execution of the Action Sequence the output variable will have the message for the user, so it van be displayed on the screen.&lt;/p&gt;
-
-&lt;p&gt;So, you saw that this in another extension point in Pentaho. If we don’t have an action that performs what we need, then it’s time to get our hands on code.&lt;/p&gt;
-
-&lt;p&gt;Hope you can use kettle instead, but if not, just write a message in here, and let others knows what you did!&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/custom.code.action.sequence&quot;&gt;Sample code available here.&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 13 Jul 2016 09:59:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Pentaho-Action-Sequences/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Pentaho-Action-Sequences/</guid>
-        
-        <category>Action Sequences</category>
-        
-        <category>Action Sequences</category>
-        
-        
-        <category>Action Sequences</category>
-        
-      </item>
-    
-      <item>
-        <title>Embedding Analytics in Augmented Reality</title>
-        <description>&lt;p&gt;Embedding Analytics in Augmented Reality&lt;/p&gt;
-
-&lt;p&gt;I consider Augmented Reality to be the integration of digital information with the user’s environment whose elements are augmented/supplemented by computer-generated sensory input such as sound, video, graphics or GPS data.  Unlike virtual reality, which creates a totally artificial environment, augmented reality uses the existing environment and overlays new information on top of it.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/EAIAR_Screncast_small.png&quot; alt=&quot;Analytics and Augemented Reality&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;How about bringing &lt;strong&gt;Analytics&lt;/strong&gt; to &lt;strong&gt;Augmented Reality&lt;/strong&gt;?&lt;/p&gt;
-
-&lt;p&gt;A good example would be applying it to smart cities or any other area, where it would be useful to place some analytics on top of our real world image being displayed on the screen of our smart car or simply to our smartphone or tablet.&lt;/p&gt;
-
-&lt;p&gt;Would not only improve peoples life, allowing faster and more accurate decisions were to spend time and money, but also would improve the ability to increase business opportunities for companies.
-There is  big pontential to generate business. Companies will see the advantage of giving the best information to the user, that can be driven by the behaviour of each user, like navigations, interests, searchs, and even controlled by the user trajectory after getting insights about places, objects, stores, products, services or anything else. I am sure it be will be big in future, and we will see Gartner paying some more attention to it sooner.&lt;/p&gt;
-
-&lt;p&gt;I really like the idea of using advanced mobile apps, smart glasses or even a smart glass on your vehicle that can help on navigation and get insights that has as a starting point of input, sensors such as sound, video, graphics and GPS data. There are already some applications that allows you to simplify user’s life and that are improving the experience of the user, so why not also bringing analytics and improve it even more?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;[UPDATE from the 19th of July 2016]&lt;/strong&gt; Pockémon Go is the live proof that Augmented Reality will be a big part of our life in near future. So, anyone still have doubts about the potential of Augmented Reality and the business opportunities around it?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;I am glad to start the work to combine Analytics, Social Media and Augemented Reality, but need a sponsor.&lt;/strong&gt; Anyone to give a step front on this?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;[UPDATE from the 19th of July 2016]&lt;/strong&gt; Maybe that one of these days I will have Insights on top of Pockémon Go. Just need Nintent to release an API that we can interact with! Do you wnat to know how many where catch on a specific area and if some of your friends did it? Well I was kidding about it, but who know!&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 12 Jul 2016 09:59:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</guid>
-        
-        <category>Augmented Reality</category>
-        
-        <category>Smart Cities</category>
-        
-        <category>Embedding</category>
-        
-        
-        <category>Augmented Reality</category>
-        
-        <category>Smart Cities</category>
-        
-        <category>Embedding</category>
         
       </item>
     
