@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog will be focused on Analytics, providing architectural and technical solutions. I will provide &quot;recipes&quot;, that can be applied to Big Data, IoT and Social Innovation envolving edge technologies. Hope you like it.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 13 Oct 2017 17:09:00 +0100</pubDate>
-    <lastBuildDate>Fri, 13 Oct 2017 17:09:00 +0100</lastBuildDate>
+    <pubDate>Fri, 13 Oct 2017 17:14:30 +0100</pubDate>
+    <lastBuildDate>Fri, 13 Oct 2017 17:14:30 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -225,9 +225,12 @@ You can also take your laptop and get hands on training where you get to know mo
 
 &lt;p&gt;Get a better idea by looking at the blog pots &lt;strong&gt;“10 Reasons to Attend Pentaho World 2017”&lt;/strong&gt; that you can access using &lt;a href=&quot;http://www.pentaho.com/blog/10-reasons-attend-pentahoworld-2017&quot;&gt;this link&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Some direct links: 
-- Agenda is available &lt;a href=&quot;https://www.pentahoworld.com/agenda&quot;&gt;here&lt;/a&gt;
-- Some of the speakers list &lt;a href=&quot;https://www.pentahoworld.com/speakers&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Some direct links:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Agenda is available &lt;a href=&quot;https://www.pentahoworld.com/agenda&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Some of the speakers list &lt;a href=&quot;https://www.pentahoworld.com/speakers&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;pentaho-community-meeting-pcm17httpsit-novumcomenpcm17&quot;&gt;&lt;a href=&quot;https://it-novum.com/en/pcm17/&quot;&gt;Pentaho Community Meeting (PCM17)&lt;/a&gt;&lt;/h1&gt;
 
@@ -236,35 +239,38 @@ There are 2 rooms, so once again, the only problem is to select one or the other
 
 &lt;p&gt;It all starts with the hackathon and, great news, this year PCM will also have technical short talks.&lt;/p&gt;
 
-&lt;p&gt;For the main event there are lots of interesting topics, here is a small summary of topics:
-- All about Pentaho 8.0
-- What’s new in PDI 8.0?
-- What’s brewing in the Pentaho Labs?
-- A framework for IOT, rules for implementation at the Edge, Gateway, and Data Lake.
-- Running PDI on AWS Lambda
-- Updates on webSpoon and other innovations from Hitachi R&amp;amp;D
-- Understanding the NewMapComponent
-- Pentaho 8 Reporting for Java Developers
-- Machine Learning in PDI - What’s new in the Marketplace?
-- Working with Automated Machine Learning (AutoML) and Pentaho
-- Pentaho PDI and the rule engine. Enhanced agility - enhanced quality
-- 10 WTF moments in PDI
-- Load Supervision Dashboard
-- Pentaho Solution Code Artefacts with Big Agile Teams
-- Testing Pentaho ETL solutions
-- How to gain control over SAP data with Pentaho
-- IoT, Big Data Science and the process of research and development and innovation
-- Using a BI tool to improve the management of health data in Mozambique
-- Health Information Systems Senior Specialist at Jhpiego
-- All about Pentaho 8.0
-- What’s new in PDI 8.0?
-- Environmental data management and analysis
-- A Pentaho-based analytics software for production sites
-- What’s brewing in the Pentaho Labs?
-- CERN’s Business Computing Accelerated by Pentaho
-- Essent Belgium: Migrating from on-premises Microsoft BI to AWS (cloud-) based Pentaho BI
-- eazyBI - Using Mondrian to Build the Top BI App on Atlassian Marketplace
-- Pentaho in a Startup&lt;/p&gt;
+&lt;p&gt;For the main event there are lots of interesting topics, here is a small summary of topics:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;All about Pentaho 8.0&lt;/li&gt;
+  &lt;li&gt;What’s new in PDI 8.0?&lt;/li&gt;
+  &lt;li&gt;What’s brewing in the Pentaho Labs?&lt;/li&gt;
+  &lt;li&gt;A framework for IOT, rules for implementation at the Edge, Gateway, and Data Lake.&lt;/li&gt;
+  &lt;li&gt;Running PDI on AWS Lambda&lt;/li&gt;
+  &lt;li&gt;Updates on webSpoon and other innovations from Hitachi R&amp;amp;D&lt;/li&gt;
+  &lt;li&gt;Understanding the NewMapComponent&lt;/li&gt;
+  &lt;li&gt;Pentaho 8 Reporting for Java Developers&lt;/li&gt;
+  &lt;li&gt;Machine Learning in PDI - What’s new in the Marketplace?&lt;/li&gt;
+  &lt;li&gt;Working with Automated Machine Learning (AutoML) and Pentaho&lt;/li&gt;
+  &lt;li&gt;Pentaho PDI and the rule engine. Enhanced agility - enhanced quality&lt;/li&gt;
+  &lt;li&gt;10 WTF moments in PDI&lt;/li&gt;
+  &lt;li&gt;Load Supervision Dashboard&lt;/li&gt;
+  &lt;li&gt;Pentaho Solution Code Artefacts with Big Agile Teams&lt;/li&gt;
+  &lt;li&gt;Testing Pentaho ETL solutions&lt;/li&gt;
+  &lt;li&gt;How to gain control over SAP data with Pentaho&lt;/li&gt;
+  &lt;li&gt;IoT, Big Data Science and the process of research and development and innovation&lt;/li&gt;
+  &lt;li&gt;Using a BI tool to improve the management of health data in Mozambique&lt;/li&gt;
+  &lt;li&gt;Health Information Systems Senior Specialist at Jhpiego&lt;/li&gt;
+  &lt;li&gt;All about Pentaho 8.0&lt;/li&gt;
+  &lt;li&gt;What’s new in PDI 8.0?&lt;/li&gt;
+  &lt;li&gt;Environmental data management and analysis&lt;/li&gt;
+  &lt;li&gt;A Pentaho-based analytics software for production sites&lt;/li&gt;
+  &lt;li&gt;What’s brewing in the Pentaho Labs?&lt;/li&gt;
+  &lt;li&gt;CERN’s Business Computing Accelerated by Pentaho&lt;/li&gt;
+  &lt;li&gt;Essent Belgium: Migrating from on-premises Microsoft BI to AWS (cloud-) based Pentaho BI&lt;/li&gt;
+  &lt;li&gt;eazyBI - Using Mondrian to Build the Top BI App on Atlassian Marketplace&lt;/li&gt;
+  &lt;li&gt;Pentaho in a Startup&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Uauauu!&lt;/p&gt;
 
