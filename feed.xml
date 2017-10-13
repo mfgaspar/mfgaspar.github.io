@@ -5,8 +5,8 @@
     <description>My name is Miguel Gaspar and this blog will be focused on Analytics, providing architectural and technical solutions. I will provide &quot;recipes&quot;, that can be applied to Big Data, IoT and Social Innovation envolving edge technologies. Hope you like it.</description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 13 Oct 2017 15:31:29 +0100</pubDate>
-    <lastBuildDate>Fri, 13 Oct 2017 15:31:29 +0100</lastBuildDate>
+    <pubDate>Fri, 13 Oct 2017 15:36:10 +0100</pubDate>
+    <lastBuildDate>Fri, 13 Oct 2017 15:36:10 +0100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -141,66 +141,6 @@
         <category>Security</category>
         
         <category>Logging</category>
-        
-      </item>
-    
-      <item>
-        <title>Pentaho Scheduler in a Multitenant Environment</title>
-        <description>&lt;p&gt;The &lt;a href=&quot;http://www.meetup.com/Pentaho-London-User-Group/events/222548597/&quot;&gt;last post&lt;/a&gt; stated to cover one of the ways we could use to have “realtime” using Data Integration and CTools.&lt;/p&gt;
-
-&lt;p&gt;The main goal here is to have a way to read from the “things” and show live insights on a dashboard or application. To do it we need to make information flow as fast as required, but we also need to process on it’s way, so why code everything when you can do easly with an amaizing tool.&lt;/p&gt;
-
-&lt;p&gt;PDI works internally with streams to send rows from one step to another, so if we can use an input step that keeps looping, never ends, that would be streaming in PDI. Matt Castters published a post on his blog some years ago about it, you can check it &lt;a href=&quot;????&quot;&gt;here&lt;/a&gt;. Not new!&lt;/p&gt;
-
-&lt;p&gt;So, we now that we can use PDI for processing the stream of information but still need to get messages to and from PDI.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Messages &amp;gt;&amp;gt;&amp;gt; Data Integration &amp;gt;&amp;gt;&amp;gt; Messagess
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;So what can we use to make it work? There s multiple ways to do it, but one that I really like because it’s easy to use but powerfull, it’s by using a publish/subscribe or queue system. So, this messaging system can act as the middle point between the “things” and kettle as also between kettle and the browser.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Messages &amp;gt;&amp;gt;&amp;gt; Pub/Sub Messaging Broker &amp;gt;&amp;gt;&amp;gt; Data Integration &amp;gt;&amp;gt;&amp;gt; Pub/Sub Messaging Broker &amp;gt;&amp;gt;&amp;gt; Messagess
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;There are multiple brokers we could use as also the standards being used between the brokers. I will for now refer to MQTT and AMQP. They are different from each other in the way they, so depending on your requirments you may wnat to use one or another. Both MQTT and AMQT are messaging-centric while you might find some data-centric standards is usually (not only) used to switch messages from server to server, while MQTT is more likely to be used as for machine to machine comunications.&lt;/p&gt;
-
-&lt;p&gt;Comparing AMQP to MQTT:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// ADD SOME LINKS 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;We will see later that when we need to scale AMQT will be a better fit, so when discussing how to scale it “big”, I will come back to it.&lt;/p&gt;
-
-&lt;h3 id=&quot;how-does-mqtt-works&quot;&gt;How does MQTT works?&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Add some links on how MQTT works  
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;QoS might be a very intersting topic to discuss about. That’s because some projects will have diferent needs to have persistency of messages while others might not have, and some messages that might fail to get to the destination will not be a problem at all.&lt;/p&gt;
-
-&lt;p&gt;Brokers&lt;/p&gt;
-
-&lt;p&gt;…&lt;/p&gt;
-
-&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Fri, 30 Dec 2016 09:59:00 +0000</pubDate>
-        <link>http://mfgaspar.github.io//2016/Pentaho-Scheduler-in-a-multitenant-environment/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Pentaho-Scheduler-in-a-multitenant-environment/</guid>
-        
-        <category>Multitenancy</category>
-        
-        <category>Scheduler</category>
-        
-        
-        <category>Multitenancy</category>
-        
-        <category>Scheduler</category>
         
       </item>
     
@@ -1056,6 +996,49 @@ a Action Sequence.&lt;/p&gt;
         
         
         <category>Action Sequences</category>
+        
+      </item>
+    
+      <item>
+        <title>Embedding Analytics in Augmented Reality</title>
+        <description>&lt;p&gt;Embedding Analytics in Augmented Reality&lt;/p&gt;
+
+&lt;p&gt;I consider Augmented Reality to be the integration of digital information with the user’s environment whose elements are augmented/supplemented by computer-generated sensory input such as sound, video, graphics or GPS data.  Unlike virtual reality, which creates a totally artificial environment, augmented reality uses the existing environment and overlays new information on top of it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/EAIAR_Screncast_small.png&quot; alt=&quot;Analytics and Augemented Reality&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;How about bringing &lt;strong&gt;Analytics&lt;/strong&gt; to &lt;strong&gt;Augmented Reality&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;p&gt;A good example would be applying it to smart cities or any other area, where it would be useful to place some analytics on top of our real world image being displayed on the screen of our smart car or simply to our smartphone or tablet.&lt;/p&gt;
+
+&lt;p&gt;Would not only improve peoples life, allowing faster and more accurate decisions were to spend time and money, but also would improve the ability to increase business opportunities for companies.
+There is  big pontential to generate business. Companies will see the advantage of giving the best information to the user, that can be driven by the behaviour of each user, like navigations, interests, searchs, and even controlled by the user trajectory after getting insights about places, objects, stores, products, services or anything else. I am sure it be will be big in future, and we will see Gartner paying some more attention to it sooner.&lt;/p&gt;
+
+&lt;p&gt;I really like the idea of using advanced mobile apps, smart glasses or even a smart glass on your vehicle that can help on navigation and get insights that has as a starting point of input, sensors such as sound, video, graphics and GPS data. There are already some applications that allows you to simplify user’s life and that are improving the experience of the user, so why not also bringing analytics and improve it even more?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[UPDATE from the 19th of July 2016]&lt;/strong&gt; Pockémon Go is the live proof that Augmented Reality will be a big part of our life in near future. So, anyone still have doubts about the potential of Augmented Reality and the business opportunities around it?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I am glad to start the work to combine Analytics, Social Media and Augemented Reality, but need a sponsor.&lt;/strong&gt; Anyone to give a step front on this?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[UPDATE from the 19th of July 2016]&lt;/strong&gt; Maybe that one of these days I will have Insights on top of Pockémon Go. Just need Nintent to release an API that we can interact with! Do you wnat to know how many where catch on a specific area and if some of your friends did it? Well I was kidding about it, but who know!&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 12 Jul 2016 09:59:00 +0100</pubDate>
+        <link>http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embedding-Pentaho-in-Augmented-Reality/</guid>
+        
+        <category>Augmented Reality</category>
+        
+        <category>Smart Cities</category>
+        
+        <category>Embedding</category>
+        
+        
+        <category>Augmented Reality</category>
+        
+        <category>Smart Cities</category>
+        
+        <category>Embedding</category>
         
       </item>
     
