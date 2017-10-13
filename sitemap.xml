@@ -3,6 +3,36 @@
   
     
     <url>
+      <loc>http://mfgaspar.github.io/2017/Logging-user-authentication-events-in-log-file/</loc>
+      
+        <lastmod>2017-10-09T09:59:00+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://mfgaspar.github.io/2016/Pentaho-Scheduler-in-a-multitenant-environment/</loc>
+      
+        <lastmod>2016-12-30T09:59:00+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://mfgaspar.github.io/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</loc>
       
         <lastmod>2016-12-16T12:00:00+00:00</lastmod>
@@ -181,12 +211,57 @@
     </url>
     
   
+    
+    <url>
+      <loc>http://mfgaspar.github.io/2016/welcome-to-jekyll/</loc>
+      
+        <lastmod>2016-01-08T15:04:23+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
   
     
     <url>
       <loc>http://mfgaspar.github.io/categories/</loc>
       
-        <lastmod>2016-12-19T16:46:59+00:00</lastmod>
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://mfgaspar.github.io/categories/</loc>
+      
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://mfgaspar.github.io/jekyll-uno/feed.xml</loc>
+      
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -201,7 +276,22 @@
     <url>
       <loc>http://mfgaspar.github.io/feed.xml</loc>
       
-        <lastmod>2016-12-19T16:46:59+00:00</lastmod>
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://mfgaspar.github.io/jekyll-uno/</loc>
+      
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -216,7 +306,7 @@
     <url>
       <loc>http://mfgaspar.github.io/</loc>
       
-        <lastmod>2016-12-19T16:46:59+00:00</lastmod>
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -228,10 +318,12 @@
     
   
     
+  
+    
     <url>
       <loc>http://mfgaspar.github.io/js/main.js</loc>
       
-        <lastmod>2016-12-19T16:46:59+00:00</lastmod>
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -240,6 +332,8 @@
         <priority>0.3</priority>
       
     </url>
+    
+  
     
   
     
@@ -248,7 +342,22 @@
     <url>
       <loc>http://mfgaspar.github.io/tags/</loc>
       
-        <lastmod>2016-12-19T16:46:59+00:00</lastmod>
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://mfgaspar.github.io/tags/</loc>
+      
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -263,7 +372,7 @@
     <url>
       <loc>http://mfgaspar.github.io/page2/</loc>
       
-        <lastmod>2016-12-19T16:46:59+00:00</lastmod>
+        <lastmod>2017-10-13T06:54:32+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
