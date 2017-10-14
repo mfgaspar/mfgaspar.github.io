@@ -206,19 +206,19 @@
 
 <p><strong>Step 3)</strong> The value of the properties can be set to define what will be logged into the log file. Note that you don’t really need to change them, or set them. The available properties are:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>- **enableNoAuthenticationEvents:** Set it to true will log some events, when a user requests a resource without authentication. Default value is true
-- **enableBadCredentialEvents:** Set it  true to log informations about failed login attempts. Default value is true
-- **enableSessionCreatedEvents:** Set it to true to log information when user logs in (session is created for user). Default value is true
-- **enableSessionDestroyedEvents:** Set it to true to log information when user logs out or session expired (session is destroyed). Default value is true
-- **enableTraceServletEvents:** Set it to true when you want servlet events to be logged (log level in log4j should be set to TRACE). Default value is false
-- **enableTraceOtherEvents:** Set it to true when you want all other events logged in file. Should be used only for debugging (log level in log4j should be set to TRACE). Default value is false
-- **messageTemplate:** Sets the format of the message to be send to log file, used for the folowing events: NoAuthenticationEvents, BadCredentialEvents, SessionCreatedEvents and SessionDetroyedEvents. The message will include the **Event ID**, the **IP address** of remote host, the **Username** and de **Session ID**. Default message format is ``(%s|%s|%s|%s)``. You can check the syntax in [here](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html)
-- **noAuthenticationEventsId:** Sets the event ID that will identify the event on the log file. Default value is "NO-AUTHENTICATION"
-- **badCredentialEventsId:** Sets the event ID that will identify the event on the log file. Default value is "NO-AUTHENTICATION"
-- **sessionCreatedEventsId:** Sets the event ID that will identify the event on the log file. Default value is "NO-AUTHENTICATION"
-- **sessionDestroyedEventsId:** Sets the event ID that will identify the event on the log file. Default value is "NO-AUTHENTICATION"
-</code></pre>
-</div>
+<ul>
+  <li><strong>enableNoAuthenticationEvents:</strong> Set it to true will log some events, when a user requests a resource without authentication. Default value is true</li>
+  <li><strong>enableBadCredentialEvents:</strong> Set it  true to log informations about failed login attempts. Default value is true</li>
+  <li><strong>enableSessionCreatedEvents:</strong> Set it to true to log information when user logs in (session is created for user). Default value is true</li>
+  <li><strong>enableSessionDestroyedEvents:</strong> Set it to true to log information when user logs out or session expired (session is destroyed). Default value is true</li>
+  <li><strong>enableTraceServletEvents:</strong> Set it to true when you want servlet events to be logged (log level in log4j should be set to TRACE). Default value is false</li>
+  <li><strong>enableTraceOtherEvents:</strong> Set it to true when you want all other events logged in file. Should be used only for debugging (log level in log4j should be set to TRACE). Default value is false</li>
+  <li><strong>messageTemplate:</strong> Sets the format of the message to be send to log file, used for the folowing events: NoAuthenticationEvents, BadCredentialEvents, SessionCreatedEvents and SessionDetroyedEvents. The message will include the <strong>Event ID</strong>, the <strong>IP address</strong> of remote host, the <strong>Username</strong> and de <strong>Session ID</strong>. Default message format is <code class="highlighter-rouge">(%s|%s|%s|%s)</code>. You can check the syntax in <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html">here</a></li>
+  <li><strong>noAuthenticationEventsId:</strong> Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”</li>
+  <li><strong>badCredentialEventsId:</strong> Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”</li>
+  <li><strong>sessionCreatedEventsId:</strong> Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”</li>
+  <li><strong>sessionDestroyedEventsId:</strong> Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”</li>
+</ul>
 
 <p><strong>Step 4)</strong> You also need to add the folowing lines into: <strong>…/pentaho-server/tomcat/webapps/pentaho/classes/log4j.xml</strong>.</p>
 
