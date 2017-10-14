@@ -176,21 +176,21 @@
 
 <p>The code does not change any of the code, neither does require any compilation of Pentaho code. We just need apply some beans configurations to extend functionality.</p>
 
-<p>First, we need to add the following line in file: <strong>…pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml</strong></p>
+<ol>
+  <li>First, we need to add the following line in file: <strong>…pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml</strong></li>
+</ol>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>    <span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">"applicationContext-pentaho-security.custom-user-authenticate-events.xml"</span> <span class="nt">/&gt;</span>
 </code></pre>
 </div>
 
-<p>Next step is to set the properties that will dictate the behavior in the code, and what should be logged. Add the following lines to the file: <strong>…pentaho-server/pentaho-solutions/system/applicationContext-pentaho-security.custom-user-authenticate-events.xml</strong></p>
+<ol>
+  <li>Next step is to set the properties that will dictate the behavior in the code, and what should be logged. Add the following lines to the file: <strong>…pentaho-server/pentaho-solutions/system/applicationContext-pentaho-security.custom-user-authenticate-events.xml</strong></li>
+</ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-    <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-
+<div class="highlighter-rouge"><pre class="highlight"><code>    <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
     <span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">"http://www.springframework.org/schema/beans"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:util=</span><span class="s">"http://www.springframework.org/schema/util"</span> <span class="na">xmlns:pen=</span><span class="s">"http://www.pentaho.com/schema/pentaho-system"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd http://www.pentaho.com/schema/pentaho-system http://www.pentaho.com/schema/pentaho-system.xsd"</span> <span class="na">default-lazy-init=</span><span class="s">"true"</span><span class="nt">&gt;</span>
-
         <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"loggerListener"</span> <span class="na">class=</span><span class="s">"io.github.mfgaspar.pentaho.authentication.events.loggerListener"</span> <span class="na">scope=</span><span class="s">"singleton"</span><span class="nt">&gt;</span>
-
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"enablePentahoLoggerListener"</span> <span class="na">value=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"enableNoAuthenticationEvents"</span> <span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"enableBadCredentialEvents"</span> <span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
@@ -198,55 +198,39 @@
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"enableSessionDestroyedEvents"</span> <span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"enableTraceServletEvents"</span> <span class="na">value=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"enableTraceOtherEvents"</span> <span class="na">value=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
-
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"messageTemplate"</span> <span class="na">value=</span><span class="s">"(%s|%s|%s|%s)"</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"noAuthenticationEventsId"</span> <span class="na">value=</span><span class="s">"NO-AUTHENTICATION"</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"badCredentialEventsId"</span> <span class="na">value=</span><span class="s">"AUTHENTICATION-FAILED"</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"sessionCreatedEventsId"</span> <span class="na">value=</span><span class="s">"SESSION-START"</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"sessionDestroyedEventsId"</span> <span class="na">value=</span><span class="s">"SESSION-END"</span><span class="nt">/&gt;</span>
-
         <span class="nt">&lt;/bean&gt;</span>
-
     <span class="nt">&lt;/beans&gt;</span>
-
 </code></pre>
 </div>
 
-<p>The value of the properties can be set to define what will be logged into the log file. Note that you don’t really need to change them, or set them. The available properties are:</p>
+<ol>
+  <li>The value of the properties can be set to define what will be logged into the log file. Note that you don’t really need to change them, or set them. The available properties are:</li>
+</ol>
 
 <ul>
-  <li><strong>enableNoAuthenticationEvents:</strong> Set it to true will log some events, when a user requests a resource without authentication. Default value is true;</li>
-  <li><strong>enableBadCredentialEvents:</strong> Set it  true to log informations about failed login attempts. Default value is true;</li>
-  <li><strong>enableSessionCreatedEvents:</strong> Set it to true to log information when user logs in (session is created for user). Default value is true;</li>
-  <li><strong>enableSessionDestroyedEvents:</strong> Set it to true to log information when user logs out or session expired (session is destroyed). Default value is true;</li>
-  <li><strong>enableTraceServletEvents:</strong> Set it to true when you want servlet events to be logged (log level in log4j should be set to TRACE). Default value is false;</li>
-  <li>
-    <p><strong>enableTraceOtherEvents:</strong> Set it to true when you want all other events logged in file. Should be used only for debugging (log level in log4j should be set to TRACE). Default value is false.</p>
-  </li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td><strong>messageTemplate:</strong> Sets the format of the message to be send to log file, used for the folowing events: NoAuthenticationEvents, BadCredentialEvents, SessionCreatedEvents and SessionDetroyedEvents. The message will include the <strong>Event ID</strong>, the <strong>IP address</strong> of remote host, the <strong>Username</strong> and de <strong>Session ID</strong>. Default message format is (%s</td>
-          <td>%s</td>
-          <td>%s</td>
-          <td>%s).</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li><strong>noAuthenticationEventsId:</strong> Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”.</li>
+  <li><strong>enableNoAuthenticationEvents:</strong> Set it to true will log some events, when a user requests a resource without authentication. Default value is true</li>
+  <li><strong>enableBadCredentialEvents:</strong> Set it  true to log informations about failed login attempts. Default value is true</li>
+  <li><strong>enableSessionCreatedEvents:</strong> Set it to true to log information when user logs in (session is created for user). Default value is true</li>
+  <li><strong>enableSessionDestroyedEvents:</strong> Set it to true to log information when user logs out or session expired (session is destroyed). Default value is true</li>
+  <li><strong>enableTraceServletEvents:</strong> Set it to true when you want servlet events to be logged (log level in log4j should be set to TRACE). Default value is false</li>
+  <li><strong>enableTraceOtherEvents:</strong> Set it to true when you want all other events logged in file. Should be used only for debugging (log level in log4j should be set to TRACE). Default value is false</li>
+  <li><strong>messageTemplate:</strong> Sets the format of the message to be send to log file, used for the folowing events: NoAuthenticationEvents, BadCredentialEvents, SessionCreatedEvents and SessionDetroyedEvents. The message will include the <strong>Event ID</strong>, the <strong>IP address</strong> of remote host, the <strong>Username</strong> and de <strong>Session ID</strong>. Default message format is <code class="highlighter-rouge">(%s|%s|%s|%s)</code>. You can check the syntax in <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html">here</a></li>
+  <li><strong>noAuthenticationEventsId:</strong> Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”</li>
   <li><strong>badCredentialEventsId:</strong> Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”</li>
   <li><strong>sessionCreatedEventsId:</strong> Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”</li>
   <li><strong>sessionDestroyedEventsId:</strong> Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”</li>
 </ul>
 
-<p>https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html</p>
+<ol>
+  <li>You also need to add the folowing lines into: <strong>…/pentaho-server/tomcat/webapps/pentaho/classes/log4j.xml</strong>.</li>
+</ol>
 
-<p>You also need to add the folowing lines into: <strong>…/pentaho-server/tomcat/webapps/pentaho/classes/log4j.xml</strong>.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>
-    <span class="nt">&lt;log4j:configuration</span> <span class="na">xmlns:log4j=</span><span class="s">"http://jakarta.apache.org/log4j/"</span> <span class="na">debug=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>    <span class="nt">&lt;log4j:configuration</span> <span class="na">xmlns:log4j=</span><span class="s">"http://jakarta.apache.org/log4j/"</span> <span class="na">debug=</span><span class="s">"false"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">"AUTHENTICATELOG"</span> <span class="na">class=</span><span class="s">"org.apache.log4j.RollingFileAppender"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">"File"</span> <span class="na">value=</span><span class="s">"../logs/authenticate_events.log"</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">"Append"</span> <span class="na">value=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
@@ -261,27 +245,89 @@
             <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">"AUTHENTICATELOG"</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;/category&gt;</span>
     <span class="nt">&lt;/log4j:configuration&gt;</span>
-
 </code></pre>
 </div>
 
-<p>Place <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/blob/master/pentaho/security.events.authenticate/artifacts/io-github-mfgaspar-pentaho-authenticate-events.jar">this</a> jar file in <strong>…/pentaho-server/tomcat/webapps/pentaho/WEB-INF/classes/log4j.xml</strong></p>
+<ol>
+  <li>
+    <p>Place <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/blob/master/pentaho/security.events.authenticate/artifacts/io-github-mfgaspar-pentaho-authenticate-events.jar">this</a> jar file in <strong>…/pentaho-server/tomcat/webapps/pentaho/WEB-INF/classes/log4j.xml</strong>
+Source code is available <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/blob/master/pentaho/security.events.authenticate/src/io/github/mfgaspar/pentaho/authentication/events/loggerListener.java">here</a>.</p>
+  </li>
+  <li>
+    <p>Restart te server. Once the users starts to login, logout or even failing to authenticate, the file <strong>…/pentaho-server/tomcat/logs/authenticate_events.log</strong> will start to be populated. The following lines are an example of the output.</p>
 
-<p>Restart te server. Once the users starts to login, logout or even failing to authenticate, the file <strong>…/pentaho-server/tomcat/logs/authenticate_events.log</strong> will start to be populated. The following lines are an example of the output.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>2017-10-09 04:37:26,696 INFO  [...] (NO-AUTHENTICATION|0:0:0:0:0:0:0:1|anonymousUser|905E6FADA39FE79B23E48C01190776C8)
-2017-10-09 04:37:43,715 INFO  [...] (SESSION-START|0:0:0:0:0:0:0:1|admin|905E6FADA39FE79B23E48C01190776C8)
-2017-10-09 04:44:13,051 INFO  [...] (NO-AUTHENTICATION|192.168.56.1|anonymousUser|661BE4C2563FFEA09BB80E300579490F)
-2017-10-09 04:44:15,216 INFO  [...] (SESSION-START|192.168.56.1|admin|661BE4C2563FFEA09BB80E300579490F)
-2017-10-09 04:44:23,479 INFO  [...] (SESSION-END|192.168.56.1|admin|661BE4C2563FFEA09BB80E300579490F)
-2017-10-09 04:44:23,575 INFO  [...] (NO-AUTHENTICATION|192.168.56.1|anonymousUser|833B9C0DE7490AECFB36EB04940C4339)
-2017-10-09 04:44:31,121 INFO  [...] (NO-AUTHENTICATION|192.168.56.1|anonymousUser|23BD39EB76D0D973AD867CB92CF1E916)
-2017-10-09 04:44:38,975 INFO  [...] (AUTHENTICATION-FAILED|192.168.56.1|suzy|23BD39EB76D0D973AD867CB92CF1E916)
-2017-10-09 04:44:44,160 INFO  [...] (SESSION-START|192.168.56.1|suzy|23BD39EB76D0D973AD867CB92CF1E916)
-2017-10-09 04:44:51,137 INFO  [...] (SESSION-END|192.168.56.1|suzy|23BD39EB76D0D973AD867CB92CF1E916)
-2017-10-09 04:44:51,155 INFO  [...] (NO-AUTHENTICATION|192.168.56.1|anonymousUser|5A7E00C559286B545690AB88197D997F)
-</code></pre>
-</div>
+    <table>
+      <tbody>
+        <tr>
+          <td>2017-10-09 04:37:26,696 INFO  […] (NO-AUTHENTICATION</td>
+          <td>0:0:0:0:0:0:0:1</td>
+          <td>anonymousUser</td>
+          <td>905E6FADA39FE79B23E48C01190776C8)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:37:43,715 INFO  […] (SESSION-START</td>
+          <td>0:0:0:0:0:0:0:1</td>
+          <td>admin</td>
+          <td>905E6FADA39FE79B23E48C01190776C8)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:44:13,051 INFO  […] (NO-AUTHENTICATION</td>
+          <td>192.168.56.1</td>
+          <td>anonymousUser</td>
+          <td>661BE4C2563FFEA09BB80E300579490F)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:44:15,216 INFO  […] (SESSION-START</td>
+          <td>192.168.56.1</td>
+          <td>admin</td>
+          <td>661BE4C2563FFEA09BB80E300579490F)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:44:23,479 INFO  […] (SESSION-END</td>
+          <td>192.168.56.1</td>
+          <td>admin</td>
+          <td>661BE4C2563FFEA09BB80E300579490F)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:44:23,575 INFO  […] (NO-AUTHENTICATION</td>
+          <td>192.168.56.1</td>
+          <td>anonymousUser</td>
+          <td>833B9C0DE7490AECFB36EB04940C4339)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:44:31,121 INFO  […] (NO-AUTHENTICATION</td>
+          <td>192.168.56.1</td>
+          <td>anonymousUser</td>
+          <td>23BD39EB76D0D973AD867CB92CF1E916)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:44:38,975 INFO  […] (AUTHENTICATION-FAILED</td>
+          <td>192.168.56.1</td>
+          <td>suzy</td>
+          <td>23BD39EB76D0D973AD867CB92CF1E916)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:44:44,160 INFO  […] (SESSION-START</td>
+          <td>192.168.56.1</td>
+          <td>suzy</td>
+          <td>23BD39EB76D0D973AD867CB92CF1E916)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:44:51,137 INFO  […] (SESSION-END</td>
+          <td>192.168.56.1</td>
+          <td>suzy</td>
+          <td>23BD39EB76D0D973AD867CB92CF1E916)</td>
+        </tr>
+        <tr>
+          <td>2017-10-09 04:44:51,155 INFO  […] (NO-AUTHENTICATION</td>
+          <td>192.168.56.1</td>
+          <td>anonymousUser</td>
+          <td>5A7E00C559286B545690AB88197D997F)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
 
 <p>All files available <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/security.events.authenticate/artifacts">here</a>.</p>
 
