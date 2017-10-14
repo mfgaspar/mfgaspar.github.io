@@ -240,7 +240,7 @@
 </code></pre>
 </div>
 
-<p><strong>Step 5)</strong> Place <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/blob/master/pentaho/security.events.authenticate/artifacts/io-github-mfgaspar-pentaho-authenticate-events.jar">this</a> jar file in <strong>…/pentaho-server/tomcat/webapps/pentaho/WEB-INF/classes/log4j.xml</strong>
+<p><strong>Step 5)</strong> Place <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/blob/master/pentaho/security.events.authenticate/artifacts/io-github-mfgaspar-pentaho-authenticate-events.jar">this</a> jar file in <strong>…/pentaho-server/tomcat/webapps/pentaho/WEB-INF/lib</strong> folder.
 Source code is available <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/blob/master/pentaho/security.events.authenticate/src/io/github/mfgaspar/pentaho/authentication/events/loggerListener.java">here</a>.</p>
 
 <p><strong>Step 6)</strong> Restart te server. Once the users starts to login, logout or even failing to authenticate, the file <strong>…/pentaho-server/tomcat/logs/authenticate_events.log</strong> will start to be populated. The following lines are an example of the output.</p>
