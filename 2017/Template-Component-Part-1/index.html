@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Working with the Template Component in CTools - Part 1</title>
+  <title>Template Component - Part 1: The concept and basic usage</title>
   <meta name="description" content="My name is Miguel Gaspar and the blog purpose is to provide information on the value and how to build IoT and Big Data solutions, providing business, architectural and technical guidance that can be useful to developers, architects and top level business managers. ">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -167,7 +167,7 @@
     <div class="post-meta">
       <time datetime="29 Dec 2017" class="post-meta__date date">29 Dec 2017</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Pentaho">Pentaho</a> <a href="/tags/#CTools">CTools</a> <a href="/tags/#Components">Components</a> <a href="/tags/#Template Component">Template Component</a> </span>
     </div>
-    <h1 class="post-title">Working with the Template Component in CTools - Part 1</h1>
+    <h1 class="post-title">Template Component - Part 1: The concept and basic usage</h1>
   </header>
   <section class="post">
     <p>Most people haven’t realized that there is a component named “Template Component” in CTools or just don’t know how to use it, most because they haven’t read the Book <a href="https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-ctools">Learning Pentaho CTools</a>. Let me give all a brief overview on how it works.</p>
@@ -179,6 +179,8 @@
 <p><img src="http://mfgaspar.github.io/assets/template_component_1.png" alt="Example of visualization using the Template Component" /></p>
 
 <p>First of all, you need to understand the concept of templates. Usually there are terms associated, model and view, where you can understand the model as  the data you have to be displayed and the view the way you want to have displayed. It’s not the purpose of this blog post to get into the details, but, you can find more information on the links in the next sentence. For now, there are 2 templates engines we can use: <a href="https:// github.com/janl/mustache.js">Mustache</a> and  <a href="http://underscorejs.org/#template">Underscore</a> templates.</p>
+
+<p>You must select the type of template you want to use. You just need to go to the properties of the component and change the “Template Library” property. Note that the default engine is <strong>“Underscore”</strong>. In this blog post series we will use <strong>“Mustache”</strong>, so you need to change the selected engine on the component properties.</p>
 
 <p>One of the best examples where to use the template component is when you have multiple elements you want to repeat, based on how many lines you got on the result of the execution of a specific query.</p>
 
@@ -247,6 +249,9 @@
 
 <p>The template component is a component that allows us to create custom visualizations based on templates and models, all based on the data that we have acquired from a data source.</p>
 
+<p><strong>TIP:</strong>
+Don’t forget that we use Twitter Bootstrap framework, so you can also use it when defining your templates.</p>
+
 <p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
 
 
@@ -274,7 +279,7 @@
         var disqus_config = function () {
           this.page.url = 'http://localhost:4000/2017/Template-Component-Part-1/';
           this.page.identifier = '/2017/Template Component Part 1';
-          this.page.title = 'Working with the Template Component in CTools - Part 1';
+          this.page.title = 'Template Component - Part 1: The concept and basic usage';
         };
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
