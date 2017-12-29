@@ -2,39 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cooking Analytics</title>
-    <description>My name is Miguel Gaspar and this blog will be focused on Analytics, providing architectural and technical solutions. I will provide &quot;recipes&quot;, that can be applied to Big Data, IoT and Social Innovation envolving edge technologies. Hope you like it.</description>
-    <link>http://mfgaspar.github.io//</link>
-    <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 14 Oct 2017 03:04:59 +0100</pubDate>
-    <lastBuildDate>Sat, 14 Oct 2017 03:04:59 +0100</lastBuildDate>
-    <generator>Jekyll v3.0.2</generator>
+    <description>My name is Miguel Gaspar and the blog purpose is to provide information on the value and how to build IoT and Big Data solutions, providing business, architectural and technical guidance that can be useful to developers, architects and top level business managers. </description>
+    <link>http://localhost:4000//</link>
+    <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 29 Dec 2017 18:15:18 +0000</pubDate>
+    <lastBuildDate>Fri, 29 Dec 2017 18:15:18 +0000</lastBuildDate>
+    <generator>Jekyll v3.6.2</generator>
     
       <item>
         <title>Update to Realtime dashboard and PDI transformation sample using MQTT</title>
-        <description>&lt;p&gt;More than 1 year ago I have released a series of blog posts about a real-time dashboard using CTools and MQTT protocol. This covers how we could build a real-time dashboard for IoT showing real-time sensor data in a CTools dashboard.&lt;/p&gt;
+        <description>&lt;p&gt;The posts also show how we can perform data streaming in PDI, by using non-ending transformations (and don’t try to do it with jobs, at least not for now).&lt;/p&gt;
+
+&lt;p&gt;Here are the links:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;img src=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot; alt=&quot;Live Insight Dashboard on Pentaho - Part 1: Introduction&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;![&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&quot;&gt;Live Insight Dashboard on Pentaho - Part 2: High level overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;![&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&quot;&gt;Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;More than 1 year ago I have released a series of blog posts about a real-time dashboard using CTools and MQTT protocol. This covers how we could build a real-time dashboard for IoT showing real-time sensor data in a CTools dashboard.&lt;/p&gt;
 
 &lt;p&gt;The posts also show how we can perform data streaming in PDI, by using non-ending transformations (and don’t try to do it with jobs, at least not for now).&lt;/p&gt;
 
 &lt;p&gt;Here are the links:&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;Live Insight Dashboard on Pentaho - Part 1: Introduction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&quot;&gt;Live Insight Dashboard on Pentaho - Part 2: High level overview&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&quot;&gt;Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration.&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Live Insight Dashboard on Pentaho - Part 1: Introduction
+Live Insight Dashboard on Pentaho - Part 2: High level overview
+Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration.
+The samples I’ve created were using some custom code on PDI, but in the meanwhile, Pentaho Labs released MQTT steps on marketplace.&lt;/p&gt;
 
-&lt;p&gt;The samples I’ve created were using some custom code on PDI, but in the meanwhile, Pentaho Labs released MQTT steps on marketplace.&lt;/p&gt;
+&lt;p&gt;I have updated my samples to use the MQTT steps in Pentaho Marketplace, and also updated the libraries used of the frontend. The samples are simpler to execute since I am now using a public MQTT broker.&lt;/p&gt;
 
-&lt;p&gt;I have updated my samples to use the MQTT steps in Pentaho Marketplace, and also updated the libraries used of the frontend. 
-The samples are simpler to execute since I am now using a public MQTT broker.&lt;/p&gt;
-
-&lt;p&gt;You can download them from the &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/mqtt.project.source.code&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can download them from the &lt;img src=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/mqtt.project.source.code&quot; alt=&quot;link&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Instruction to get them working:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Download the files;&lt;/li&gt;
-  &lt;li&gt;Run &lt;strong&gt;&lt;em&gt;iot-device-emulator.ktr&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;streaming-using-mqtt.ktr&lt;/em&gt;&lt;/strong&gt; kettle transformations available inside the backend folder;&lt;/li&gt;
+  &lt;li&gt;Run iot-device-emulator.ktr and streaming-using-mqtt.ktr kettle transformations available inside the backend folder;&lt;/li&gt;
   &lt;li&gt;Upload the files inside frontend folder to your Pentaho server;&lt;/li&gt;
   &lt;li&gt;Run the CTools dashboard.&lt;/li&gt;
 &lt;/ul&gt;
@@ -43,10 +49,12 @@ The samples are simpler to execute since I am now using a public MQTT broker.&lt
 
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
+&lt;p&gt;More than 1 year ago I have released a series of blog posts about a real-time dashboard using CTools and MQTT protocol. This covers how we could build a real-time dashboard for IoT showing real-time sensor data in a CTools dashboard.&lt;/p&gt;
+
 </description>
         <pubDate>Thu, 12 Oct 2017 09:59:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2017/Update-to-Realtime-dashboard-samples-using-MQTT/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2017/Update-to-Realtime-dashboard-samples-using-MQTT/</guid>
+        <link>http://localhost:4000//2017/Update-to-realtime-dashboard-samples-using-MQTT/</link>
+        <guid isPermaLink="true">http://localhost:4000//2017/Update-to-realtime-dashboard-samples-using-MQTT/</guid>
         
         <category>Realtime</category>
         
@@ -54,9 +62,17 @@ The samples are simpler to execute since I am now using a public MQTT broker.&lt
         
         <category>CTools</category>
         
+        <category>Pentaho</category>
+        
         <category>PDI</category>
         
+        <category>Data Integration</category>
+        
         <category>Streaming</category>
+        
+        <category>IoT</category>
+        
+        <category>MQTT</category>
         
         
         <category>Realtime</category>
@@ -65,15 +81,21 @@ The samples are simpler to execute since I am now using a public MQTT broker.&lt
         
         <category>CTools</category>
         
+        <category>Pentaho</category>
+        
         <category>PDI</category>
         
+        <category>Data Integration</category>
+        
         <category>Streaming</category>
+        
+        <category>IoT</category>
         
       </item>
     
       <item>
         <title>Logging user authentication events</title>
-        <description>&lt;p&gt;When we want to enable security logging, we need to follow the instructions in &lt;a href=&quot;http://wiki.pentaho.com/display/ServerDoc2x/Turning+on+Security+Logging&quot;&gt;here&lt;/a&gt;. It happens that when we do this the log messages are so many that we get lost in so many messages that we almost need log analysis tools. If we just want to grab some of the events there is not too much we can do, except writing a small peace of code, or use the one I wrote.&lt;/p&gt;
+        <description>&lt;p&gt;When we want to enable security logging, we need to follow the instructions in here. It happens that when we do this the log messages are so many that we get lost in so many messages that we almost need log analysis tools. If we just want to grab some of the events there is not too much we can do, except writing a small peace of code, or use the one I wrote.&lt;/p&gt;
 
 &lt;p&gt;Pentaho uses Spring Security, that comes with application listeners and allows us to grab some events and log to output file as we need. So, given that was not the first time I saw this requests from Pentaho users, I decided to extend Pentaho code.&lt;/p&gt;
 
@@ -81,13 +103,11 @@ The samples are simpler to execute since I am now using a public MQTT broker.&lt
 
 &lt;p&gt;&lt;strong&gt;Step 1)&lt;/strong&gt; First, we need to add the following line in file: &lt;strong&gt;…pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;import&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;resource=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;applicationContext-pentaho-security.custom-user-authenticate-events.xml&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;import&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;resource=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;applicationContext-pentaho-security.custom-user-authenticate-events.xml&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 2)&lt;/strong&gt; Next step is to set the properties that will dictate the behavior in the code, and what should be logged. Add the following lines to the file: &lt;strong&gt;…pentaho-server/pentaho-solutions/system/applicationContext-pentaho-security.custom-user-authenticate-events.xml&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;beans&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:util=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/util&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:pen=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.pentaho.com/schema/pentaho-system&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd http://www.pentaho.com/schema/pentaho-system http://www.pentaho.com/schema/pentaho-system.xsd&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;default-lazy-init=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;loggerListener&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;io.github.mfgaspar.pentaho.authentication.events.loggerListener&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scope=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;singleton&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;enablePentahoLoggerListener&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
@@ -104,28 +124,27 @@ The samples are simpler to execute since I am now using a public MQTT broker.&lt
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sessionDestroyedEventsId&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SESSION-END&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/beans&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 3)&lt;/strong&gt; The value of the properties can be set to define what will be logged into the log file. Note that you don’t really need to change them, or set them. The available properties are:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;enableNoAuthenticationEvents:&lt;/strong&gt; Set it to true will log some events, when a user requests a resource without authentication. Default value is true&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;enableBadCredentialEvents:&lt;/strong&gt; Set it  true to log informations about failed login attempts. Default value is true&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;enableSessionCreatedEvents:&lt;/strong&gt; Set it to true to log information when user logs in (session is created for user). Default value is true&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;enableSessionDestroyedEvents:&lt;/strong&gt; Set it to true to log information when user logs out or session expired (session is destroyed). Default value is true&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;enableTraceServletEvents:&lt;/strong&gt; Set it to true when you want servlet events to be logged (log level in log4j should be set to TRACE). Default value is false&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;enableTraceOtherEvents:&lt;/strong&gt; Set it to true when you want all other events logged in file. Should be used only for debugging (log level in log4j should be set to TRACE). Default value is false&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;messageTemplate:&lt;/strong&gt; Sets the format of the message to be send to log file, used for the folowing events: NoAuthenticationEvents, BadCredentialEvents, SessionCreatedEvents and SessionDetroyedEvents. The message will include the &lt;strong&gt;Event ID&lt;/strong&gt;, the &lt;strong&gt;IP address&lt;/strong&gt; of remote host, the &lt;strong&gt;Username&lt;/strong&gt; and de &lt;strong&gt;Session ID&lt;/strong&gt;. Default message format is &lt;code class=&quot;highlighter-rouge&quot;&gt;(%s|%s|%s|%s)&lt;/code&gt;. You can check the syntax in &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;noAuthenticationEventsId:&lt;/strong&gt; Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;badCredentialEventsId:&lt;/strong&gt; Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;sessionCreatedEventsId:&lt;/strong&gt; Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;sessionDestroyedEventsId:&lt;/strong&gt; Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;enableNoAuthenticationEvents&lt;/strong&gt;: Set it to true will log some events, when a user requests a resource without authentication. Default value is true&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;enableBadCredentialEvents&lt;/strong&gt;: Set it true to log informations about failed login attempts. Default value is true&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;enableSessionCreatedEvents&lt;/strong&gt;: Set it to true to log information when user logs in (session is created for user). Default value is true&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;enableSessionDestroyedEvents&lt;/strong&gt;: Set it to true to log information when user logs out or session expired (session is destroyed). Default value is true&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;enableTraceServletEvents&lt;/strong&gt;: Set it to true when you want servlet events to be logged (log level in log4j should be set to TRACE). Default value is false&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;enableTraceOtherEvents&lt;/strong&gt;: Set it to true when you want all other events logged in file. Should be used only for debugging (log level in log4j should be set to TRACE). Default value is false&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;messageTemplate&lt;/strong&gt;: Sets the format of the message to be send to log file, used for the folowing events: NoAuthenticationEvents, BadCredentialEvents, SessionCreatedEvents and SessionDetroyedEvents. The message will include the Event ID, the IP address of remote host, the Username and de Session ID. Default message format is &lt;code class=&quot;highlighter-rouge&quot;&gt;(%s|%s|%s|%s)&lt;/code&gt;. You can check the syntax in here&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;noAuthenticationEventsId&lt;/strong&gt;: Sets the event ID that will identify the event on the log file. Default value is “NO-AUTHENTICATION”&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;badCredentialEventsId&lt;/strong&gt;: Sets the event ID that will identify the event on the log file. Default value is “AUTHENTICATION-FAILED”&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;sessionCreatedEventsId&lt;/strong&gt;: Sets the event ID that will identify the event on the log file. Default value is “SESSION-START”&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;sessionDestroyedventsId&lt;/strong&gt;: Sets the event ID that will identify the event on the log file. Default value is “SESSION-END”&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 4)&lt;/strong&gt; You also need to add the folowing lines into: &lt;strong&gt;…/pentaho-server/tomcat/webapps/pentaho/classes/log4j.xml&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;log4j:configuration&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:log4j=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://jakarta.apache.org/log4j/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;debug=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;log4j:configuration&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:log4j=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://jakarta.apache.org/log4j/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;debug=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;appender&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;AUTHENTICATELOG&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.apache.log4j.RollingFileAppender&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;param&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;File&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;../logs/authenticate_events.log&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;param&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Append&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
@@ -140,15 +159,13 @@ The samples are simpler to execute since I am now using a public MQTT broker.&lt
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;appender-ref&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;AUTHENTICATELOG&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/category&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/log4j:configuration&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Step 5)&lt;/strong&gt; Place &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/blob/master/pentaho/security.events.authenticate/artifacts/io-github-mfgaspar-pentaho-authenticate-events.jar&quot;&gt;this&lt;/a&gt; jar file in &lt;strong&gt;…/pentaho-server/tomcat/webapps/pentaho/WEB-INF/lib&lt;/strong&gt; folder.
-Source code is available &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/blob/master/pentaho/security.events.authenticate/src/io/github/mfgaspar/pentaho/authentication/events/loggerListener.java&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 5)&lt;/strong&gt; Place this jar file in &lt;strong&gt;…/pentaho-server/tomcat/webapps/pentaho/WEB-INF/lib&lt;/strong&gt; folder. Source code is available here.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 6)&lt;/strong&gt; Restart te server. Once the users starts to login, logout or even failing to authenticate, the file &lt;strong&gt;…/pentaho-server/tomcat/logs/authenticate_events.log&lt;/strong&gt; will start to be populated. The following lines are an example of the output.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2017-10-09 04:37:26,696 INFO  [...] (NO-AUTHENTICATION|0:0:0:0:0:0:0:1|anonymousUser|905E6FADA39FE79B23E48C01190776C8)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2017-10-09 04:37:26,696 INFO  [...] (NO-AUTHENTICATION|0:0:0:0:0:0:0:1|anonymousUser|905E6FADA39FE79B23E48C01190776C8)
 2017-10-09 04:37:43,715 INFO  [...] (SESSION-START|0:0:0:0:0:0:0:1|admin|905E6FADA39FE79B23E48C01190776C8)
 2017-10-09 04:44:13,051 INFO  [...] (NO-AUTHENTICATION|192.168.56.1|anonymousUser|661BE4C2563FFEA09BB80E300579490F)
 2017-10-09 04:44:15,216 INFO  [...] (SESSION-START|192.168.56.1|admin|661BE4C2563FFEA09BB80E300579490F)
@@ -159,17 +176,16 @@ Source code is available &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.g
 2017-10-09 04:44:44,160 INFO  [...] (SESSION-START|192.168.56.1|suzy|23BD39EB76D0D973AD867CB92CF1E916)
 2017-10-09 04:44:51,137 INFO  [...] (SESSION-END|192.168.56.1|suzy|23BD39EB76D0D973AD867CB92CF1E916)
 2017-10-09 04:44:51,155 INFO  [...] (NO-AUTHENTICATION|192.168.56.1|anonymousUser|5A7E00C559286B545690AB88197D997F)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;All files available &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/security.events.authenticate/artifacts&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;All files available &lt;img src=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/security.events.authenticate/artifacts&quot; alt=&quot;here&quot; /&gt;.&lt;/p&gt;
 
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 09 Oct 2017 09:59:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2017/Logging-user-authentication-events-in-log-file/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2017/Logging-user-authentication-events-in-log-file/</guid>
+        <link>http://localhost:4000//2017/Logging-user-authentication-events/</link>
+        <guid isPermaLink="true">http://localhost:4000//2017/Logging-user-authentication-events/</guid>
         
         <category>Security</category>
         
@@ -179,96 +195,6 @@ Source code is available &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.g
         <category>Security</category>
         
         <category>Logging</category>
-        
-      </item>
-    
-      <item>
-        <title>Great events comming up!</title>
-        <description>&lt;p&gt;Sorry about being so many time hidden without creating any posts, I m back again.&lt;/p&gt;
-
-&lt;p&gt;There are great events coming up, &lt;strong&gt;*Pentaho World 2017&lt;/strong&gt; and &lt;strong&gt;Pentaho Community Meeting 2017&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;pentaho-world-2017httpswwwpentahoworldcom&quot;&gt;&lt;a href=&quot;https://www.pentahoworld.com&quot;&gt;Pentaho World 2017&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Pentaho World will be held in Orlando, October 25 to 27. It has great speakers, topics and sponsors. You can get to know better Pentaho and what’s being done by and on Customers.&lt;/p&gt;
-
-&lt;p&gt;Real use cases with where companies are sharing their success, and who know you are there next year.&lt;/p&gt;
-
-&lt;p&gt;Go to meet the experts on one-to-one sessions of 45 minutes where you can get advice for your unique use case from the Pentaho experts.
-You can also take your laptop and get hands on training where you get to know more about specific topics&lt;/p&gt;
-
-&lt;p&gt;You will only have one problem, you might need to decide on your agenda. With the great agenda that was prepared the only problem will be that you wont be able to do so much as you would like.&lt;/p&gt;
-
-&lt;p&gt;Get a better idea by looking at the blog pots &lt;strong&gt;“10 Reasons to Attend Pentaho World 2017”&lt;/strong&gt; that you can access using &lt;a href=&quot;http://www.pentaho.com/blog/10-reasons-attend-pentahoworld-2017&quot;&gt;this link&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Some direct links:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Agenda is available &lt;a href=&quot;https://www.pentahoworld.com/agenda&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Some of the speakers list &lt;a href=&quot;https://www.pentahoworld.com/speakers&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;pentaho-community-meeting-pcm17httpsit-novumcomenpcm17&quot;&gt;&lt;a href=&quot;https://it-novum.com/en/pcm17/&quot;&gt;Pentaho Community Meeting (PCM17)&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;I have attend the PCM for the last 3 years, and I can tell you I also can’t miss it this year. If you can attend, you should not hesitate!
-There are 2 rooms, so once again, the only problem is to select one or the other.&lt;/p&gt;
-
-&lt;p&gt;It all starts with the hackathon and, great news, this year PCM will also have technical short talks.&lt;/p&gt;
-
-&lt;p&gt;For the main event there are lots of interesting topics, here is a small summary of topics:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;All about Pentaho 8.0&lt;/li&gt;
-  &lt;li&gt;What’s new in PDI 8.0?&lt;/li&gt;
-  &lt;li&gt;What’s brewing in the Pentaho Labs?&lt;/li&gt;
-  &lt;li&gt;A framework for IOT, rules for implementation at the Edge, Gateway, and Data Lake.&lt;/li&gt;
-  &lt;li&gt;Running PDI on AWS Lambda&lt;/li&gt;
-  &lt;li&gt;Updates on webSpoon and other innovations from Hitachi R&amp;amp;D&lt;/li&gt;
-  &lt;li&gt;Understanding the NewMapComponent&lt;/li&gt;
-  &lt;li&gt;Pentaho 8 Reporting for Java Developers&lt;/li&gt;
-  &lt;li&gt;Machine Learning in PDI - What’s new in the Marketplace?&lt;/li&gt;
-  &lt;li&gt;Working with Automated Machine Learning (AutoML) and Pentaho&lt;/li&gt;
-  &lt;li&gt;Pentaho PDI and the rule engine. Enhanced agility - enhanced quality&lt;/li&gt;
-  &lt;li&gt;10 WTF moments in PDI&lt;/li&gt;
-  &lt;li&gt;Load Supervision Dashboard&lt;/li&gt;
-  &lt;li&gt;Pentaho Solution Code Artefacts with Big Agile Teams&lt;/li&gt;
-  &lt;li&gt;Testing Pentaho ETL solutions&lt;/li&gt;
-  &lt;li&gt;How to gain control over SAP data with Pentaho&lt;/li&gt;
-  &lt;li&gt;IoT, Big Data Science and the process of research and development and innovation&lt;/li&gt;
-  &lt;li&gt;Using a BI tool to improve the management of health data in Mozambique&lt;/li&gt;
-  &lt;li&gt;Health Information Systems Senior Specialist at Jhpiego&lt;/li&gt;
-  &lt;li&gt;All about Pentaho 8.0&lt;/li&gt;
-  &lt;li&gt;What’s new in PDI 8.0?&lt;/li&gt;
-  &lt;li&gt;Environmental data management and analysis&lt;/li&gt;
-  &lt;li&gt;A Pentaho-based analytics software for production sites&lt;/li&gt;
-  &lt;li&gt;What’s brewing in the Pentaho Labs?&lt;/li&gt;
-  &lt;li&gt;CERN’s Business Computing Accelerated by Pentaho&lt;/li&gt;
-  &lt;li&gt;Essent Belgium: Migrating from on-premises Microsoft BI to AWS (cloud-) based Pentaho BI&lt;/li&gt;
-  &lt;li&gt;eazyBI - Using Mondrian to Build the Top BI App on Atlassian Marketplace&lt;/li&gt;
-  &lt;li&gt;Pentaho in a Startup&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Uauauu!&lt;/p&gt;
-
-&lt;p&gt;For sure you will also love networking, networking, networking as also tasting a lot of German beer!&lt;/p&gt;
-
-&lt;p&gt;Keep up to date on twitter, here is the link, &lt;a href=&quot;https://twitter.com/hashtag/pcm17&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 02 Oct 2017 09:59:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2017/Great-events-comming/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2017/Great-events-comming/</guid>
-        
-        <category>PCM</category>
-        
-        <category>PentahoWorld</category>
-        
-        
-        <category>PCM</category>
-        
-        <category>PentahoWorld</category>
         
       </item>
     
@@ -306,8 +232,8 @@ There are 2 rooms, so once again, the only problem is to select one or the other
 
 </description>
         <pubDate>Fri, 16 Dec 2016 12:00:00 +0000</pubDate>
-        <link>http://mfgaspar.github.io//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</guid>
+        <link>http://localhost:4000//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</guid>
         
         <category>IoT</category>
         
@@ -332,7 +258,7 @@ There are 2 rooms, so once again, the only problem is to select one or the other
 
 &lt;p&gt;The example bellow, is from an xaction that depending on the user that logged in, sets the value for a session variable named “REGION”. If the logged in user it’s “joe”, the xaction will create a session variable with the values “APAC” so we will be able to restrict the access to user “joe”, to be only able to see “APAC” results, while “suzy” will could have access to “EMEA” and the remaining users will have access to all.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-sequence&amp;gt;&lt;/span&gt; 
 	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;session-region.xaction&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
 	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;%title&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
@@ -380,8 +306,8 @@ There are 2 rooms, so once again, the only problem is to select one or the other
 	      &lt;span class=&quot;nt&quot;&gt;&amp;lt;component-definition&amp;gt;&lt;/span&gt; 
 	        &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[function getRegions( user ) {
 						    var region = &quot;none&quot;;
-				      	if( user == &#39;joe&#39; ) { region = &quot;APAC&quot;; } 
-				      	else if( user == &#39;suzy&#39; ) { region = &quot;EMEA&quot;; } 
+				      	if( user == 'joe' ) { region = &quot;APAC&quot;; } 
+				      	else if( user == 'suzy' ) { region = &quot;EMEA&quot;; } 
 	              else { region = &quot;EMEA, APAC, ...&quot;; }
 				      	return res;
 				      }
@@ -392,21 +318,19 @@ There are 2 rooms, so once again, the only problem is to select one or the other
 	 
 	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/actions&amp;gt;&lt;/span&gt; 
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-sequence&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Once you have the action sequence ready, you need to upload it to the repository to be able to execute it, and if you execute from the Pentaho User Console when using the user “Suzy”, you will get something like:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Action Successful
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Action Successful
 -----------------
 user=suzy
 REGION=EMEA
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Now that you have the action sequence in place, you need to make sure to execute it when the user logs in. For that we need to edit the file: ../pentaho-solutions/system/sessionStartupActions.xml. There you will find something like:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Start of PentahoHttpSession startup actions. --&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Start of PentahoHttpSession startup actions. --&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.pentaho.platform.engine.core.system.SessionStartupAction&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sessionType&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.pentaho.platform.web.http.session.PentahoHttpSession&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;actionPath&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/public/your_xaction_path_and_file.xaction&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
@@ -427,8 +351,7 @@ REGION=EMEA
         &amp;lt;property name=&quot;actionOutputScope&quot; value=&quot;global&quot;/&amp;gt;
     &amp;lt;/bean&amp;gt; --&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- End of Global startup actions. --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;You can see 3 groups starting by the tag &lt;bean&gt;. By default, they are commented and you can uncomment them if you want to have startup actions to run when the user performs a login or when Pentaho is starting. Each one of this groups is identified by the type and very important the action sequence path to be executed. The actionPath needs to be set, pointing to the folder/file of the xaction we want to be execute.  You will see session type is what makes the bid difference from group to group, and it can get the following values:&lt;/bean&gt;&lt;/p&gt;
 
@@ -462,8 +385,8 @@ REGION=EMEA
 
 </description>
         <pubDate>Sun, 23 Oct 2016 10:43:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Startup-Actions-on-Pentaho/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Startup-Actions-on-Pentaho/</guid>
+        <link>http://localhost:4000//2016/Startup-Actions-on-Pentaho/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/Startup-Actions-on-Pentaho/</guid>
         
         <category>Startup Actions</category>
         
@@ -523,8 +446,8 @@ REGION=EMEA
 
 </description>
         <pubDate>Thu, 20 Oct 2016 20:59:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</guid>
+        <link>http://localhost:4000//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</guid>
         
         <category>Live Insights</category>
         
@@ -548,7 +471,7 @@ REGION=EMEA
 &lt;h3 id=&quot;parameters&quot;&gt;Parameters:&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Parameter changes - When a parameter changes its value, the events ‘&lt;parametername&gt;:fireChange&#39; are triggered.&lt;/parametername&gt;&lt;/li&gt;
+  &lt;li&gt;Parameter changes - When a parameter changes its value, the events ‘&lt;parameterName&gt;:fireChange' are triggered.&lt;/parameterName&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;dashboard-lifecycle&quot;&gt;Dashboard Lifecycle:&lt;/h3&gt;
@@ -577,20 +500,19 @@ REGION=EMEA
 
 &lt;p&gt;Per instance, if you want to send a message to a remote webservice each time the dashboard is rendered, you can do something like:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;cdf/Dashboard.Bootstrap&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;cdf/Logger&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cdf/Dashboard.Bootstrap'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cdf/Logger'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
 	&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dashboard&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  		&lt;span class=&quot;nx&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;cdf:postInit&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  		&lt;span class=&quot;nx&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cdf:postInit'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     		&lt;span class=&quot;nx&quot;&gt;sendMessageOnDashboardPostInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
   		&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Or, let’s suppose we have two dashboards, one that has a filter, and another own that has a line chart, and you want to trigger a change on the chart when you change the selected options on the filter, you can do something like:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;dash!/public/dash/selectorDash.wcdf&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;dash!/public/dash/lineChartDash.wcdf&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'dash!/public/dash/selectorDash.wcdf'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'dash!/public/dash/lineChartDash.wcdf'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
 	&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SelectorDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LineChartDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectorDash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SelectorDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;selector&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 		&lt;span class=&quot;nx&quot;&gt;selectorDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -601,8 +523,7 @@ REGION=EMEA
 		&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The way to interact with your webpage/webapp can be similar to the example above. Note that when you need to apply some changes to a dashboard you can do a fireChange. Use the “on” function to listen to events, that will trigger some actions.&lt;/p&gt;
 
@@ -610,8 +531,8 @@ REGION=EMEA
 
 </description>
         <pubDate>Sun, 16 Oct 2016 22:54:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</guid>
+        <link>http://localhost:4000//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</guid>
         
         <category>Embedding</category>
         
@@ -641,15 +562,13 @@ REGION=EMEA
  to your Pentaho Server, so that the server can return the script. 
 You just need the following script tag:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cdf-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cdf-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Per instance, if your server is in the same machine,localhost, and running in port 8080:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cdf-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cdf-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This will give your acess to the CDF framework.&lt;/p&gt;
 
@@ -657,7 +576,7 @@ You just need the following script tag:&lt;/p&gt;
 
 &lt;p&gt;An HTML page where you are embeding your dashboard can llok like:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content-type&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/html; charset=utf-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;mySample&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
@@ -669,7 +588,7 @@ You just need the following script tag:&lt;/p&gt;
 &lt;/span&gt;		&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;And&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;here&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;will&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;embed&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; 
 			&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sampleObject&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
 &lt;/span&gt;			&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-				&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;cdf/Dashboard.Blueprint&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;cdf/components/SelectComponent&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+				&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cdf/Dashboard.Blueprint'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cdf/components/SelectComponent'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
 					&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SelectComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 						&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myDashboard&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 						&lt;span class=&quot;nx&quot;&gt;myDashboard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addParameter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;region&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -696,8 +615,7 @@ You just need the following script tag:&lt;/p&gt;
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;As you can see on the code above, we start by addind a script tag to include the CDF framework in our webpage, and latter we are able to use the framework to build a CDF dashboard that is embedded in the webpage/webapp.&lt;/p&gt;
 
@@ -708,37 +626,33 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 &lt;p&gt;The way to call it is like following:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cde-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://SERVERNAME&amp;lt;:PORT&amp;gt;/WEBAPPPATH/plugin/pentaho-cdf/api/cde-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Per instance, if your server is in “localhost”, and running in port “8080”:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cde-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080/pentaho/plugin/pentaho-cdf/api/cde-embed.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Once you did it you are able to require for your dashboard, by directly calling the getDashboard available in CDE or by making use of the “dash” RequireJS plugin.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;/pentaho/plugin/pentaho-cdf-dd/api/renderer/getDashboard?path=/public/dash /sample.wcdf&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/pentaho/plugin/pentaho-cdf-dd/api/renderer/getDashboard?path=/public/dash /sample.wcdf'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
 	&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sampleDash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;content1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 		&lt;span class=&quot;nx&quot;&gt;sampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Or:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;dash!/public/dash /sample.wcdf&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'dash!/public/dash /sample.wcdf'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
 	&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sampleDash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;content1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 		&lt;span class=&quot;nx&quot;&gt;sampleDash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Here you can render your dashboard in your webpage/webapp by calling the &lt;strong&gt;render()&lt;/strong&gt; method of your dashboard, but another option is to use &lt;strong&gt;setupDOM()&lt;/strong&gt; followed by &lt;strong&gt;renderDashboard()&lt;/strong&gt;. The great advantage of using the setupDOM() first you will get the DOM in your page and you will be able to manipulate it before starting the lifecycle of the dashboard.&lt;/p&gt;
 
@@ -748,9 +662,8 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 &lt;p&gt;When embedding dashboards from a different server we might get some denial, because the server won’t allow Cross Domain Requests. There is on one extra setting that we can make use of to avoid it. To be possible to embed the dashboard with this issue, we can set the following property of the settings.xml file of CDF or CDE plugins:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-cross-domain-resources&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/allow-cross-domain-resources&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;allow-cross-domain-resources&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/allow-cross-domain-resources&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;You are now able to delight your users with amazing analytics, without completely  getting out of your website/webapp and without letting the user know what technologies are you using to leverage some of the work.&lt;/p&gt;
 
@@ -758,8 +671,8 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 </description>
         <pubDate>Sat, 15 Oct 2016 22:22:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</guid>
+        <link>http://localhost:4000//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</guid>
         
         <category>Embedding</category>
         
@@ -814,8 +727,8 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 </description>
         <pubDate>Wed, 27 Jul 2016 22:20:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/OLTP-vs-OLAP-vs-RTAP/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/OLTP-vs-OLAP-vs-RTAP/</guid>
+        <link>http://localhost:4000//2016/OLTP-vs-OLAP-vs-RTAP/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/OLTP-vs-OLAP-vs-RTAP/</guid>
         
         <category>Big Data</category>
         
@@ -897,9 +810,8 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 
 &lt;p&gt;You need to have Mosquitto running, so follow the steps bellow:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run -d -p 1883:1883 -p 9001:9001 toke/mosquitto
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run -d -p 1883:1883 -p 9001:9001 toke/mosquitto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;6. Upload the dasboard (and resources) to the BA Server&lt;/strong&gt;&lt;/p&gt;
 
@@ -916,15 +828,13 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 
 &lt;p&gt;From the PDI folder, you need to run the transformations, first the one to process data, by running the following command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./pan.sh -file=${[PATH_TO_FILES}/mqtt-project-source-code/backend/iot-device-emulator.ktr -param:delaytime=200
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./pan.sh -file=${[PATH_TO_FILES}/mqtt-project-source-code/backend/iot-device-emulator.ktr -param:delaytime=200
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;And next, the transformation, to emulate IoT device generating data, by using the command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./pan.sh -file=${[PATH_TO_FILES}/mqtt-IoT-poc/mqtt-project-source-code/backend/realtime-using-mqtt.ktr 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./pan.sh -file=${[PATH_TO_FILES}/mqtt-IoT-poc/mqtt-project-source-code/backend/realtime-using-mqtt.ktr 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Last you need to start the dashboard you will find on the folder you’ve created in the BA Server, and press the “start”&lt;/p&gt;
 
@@ -934,13 +844,196 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 
 </description>
         <pubDate>Mon, 25 Jul 2016 19:54:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</guid>
+        <link>http://localhost:4000//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</guid>
         
         <category>Live Insights</category>
         
         
         <category>Live Insights</category>
+        
+      </item>
+    
+      <item>
+        <title>Pentaho and Custom Action Sequences</title>
+        <description>&lt;p&gt;The Action Sequences or xAction, as you like to call them, are getting less used, because we now have better alternatives as using kettle, anyhow they are still useful in some cases.&lt;/p&gt;
+
+&lt;h2 id=&quot;quick-introduction&quot;&gt;Quick introduction&lt;/h2&gt;
+
+&lt;p&gt;From Action Sequences we can call transformations, so in reality, we can use an Action Sequence that calls a kettle transformation and to all the work (inclusive creating a session variable, but that was a bit slow on versions previous to 6.1. So, if we needed something that works faster, the alternative would be 
+a Action Sequence.&lt;/p&gt;
+
+&lt;p&gt;If we want to do something simple as running a query and create a session variable based on the result of the query, we can just use the standard and available actions of an Action Sequence. But, when we need to create some more complex logic for a specific use case where we can’t do it just by using the “easy” actions of an Action Sequence, we can also write some custom code.&lt;/p&gt;
+
+&lt;p&gt;There is on action in a Action Sequence with the name “Custom”, that it’s very interesting. We can build our own Java code, pass parameters from the Action Sequence to the code we want to execute and get back the result of the execution of that custom code.&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-custom-action-sequence&quot;&gt;Creating custom Action Sequence&lt;/h3&gt;
+
+&lt;p&gt;Let’s suppose we want to build a “Hello World!”. Well we can do it with the JavaScript step, but not if we wnat to set a session variable with a value that comes fom LDAP, based on the use that is logged in.&lt;/p&gt;
+
+&lt;p&gt;So, let’s pick the example of the “Hello World!”. The goal here would be, to get the user name that is logged in, apppend a hello message, and let the Action Sequence return the message to be displayed on the screen.&lt;/p&gt;
+
+&lt;p&gt;Since we won’t have the “JavaScript” action for every thing, I’ve used the “Custom” action to create a “Hello World!” example.&lt;/p&gt;
+
+&lt;p&gt;First we need to create the Action Sequence and add an input variable. We need the variable to have the name of the user that is logged in.&lt;/p&gt;
+
+&lt;p&gt;If using the Eclipse Plugin for Pentaho Action Sequences, you should be creating something as the image below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/custom_xaction_1.png&quot; alt=&quot;Custom Action Sequence - Adding an input variable&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Else if using a text editor, you will need to add something as:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;inputs&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;username&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;sources&amp;gt;&lt;/span&gt; 
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;security&amp;gt;&lt;/span&gt;principalName&lt;span class=&quot;nt&quot;&gt;&amp;lt;/security&amp;gt;&lt;/span&gt; 
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/sources&amp;gt;&lt;/span&gt; 
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/username&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/inputs&amp;gt;&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The next step is to add the custom action where we need to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Add a name to the action;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Add the name of the class that will make the call of our Java Class with the custom code. this will always be defined to be:&lt;/p&gt;
+
+    &lt;p&gt;“org.pentaho.platform.engine.services.solution.PojoComponent”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Add the input variable with the value to be passed to the code;&lt;/li&gt;
+  &lt;li&gt;Add the output variable and the mapping to the Action Sequence variable to where the custom code will return the result.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The image below, show exactly those inputs and outputs as the name of the class that will make the call to our custom code.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/custom_xaction_2.png&quot; alt=&quot;Custom Action Sequence - Adding an input variable&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If using a text editor you will need to write the following code:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;actions&amp;gt;&lt;/span&gt; 
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-definition&amp;gt;&lt;/span&gt; 
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;component-name&amp;gt;&lt;/span&gt;
+			org.pentaho.platform.engine.services.solution.PojoComponent
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/component-name&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-type&amp;gt;&lt;/span&gt;Custom&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-type&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-inputs&amp;gt;&lt;/span&gt; 
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;name&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-inputs&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-resources/&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-outputs&amp;gt;&lt;/span&gt; 
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;output&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;outputmessage&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-outputs&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;component-definition&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;class&amp;gt;&lt;/span&gt;
+				com.github.mfgaspar.pentaho.Action Sequence.CustomCodeForActionSequence
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/class&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/component-definition&amp;gt;&lt;/span&gt; 
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-definition&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/actions&amp;gt;&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;At last we need to have one output message to display on the screen, so we need to add an output to the Action Sequence. You can see an example on the image bellow.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/custom_xaction_3.png&quot; alt=&quot;Custom Action Sequence - Adding an input variable&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If using a text editor the code will look like:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;outputs&amp;gt;&lt;/span&gt; 
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;outputmessage&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/outputs&amp;gt;&lt;/span&gt;
+  	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We already saw the code of the Action Sequence, but we haven’t saw the java code that will be executed. In the code below you will see that we need to reference 2 interfaces IAcceptsRuntimeInputs and IProducesRuntimeOutputs, so that we can accept inputs and write to outputs.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mfgaspar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pentaho&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Action&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sequence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.pentaho.platform.api.engine.IAcceptsRuntimeInputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.pentaho.platform.api.engine.IActionSequenceResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.pentaho.platform.api.engine.IProducesRuntimeOutputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.commons.logging.Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.commons.logging.LogFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// This small sample accepts one name to whom we are sending back a message saying Hello &lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@SuppressWarnings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;all&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CustomCodeForActionSequence&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IAcceptsRuntimeInputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IProducesRuntimeOutputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LogFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CustomCodeForActionSequence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IActionSequenceResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Here you need to write the custom code you need to execute&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;// Get the name from the inputs &lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;// Prepend &quot;Hello, &quot; to the name &lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputMessage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;&quot;Hello, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;// Set the hello message in the outputs to be returned to the Action Sequence &lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;output&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;// Log the message to the console, don't forget to include the class and/or change the log level&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;// Return the status of execution  &lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Set the resources set in the Action Sequence&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setResources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IActionSequenceResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Set the inputs coming from the Action Sequence  &lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setInputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Return outputs to the Action Sequence&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getOutputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;There are 3 main functions we need to code:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;public void setInputs( Map&amp;lt;String, Object&amp;gt; inputs ) : That is executed at the begining to get the inpt variable values.&lt;/li&gt;
+  &lt;li&gt;public boolean execute(): With the code to be executed. At the time we already have the inputs and we can write to outputs. Here we are just prepending “Hello” to the name of the user coming from the inputs and write it to the output.&lt;/li&gt;
+  &lt;li&gt;public Map&amp;lt;String, Object&amp;gt; getOutputs(): Called at the end of the execution of the last function to return the message to the Action Sequence.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There is one other function we can use, if we are using resources on the Action Sequence and that function is:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;public void setResources( Map&amp;lt;String, IActionSequenceResource&amp;gt; resources): In case we want to use resources.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This Java code needs to be compiled and the jar file needs to be added to Pentaho webapp library, and that’s all.&lt;/p&gt;
+
+&lt;p&gt;At the end of the execution of the Action Sequence the output variable will have the message for the user, so it van be displayed on the screen.&lt;/p&gt;
+
+&lt;p&gt;So, you saw that this in another extension point in Pentaho. If we don’t have an action that performs what we need, then it’s time to get our hands on code.&lt;/p&gt;
+
+&lt;p&gt;Hope you can use kettle instead, but if not, just write a message in here, and let others knows what you did!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/custom.code.action.sequence&quot;&gt;Sample code available here.&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 13 Jul 2016 09:59:00 +0100</pubDate>
+        <link>http://localhost:4000//2016/Pentaho-Action-Sequences/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/Pentaho-Action-Sequences/</guid>
+        
+        <category>Action Sequences</category>
+        
+        <category>Action Sequences</category>
+        
+        
+        <category>Action Sequences</category>
         
       </item>
     

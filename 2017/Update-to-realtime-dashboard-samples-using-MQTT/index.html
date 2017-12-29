@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>IoT on Pentaho using MQTT - New MQTT steps for PDI are available in Marketplace</title>
+  <title>Update to Realtime dashboard and PDI transformation sample using MQTT</title>
   <meta name="description" content="My name is Miguel Gaspar and the blog purpose is to provide information on the value and how to build IoT and Big Data solutions, providing business, architectural and technical guidance that can be useful to developers, architects and top level business managers. ">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://localhost:4000//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/">
+  <link rel="canonical" href="http://localhost:4000//2017/Update-to-realtime-dashboard-samples-using-MQTT/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -165,40 +165,50 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="16 Dec 2016" class="post-meta__date date">16 Dec 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#IoT">IoT</a> <a href="/tags/#MQTT">MQTT</a> </span>
+      <time datetime="12 Oct 2017" class="post-meta__date date">12 Oct 2017</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Realtime">Realtime</a> <a href="/tags/#MQTT">MQTT</a> <a href="/tags/#CTools">CTools</a> <a href="/tags/#Pentaho">Pentaho</a> <a href="/tags/#PDI">PDI</a> <a href="/tags/#Data Integration">Data Integration</a> <a href="/tags/#Streaming">Streaming</a> <a href="/tags/#IoT">IoT</a> <a href="/tags/#MQTT">MQTT</a> </span>
     </div>
-    <h1 class="post-title">IoT on Pentaho using MQTT - New MQTT steps for PDI are available in Marketplace</h1>
+    <h1 class="post-title">Update to Realtime dashboard and PDI transformation sample using MQTT</h1>
   </header>
   <section class="post">
-    <p>Earlier this year I have made some posts and provided some samples on how we could stream data from the IoT devices and displaying the info on a dashboard, using Pentaho Data Integration and MQTT protocol.</p>
+    <p>The posts also show how we can perform data streaming in PDI, by using non-ending transformations (and don’t try to do it with jobs, at least not for now).</p>
 
-<p><a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/">First blog post</a></p>
+<p>Here are the links:</p>
 
-<p><a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/">Second blog post</a></p>
+<ul>
+  <li><img src="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/" alt="Live Insight Dashboard on Pentaho - Part 1: Introduction" /></li>
+  <li>![<a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/">Live Insight Dashboard on Pentaho - Part 2: High level overview</a></li>
+  <li>![<a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/">Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration</a></li>
+</ul>
 
-<p><a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/">Third blog post</a></p>
+<p>More than 1 year ago I have released a series of blog posts about a real-time dashboard using CTools and MQTT protocol. This covers how we could build a real-time dashboard for IoT showing real-time sensor data in a CTools dashboard.</p>
 
-<p>I am still missing some blog posts on how to scale a solution on this and how to use D3.js as the chart library, among other updates. The good news is that Pentaho Labs announced the release of MQTT steps, even if not yet supported. I guess it is just a matter of time now.</p>
+<p>The posts also show how we can perform data streaming in PDI, by using non-ending transformations (and don’t try to do it with jobs, at least not for now).</p>
 
-<p>The steps are ready to be used and available in marketplace.</p>
+<p>Here are the links:</p>
 
-<p><a href="http://www.pentaho.com/blog/pentaho-mqtt-iot">Here the link</a> where Pentaho labs is announcing it.</p>
+<p>Live Insight Dashboard on Pentaho - Part 1: Introduction
+Live Insight Dashboard on Pentaho - Part 2: High level overview
+Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration.
+The samples I’ve created were using some custom code on PDI, but in the meanwhile, Pentaho Labs released MQTT steps on marketplace.</p>
 
-<p><img src="http://mfgaspar.github.io/assets/new-mqtt-plugin-pdi.png" alt="MQTT on PDI" /></p>
+<p>I have updated my samples to use the MQTT steps in Pentaho Marketplace, and also updated the libraries used of the frontend. The samples are simpler to execute since I am now using a public MQTT broker.</p>
 
-<p>You can watch the <a href="http://www.youtube.com/watch?v=q4gspdUhlU4">video</a> with the updates.</p>
+<p>You can download them from the <img src="https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/mqtt.project.source.code" alt="link" /></p>
 
-<p>Samples are available <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/iot.pdi.mqtt.samples">here</a></p>
+<p>Instruction to get them working:</p>
 
-<p>Please keep in mind that the most interesting part is not the live dashboard, it is the data streaming capabilities on PDI. You can nos make use of the new steps to be closer to IoT and possible to use Data Integration for the ingestion of data coming from devices. This also makes clear tht might be possible to use other protocols.</p>
+<ul>
+  <li>Download the files;</li>
+  <li>Run iot-device-emulator.ktr and streaming-using-mqtt.ktr kettle transformations available inside the backend folder;</li>
+  <li>Upload the files inside frontend folder to your Pentaho server;</li>
+  <li>Run the CTools dashboard.</li>
+</ul>
 
-<p><img src="http://mfgaspar.github.io/assets/row-processing-transformation.png" alt="Main and row processing transformations" /></p>
+<p>At this point, you should be able to see the charts and map being updated automatically without any pull request. All data is pushed directly from Pentaho Data Integration and the broker using the MQTT protocol.</p>
 
-<p>One clear advantage is that you don’t need to write all your code, you can build a gateway using PDI and without writing one line of code. Also look at the samples, you will notice we can switch the data processing transformation we want to use, and you can do it using a parameters. Also from the image above you can see that you are able to group rows based on number of rows or time.</p>
+<p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
 
-<p>Also notice that the case, based on the values opf a parameter named “rowsGroupingType” will decide if we need to go and process rows based of the number, based on time, or not group them at all.</p>
-
-<p>Usefull also if you write to a permanent storage, like Cassandra/HBase or other depending on golas and requirments.</p>
+<p>More than 1 year ago I have released a series of blog posts about a real-time dashboard using CTools and MQTT protocol. This covers how we could build a real-time dashboard for IoT showing real-time sensor data in a CTools dashboard.</p>
 
 
   </section>
@@ -208,13 +218,13 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
 
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://localhost:4000/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://localhost:4000/2017/Update-to-realtime-dashboard-samples-using-MQTT/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://localhost:4000/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://localhost:4000/2017/Update-to-realtime-dashboard-samples-using-MQTT/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://localhost:4000/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://localhost:4000/2017/Update-to-realtime-dashboard-samples-using-MQTT/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://localhost:4000/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://localhost:4000/2017/Update-to-realtime-dashboard-samples-using-MQTT/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
 <!--
 <a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
 -->
@@ -223,9 +233,9 @@
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'mfgaspar'; // required: replace example with your forum shortname
         var disqus_config = function () {
-          this.page.url = 'http://localhost:4000/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/';
-          this.page.identifier = '/2016/IoT on Pentaho Data Integration using MQTT steps';
-          this.page.title = 'IoT on Pentaho using MQTT - New MQTT steps for PDI are available in Marketplace';
+          this.page.url = 'http://localhost:4000/2017/Update-to-realtime-dashboard-samples-using-MQTT/';
+          this.page.identifier = '/2017/Update to realtime dashboard samples using MQTT';
+          this.page.title = 'Update to Realtime dashboard and PDI transformation sample using MQTT';
         };
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
