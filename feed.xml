@@ -5,9 +5,110 @@
     <description>My name is Miguel Gaspar and the blog purpose is to provide information on the value and how to build IoT and Big Data solutions, providing business, architectural and technical guidance that can be useful to developers, architects and top level business managers. </description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 29 Dec 2017 18:15:18 +0000</pubDate>
-    <lastBuildDate>Fri, 29 Dec 2017 18:15:18 +0000</lastBuildDate>
+    <pubDate>Fri, 29 Dec 2017 21:59:07 +0000</pubDate>
+    <lastBuildDate>Fri, 29 Dec 2017 21:59:07 +0000</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Working with the Template Component in CTools - Part 1</title>
+        <description>&lt;p&gt;Most people haven’t realized that there is a component named “Template Component” in CTools or just don’t know how to use it, most because they haven’t read the Book &lt;a href=&quot;https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-ctools&quot;&gt;Learning Pentaho CTools&lt;/a&gt;. Let me give all a brief overview on how it works.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/mfgaspar/mfgaspar.github.io/blob/master/assets/template_component_1.png&quot; alt=&quot;Example of visualization using the Template Component&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;More than once I have done a project where it would be good to be able the define the elements I wanted to display on my dashboards to present the data coming from a CDA data source. The existing components are based on pre-built visualizations like a table, a line chart, a bar chart, a drop-down, but I was trying to go further than that. Doing the same code for different dashboards, I thought it was about time to create a new component that would allow us to define the HTML to use when bringing information into the dashboard. We could always use the query component to your dashboard, but much more code would be required, so when you think you don’t have the visualization you expected, don’t worry, most probably you can use the template component.&lt;/p&gt;
+
+&lt;p&gt;First of all, you need to understand the concept of templates. Usually there are terms associated, model and view, where you can understand the model as  the data you have to be displayed and the view the way you want to have displayed. It’s not the purpose of this blog post to get into the details, but, you can find more information on the links in the next sentence. For now, there are 2 templates engines we can use: &lt;a href=&quot;https:// github.com/janl/mustache.js&quot;&gt;Mustache&lt;/a&gt; and  &lt;a href=&quot;http://underscorejs.org/#template&quot;&gt;Underscore&lt;/a&gt; templates.&lt;/p&gt;
+
+&lt;p&gt;One of the best examples where to use the template component is when you have multiple elements you want to repeat, based on how many lines you got on the result of the execution of a specific query.&lt;/p&gt;
+
+&lt;p&gt;So, let’s keep it very simple and consider you wanted to display something like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;APAC: $1281705.9&lt;/li&gt;
+  &lt;li&gt;EMEA: $5008224.3&lt;/li&gt;
+  &lt;li&gt;Japan: $503957.6&lt;/li&gt;
+  &lt;li&gt;NA: $3852061.4&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The html in your webpage/dashboard would look like:&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;EMEA: $168479&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;APAC: $601606&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Japan: $168479&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;NA: $1821247&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can see that there are elements that are repeated. The &amp;lt;li&amp;gt; html element is showed multiple time, just changing what’s inside of each element in the list.&lt;/p&gt;
+
+&lt;p&gt;Let’s suppose, that the result of your query is something like, where column #0 is the name of the territory and column #1 is the sales value for that territory. Just like in the following table.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| Territory | Sales     | 
+|-----------|-----------|
+| EMEA      |  168479   |
+| APAC      |  601606   |
+| Japan     |  168479   |
+| NA        |  1821247  |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So if using Mustache, you can build a template like:&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+  {{#items}}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;{{0}}: ${{1}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  {{/items}}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The Mustache engine, will use this template and render the data using the template that is defined. So for each item or territory, it will create a &amp;lt;li&amp;gt; element with the respective name and sales value. We can see &lt;strong&gt;{{0}}&lt;/strong&gt; and &lt;strong&gt;{{1}}&lt;/strong&gt;, where we are referring to the result of the first and second column. By default, the template component uses the index of the column as the reference to get the value we want o display. By using the Model Handler, discussion for another post, we will see how we can change and use more friendly names.&lt;/p&gt;
+
+&lt;p&gt;To use the template component, just add he template component to the dashboard and set the “name”, the “datasource” and the “htmlObject”. Then, set the template by writing a small JavaScript function with the code below, that just returns the template we want to use.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;ul&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'{{#items}}'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;li&amp;gt; 0: $1 &amp;lt;/li&amp;gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'{{/items}}'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;/ul&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This functionality, just by itself, it was not enough to me, being able to create templates but being required to build complex templates. I also wanted to make the component somehow flexible that we could use addins, just like we can do it on the table component. If you do not know what I am talking about take a look at &lt;a href=&quot;http://pedroalves-bi.blogspot.pt/2011/12/introducing-add-ins-in-ctools.html&quot;&gt;this&lt;/a&gt; blog post from Pedro Alves.&lt;/p&gt;
+
+&lt;p&gt;Another great functionality in the template component is that it allows you to apply formatting or even event handling in a very easy way, even if you need to write some lines of JavaScript code.&lt;/p&gt;
+
+&lt;p&gt;The blog post would get too big if I tried to cover all these options, so I will write a couple more posts on this topic, and how to use more advanced option of the Template Component, like using the addins, or even creating your own addin.&lt;/p&gt;
+
+&lt;p&gt;The template component is a component that allows us to create custom visualizations based on templates and models, all based on the data that we have acquired from a data source.&lt;/p&gt;
+
+&lt;p&gt;The template component is a component that allows us to create custom visualizations based on templates and models, all based on the data that we have acquired from a data source.&lt;/p&gt;
+
+&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 29 Dec 2017 08:00:00 +0000</pubDate>
+        <link>http://localhost:4000//2017/Template-Component-Part-1/</link>
+        <guid isPermaLink="true">http://localhost:4000//2017/Template-Component-Part-1/</guid>
+        
+        <category>Pentaho</category>
+        
+        <category>CTools</category>
+        
+        <category>Components</category>
+        
+        <category>Template Component</category>
+        
+        
+        <category>Pentaho</category>
+        
+        <category>CTools</category>
+        
+        <category>Components</category>
+        
+      </item>
     
       <item>
         <title>Update to Realtime dashboard and PDI transformation sample using MQTT</title>
@@ -16,9 +117,9 @@
 &lt;p&gt;Here are the links:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;img src=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot; alt=&quot;Live Insight Dashboard on Pentaho - Part 1: Introduction&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;![&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&quot;&gt;Live Insight Dashboard on Pentaho - Part 2: High level overview&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;![&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&quot;&gt;Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;Live Insight Dashboard on Pentaho - Part 1: Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/&quot;&gt;Live Insight Dashboard on Pentaho - Part 2: High level overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/&quot;&gt;Live Insight Dashboard on Pentaho - Part 3: MQTT, the Message Broker and Data Integration&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;More than 1 year ago I have released a series of blog posts about a real-time dashboard using CTools and MQTT protocol. This covers how we could build a real-time dashboard for IoT showing real-time sensor data in a CTools dashboard.&lt;/p&gt;
@@ -34,7 +135,7 @@ The samples I’ve created were using some custom code on PDI, but in the meanwh
 
 &lt;p&gt;I have updated my samples to use the MQTT steps in Pentaho Marketplace, and also updated the libraries used of the frontend. The samples are simpler to execute since I am now using a public MQTT broker.&lt;/p&gt;
 
-&lt;p&gt;You can download them from the &lt;img src=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/mqtt.project.source.code&quot; alt=&quot;link&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;You can download them from the &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/mqtt.project.source.code&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Instruction to get them working:&lt;/p&gt;
 
@@ -178,7 +279,7 @@ The samples I’ve created were using some custom code on PDI, but in the meanwh
 2017-10-09 04:44:51,155 INFO  [...] (NO-AUTHENTICATION|192.168.56.1|anonymousUser|5A7E00C559286B545690AB88197D997F)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;All files available &lt;img src=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/security.events.authenticate/artifacts&quot; alt=&quot;here&quot; /&gt;.&lt;/p&gt;
+&lt;p&gt;All files available &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/security.events.authenticate/artifacts&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
 
@@ -851,189 +952,6 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
         
         
         <category>Live Insights</category>
-        
-      </item>
-    
-      <item>
-        <title>Pentaho and Custom Action Sequences</title>
-        <description>&lt;p&gt;The Action Sequences or xAction, as you like to call them, are getting less used, because we now have better alternatives as using kettle, anyhow they are still useful in some cases.&lt;/p&gt;
-
-&lt;h2 id=&quot;quick-introduction&quot;&gt;Quick introduction&lt;/h2&gt;
-
-&lt;p&gt;From Action Sequences we can call transformations, so in reality, we can use an Action Sequence that calls a kettle transformation and to all the work (inclusive creating a session variable, but that was a bit slow on versions previous to 6.1. So, if we needed something that works faster, the alternative would be 
-a Action Sequence.&lt;/p&gt;
-
-&lt;p&gt;If we want to do something simple as running a query and create a session variable based on the result of the query, we can just use the standard and available actions of an Action Sequence. But, when we need to create some more complex logic for a specific use case where we can’t do it just by using the “easy” actions of an Action Sequence, we can also write some custom code.&lt;/p&gt;
-
-&lt;p&gt;There is on action in a Action Sequence with the name “Custom”, that it’s very interesting. We can build our own Java code, pass parameters from the Action Sequence to the code we want to execute and get back the result of the execution of that custom code.&lt;/p&gt;
-
-&lt;h3 id=&quot;creating-custom-action-sequence&quot;&gt;Creating custom Action Sequence&lt;/h3&gt;
-
-&lt;p&gt;Let’s suppose we want to build a “Hello World!”. Well we can do it with the JavaScript step, but not if we wnat to set a session variable with a value that comes fom LDAP, based on the use that is logged in.&lt;/p&gt;
-
-&lt;p&gt;So, let’s pick the example of the “Hello World!”. The goal here would be, to get the user name that is logged in, apppend a hello message, and let the Action Sequence return the message to be displayed on the screen.&lt;/p&gt;
-
-&lt;p&gt;Since we won’t have the “JavaScript” action for every thing, I’ve used the “Custom” action to create a “Hello World!” example.&lt;/p&gt;
-
-&lt;p&gt;First we need to create the Action Sequence and add an input variable. We need the variable to have the name of the user that is logged in.&lt;/p&gt;
-
-&lt;p&gt;If using the Eclipse Plugin for Pentaho Action Sequences, you should be creating something as the image below.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/custom_xaction_1.png&quot; alt=&quot;Custom Action Sequence - Adding an input variable&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Else if using a text editor, you will need to add something as:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;inputs&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;username&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;sources&amp;gt;&lt;/span&gt; 
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;security&amp;gt;&lt;/span&gt;principalName&lt;span class=&quot;nt&quot;&gt;&amp;lt;/security&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/sources&amp;gt;&lt;/span&gt; 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/username&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/inputs&amp;gt;&lt;/span&gt;
-    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;The next step is to add the custom action where we need to:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Add a name to the action;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Add the name of the class that will make the call of our Java Class with the custom code. this will always be defined to be:&lt;/p&gt;
-
-    &lt;p&gt;“org.pentaho.platform.engine.services.solution.PojoComponent”.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Add the input variable with the value to be passed to the code;&lt;/li&gt;
-  &lt;li&gt;Add the output variable and the mapping to the Action Sequence variable to where the custom code will return the result.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The image below, show exactly those inputs and outputs as the name of the class that will make the call to our custom code.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/custom_xaction_2.png&quot; alt=&quot;Custom Action Sequence - Adding an input variable&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If using a text editor you will need to write the following code:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;actions&amp;gt;&lt;/span&gt; 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-definition&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;component-name&amp;gt;&lt;/span&gt;
-			org.pentaho.platform.engine.services.solution.PojoComponent
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/component-name&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-type&amp;gt;&lt;/span&gt;Custom&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-type&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-inputs&amp;gt;&lt;/span&gt; 
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;name&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-inputs&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-resources/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;action-outputs&amp;gt;&lt;/span&gt; 
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;output&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;outputmessage&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-outputs&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;component-definition&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;class&amp;gt;&lt;/span&gt;
-				com.github.mfgaspar.pentaho.Action Sequence.CustomCodeForActionSequence
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/class&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/component-definition&amp;gt;&lt;/span&gt; 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/action-definition&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/actions&amp;gt;&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;At last we need to have one output message to display on the screen, so we need to add an output to the Action Sequence. You can see an example on the image bellow.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/custom_xaction_3.png&quot; alt=&quot;Custom Action Sequence - Adding an input variable&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If using a text editor the code will look like:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;outputs&amp;gt;&lt;/span&gt; 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;outputmessage&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/outputs&amp;gt;&lt;/span&gt;
-  	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;We already saw the code of the Action Sequence, but we haven’t saw the java code that will be executed. In the code below you will see that we need to reference 2 interfaces IAcceptsRuntimeInputs and IProducesRuntimeOutputs, so that we can accept inputs and write to outputs.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mfgaspar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pentaho&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Action&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sequence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.pentaho.platform.api.engine.IAcceptsRuntimeInputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.pentaho.platform.api.engine.IActionSequenceResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.pentaho.platform.api.engine.IProducesRuntimeOutputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.commons.logging.Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.commons.logging.LogFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// This small sample accepts one name to whom we are sending back a message saying Hello &lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@SuppressWarnings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;all&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CustomCodeForActionSequence&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IAcceptsRuntimeInputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IProducesRuntimeOutputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LogFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CustomCodeForActionSequence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IActionSequenceResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// Here you need to write the custom code you need to execute&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Get the name from the inputs &lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Prepend &quot;Hello, &quot; to the name &lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputMessage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;&quot;Hello, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Set the hello message in the outputs to be returned to the Action Sequence &lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;output&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Log the message to the console, don't forget to include the class and/or change the log level&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;// Return the status of execution  &lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// Set the resources set in the Action Sequence&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setResources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IActionSequenceResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// Set the inputs coming from the Action Sequence  &lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setInputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// Return outputs to the Action Sequence&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getOutputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;There are 3 main functions we need to code:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;public void setInputs( Map&amp;lt;String, Object&amp;gt; inputs ) : That is executed at the begining to get the inpt variable values.&lt;/li&gt;
-  &lt;li&gt;public boolean execute(): With the code to be executed. At the time we already have the inputs and we can write to outputs. Here we are just prepending “Hello” to the name of the user coming from the inputs and write it to the output.&lt;/li&gt;
-  &lt;li&gt;public Map&amp;lt;String, Object&amp;gt; getOutputs(): Called at the end of the execution of the last function to return the message to the Action Sequence.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There is one other function we can use, if we are using resources on the Action Sequence and that function is:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;public void setResources( Map&amp;lt;String, IActionSequenceResource&amp;gt; resources): In case we want to use resources.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This Java code needs to be compiled and the jar file needs to be added to Pentaho webapp library, and that’s all.&lt;/p&gt;
-
-&lt;p&gt;At the end of the execution of the Action Sequence the output variable will have the message for the user, so it van be displayed on the screen.&lt;/p&gt;
-
-&lt;p&gt;So, you saw that this in another extension point in Pentaho. If we don’t have an action that performs what we need, then it’s time to get our hands on code.&lt;/p&gt;
-
-&lt;p&gt;Hope you can use kettle instead, but if not, just write a message in here, and let others knows what you did!&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/custom.code.action.sequence&quot;&gt;Sample code available here.&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 13 Jul 2016 09:59:00 +0100</pubDate>
-        <link>http://localhost:4000//2016/Pentaho-Action-Sequences/</link>
-        <guid isPermaLink="true">http://localhost:4000//2016/Pentaho-Action-Sequences/</guid>
-        
-        <category>Action Sequences</category>
-        
-        <category>Action Sequences</category>
-        
-        
-        <category>Action Sequences</category>
         
       </item>
     
