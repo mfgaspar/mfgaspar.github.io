@@ -3,10 +3,10 @@
   <channel>
     <title>Cooking Analytics</title>
     <description>My name is Miguel Gaspar and the blog purpose is to provide information on the value and how to build IoT and Big Data solutions, providing business, architectural and technical guidance that can be useful to developers, architects and top level business managers. </description>
-    <link>http://localhost:4000//</link>
-    <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 29 Dec 2017 22:38:34 +0000</pubDate>
-    <lastBuildDate>Fri, 29 Dec 2017 22:38:34 +0000</lastBuildDate>
+    <link>http://mfgaspar.github.io//</link>
+    <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 29 Dec 2017 22:44:20 +0000</pubDate>
+    <lastBuildDate>Fri, 29 Dec 2017 22:44:20 +0000</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -97,8 +97,8 @@ Don’t forget that we use Twitter Bootstrap framework, so you can also use it w
 
 </description>
         <pubDate>Fri, 29 Dec 2017 08:00:00 +0000</pubDate>
-        <link>http://localhost:4000//2017/Template-Component-Part-1/</link>
-        <guid isPermaLink="true">http://localhost:4000//2017/Template-Component-Part-1/</guid>
+        <link>http://mfgaspar.github.io//2017/Template-Component-Part-1/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2017/Template-Component-Part-1/</guid>
         
         <category>Pentaho</category>
         
@@ -161,8 +161,8 @@ The samples I’ve created were using some custom code on PDI, but in the meanwh
 
 </description>
         <pubDate>Thu, 12 Oct 2017 09:59:00 +0100</pubDate>
-        <link>http://localhost:4000//2017/Update-to-realtime-dashboard-samples-using-MQTT/</link>
-        <guid isPermaLink="true">http://localhost:4000//2017/Update-to-realtime-dashboard-samples-using-MQTT/</guid>
+        <link>http://mfgaspar.github.io//2017/Update-to-realtime-dashboard-samples-using-MQTT/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2017/Update-to-realtime-dashboard-samples-using-MQTT/</guid>
         
         <category>Realtime</category>
         
@@ -292,8 +292,8 @@ The samples I’ve created were using some custom code on PDI, but in the meanwh
 
 </description>
         <pubDate>Mon, 09 Oct 2017 09:59:00 +0100</pubDate>
-        <link>http://localhost:4000//2017/Logging-user-authentication-events/</link>
-        <guid isPermaLink="true">http://localhost:4000//2017/Logging-user-authentication-events/</guid>
+        <link>http://mfgaspar.github.io//2017/Logging-user-authentication-events/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2017/Logging-user-authentication-events/</guid>
         
         <category>Security</category>
         
@@ -340,8 +340,8 @@ The samples I’ve created were using some custom code on PDI, but in the meanwh
 
 </description>
         <pubDate>Fri, 16 Dec 2016 12:00:00 +0000</pubDate>
-        <link>http://localhost:4000//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</link>
-        <guid isPermaLink="true">http://localhost:4000//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</guid>
+        <link>http://mfgaspar.github.io//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/</guid>
         
         <category>IoT</category>
         
@@ -493,8 +493,8 @@ REGION=EMEA
 
 </description>
         <pubDate>Sun, 23 Oct 2016 10:43:00 +0100</pubDate>
-        <link>http://localhost:4000//2016/Startup-Actions-on-Pentaho/</link>
-        <guid isPermaLink="true">http://localhost:4000//2016/Startup-Actions-on-Pentaho/</guid>
+        <link>http://mfgaspar.github.io//2016/Startup-Actions-on-Pentaho/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Startup-Actions-on-Pentaho/</guid>
         
         <category>Startup Actions</category>
         
@@ -554,8 +554,8 @@ REGION=EMEA
 
 </description>
         <pubDate>Thu, 20 Oct 2016 20:59:00 +0100</pubDate>
-        <link>http://localhost:4000//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</link>
-        <guid isPermaLink="true">http://localhost:4000//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</guid>
+        <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-3/</guid>
         
         <category>Live Insights</category>
         
@@ -639,8 +639,8 @@ REGION=EMEA
 
 </description>
         <pubDate>Sun, 16 Oct 2016 22:54:00 +0100</pubDate>
-        <link>http://localhost:4000//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</link>
-        <guid isPermaLink="true">http://localhost:4000//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</guid>
+        <link>http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-2/</guid>
         
         <category>Embedding</category>
         
@@ -779,8 +779,8 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 </description>
         <pubDate>Sat, 15 Oct 2016 22:22:00 +0100</pubDate>
-        <link>http://localhost:4000//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</link>
-        <guid isPermaLink="true">http://localhost:4000//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</guid>
+        <link>http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Embeding-CDF-and-CDE-Dashboards-Part-1/</guid>
         
         <category>Embedding</category>
         
@@ -835,8 +835,8 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
 
 </description>
         <pubDate>Wed, 27 Jul 2016 22:20:00 +0100</pubDate>
-        <link>http://localhost:4000//2016/OLTP-vs-OLAP-vs-RTAP/</link>
-        <guid isPermaLink="true">http://localhost:4000//2016/OLTP-vs-OLAP-vs-RTAP/</guid>
+        <link>http://mfgaspar.github.io//2016/OLTP-vs-OLAP-vs-RTAP/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/OLTP-vs-OLAP-vs-RTAP/</guid>
         
         <category>Big Data</category>
         
@@ -952,8 +952,8 @@ The dashboard it’s subscribing a topic, and as soon as it gets a message, it w
 
 </description>
         <pubDate>Mon, 25 Jul 2016 19:54:00 +0100</pubDate>
-        <link>http://localhost:4000//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</link>
-        <guid isPermaLink="true">http://localhost:4000//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</guid>
+        <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</guid>
         
         <category>Live Insights</category>
         
