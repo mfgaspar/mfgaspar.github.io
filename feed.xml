@@ -5,9 +5,111 @@
     <description>My name is Miguel Gaspar and the blog purpose is to provide information on the value and how to build IoT and Big Data solutions, providing business, architectural and technical guidance that can be useful to developers, architects and top level business managers. </description>
     <link>http://mfgaspar.github.io//</link>
     <atom:link href="http://mfgaspar.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 29 Dec 2017 22:44:20 +0000</pubDate>
-    <lastBuildDate>Fri, 29 Dec 2017 22:44:20 +0000</lastBuildDate>
+    <pubDate>Sat, 30 Dec 2017 19:23:35 +0000</pubDate>
+    <lastBuildDate>Sat, 30 Dec 2017 19:23:35 +0000</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Template Component - Part 2: The use of formatters</title>
+        <description>&lt;p&gt;The template component is a very powerful component, you will always need to write at least one JavaScript function, to return back to the component the template you want to use. In future, we need to consider a way to reuse templates without copy/paste the code.&lt;/p&gt;
+
+&lt;p&gt;To get familiar with the earlier post I wrote on this subject, please refer to the following links:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mfgaspar.github.io/2017/Template-Component-Part-1/&quot;&gt;Template Component - Part 1: The concept and basic usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This post will cover the formatters. The template component has the concept of formatters, which are functions that we can define on the component and later use them inside the template. The values can be numeric, date or string.&lt;/p&gt;
+
+&lt;p&gt;Formatters are very useful because, most of the time, we can’t get the value formatted from the query, as we want it to be displayed on the dashboard. Let’s suppose you want your values to use always 2 decimal places, but from the query you are getting more decimal places then you need.&lt;/p&gt;
+
+&lt;p&gt;The way to use them, is done in two steps:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Define the formatter function in the formatters property of the component&lt;/li&gt;
+  &lt;li&gt;Use the function on the template, so that it can be called when the template is being rendered&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Let’s see each of the steps in more details:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 1:&lt;/strong&gt; 
+You need to go to the formatters property of the template component and add a new formatter, by setting its name and the JavaScript function that accepts a “value” and “id” as arguments. Let’s suppose we want to transform a number and show the dollar sign, and we want to use the function in 2 different places, the 1st using 1 decimal place and the second using 2 decimal places. In this case we want to use the same function and name, and the id can be used to make the distinction between the use of 1 or 0 decimal places.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The value, it’s a mandatory argument, will be the value we want to format.&lt;/li&gt;
+  &lt;li&gt;The id, it’s an optional argument, can be used for conditional formatting. If we pass 1, then we will return the value with 1 decimal place, 2 decimal places otherwise.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One example without the use of the id would be as:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;	
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Utils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numberFormat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'$0.0a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;One example with the id would be as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;	
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Utils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numberFormat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'$0.0a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Utils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numberFormat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'$0.00a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;TIP: We can use the id as an option, suppose you have different signs you want to use, you cn then pass the signs as the argument in the id.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 2:&lt;/strong&gt;
+The second step is to make use of the formatter function inside the template we want to use. Let’s suppose we called the formatter “monetary”. The way to invoke the formatter by calling the function. The syntax is different between Mustache and Underscore, we will focus on the syntax for Mustache. The formatter can be invoked by using  &lt;strong&gt;{{ value | formatter | “formatter_name” : id }}&lt;/strong&gt;, where we can find the following arguments:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;value&lt;/strong&gt;: the value to be formatted&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;formatter&lt;/strong&gt;: it indicates that we want to apply formatters. Another option would be addins, that we will cover in another blog post&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;formatter_name&lt;/strong&gt;: the formatter name used in the previous step. The name should be set between double quotes&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;id&lt;/strong&gt;: some option to pass to the addin, like the id of a specific formatter&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the example, we have been working on, the template would be as:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;ul&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'{{#items}}'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;li&amp;gt; 0: 1 &amp;lt;/li&amp;gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'{{/items}}'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;/ul&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;So, we can see that the vale we want to pass is the value in the second column (column #1), indication that we want to use a formatter, the formatter name as “monetary” and the number of decimal places to use.&lt;/p&gt;
+
+&lt;p&gt;There are many use cases you can think of to use the formatters. They will save you lots of code or work on the queries, that sometimes we are not able to perform.&lt;/p&gt;
+
+&lt;p&gt;Please refer to the Book &lt;a href=&quot;https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-ctools&quot;&gt;Learning Pentaho CTools&lt;/a&gt; to get more details.&lt;/p&gt;
+
+&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 30 Dec 2017 08:00:00 +0000</pubDate>
+        <link>http://mfgaspar.github.io//2017/Template-Component-Part-2/</link>
+        <guid isPermaLink="true">http://mfgaspar.github.io//2017/Template-Component-Part-2/</guid>
+        
+        <category>Pentaho</category>
+        
+        <category>CTools</category>
+        
+        <category>Components</category>
+        
+        <category>Template Component</category>
+        
+        
+        <category>Pentaho</category>
+        
+        <category>CTools</category>
+        
+        <category>Components</category>
+        
+      </item>
     
       <item>
         <title>Template Component - Part 1: The concept and basic usage</title>
@@ -848,117 +950,6 @@ To embed a CDE dashboard, you really must have the dashboard already built and y
         <category>Big Data</category>
         
         <category>IoT</category>
-        
-      </item>
-    
-      <item>
-        <title>Live Insight Dashboard on Pentaho - Part 2: High level overview</title>
-        <description>&lt;p&gt;The &lt;a href=&quot;http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/&quot;&gt;last post&lt;/a&gt; stated to cover some concepts and technology used to have a “real-time” dashboard using Pentaho and on a CTools dashboard. This post will give you an overview of the solution an provide you the samples.&lt;/p&gt;
-
-&lt;h3 id=&quot;high-level-description-and-used-tools&quot;&gt;High level description and used tools&lt;/h3&gt;
-
-&lt;p&gt;So we know that at one end we will have IoT devices and at the other end we will have the browser. So data is being generated at one end and data is being displayed at the other end. At the middle we need to process the data that is being generated before it becomes ready to be processed.&lt;/p&gt;
-
-&lt;p&gt;At a high level our solution is something like the folowing diagram:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mfgaspar.github.io/assets/realtime_diagram_1.png&quot; alt=&quot;Overview diagram of Solution&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The peace’s of hardware and software used on this mini POC were:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Raspberry PI with sensors.&lt;/strong&gt; 
-Here you can use a kettle transformation to generate random data. Data is being send data from sensors, using a Rapesberry Pi and MQTT. Rapesberry Pi uses MQTT to publish messages into the message broker. For you to be able to use and test the samples, I have also included a transformation that generate random messages.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Pentaho Data Integration and &lt;a href=&quot;https://mosquitto.org/&quot;&gt;Mosquitto&lt;/a&gt; as the message broker.&lt;/strong&gt; 
-Will let’s publish and subscribe to topics. A PDI transformation is subscribed to a topic, as soon as messages are arriving, the messages are send to the PDI streaming to other steps, where we can do clean, enrich and aggregate. From there we just need to send the processed data in a message format to another topic of the message broker. Two topics were used, one that it’s just accepting data from sensors and another one that will handle the messages with the processed results. I have selected MQTT as the protocol to exchange messages, anyhow other protocols might be used. Since we don’t have MQTT steps to be used in PDI, I have written some quick code in a &lt;a href=&quot;http://type-exit.org/adventures-with-open-source-bi/2010/10/the-user-defined-java-class-step/&quot;&gt;UDJC&lt;/a&gt;. There is still the need to improve the code a bit, maybe fixing some issues and develop some PDI plugins that can make use of MQTT to get data into PDI.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Pentaho and CTools to display live data in a dashboard.&lt;/strong&gt;
-The dashboard it’s subscribing a topic, and as soon as it gets a message, it will refresh the visualizations and show data from sensors but already processed. The components used on the dashboard are not doing queries againts CDA but subscibing to a topic, so on a message arrives, the visualizations are updated accordly. The best option would be to use &lt;a href=&quot;https://d3js.org/&quot;&gt;D3.js&lt;/a&gt; but to simplify your life a bit when looking to the samples I have used &lt;a href=&quot;http://www.chartjs.org/&quot;&gt;Charts.js&lt;/a&gt;. Will latter provide you the samples using D3.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;get-the-samples-working&quot;&gt;Get the samples working&lt;/h3&gt;
-
-&lt;p&gt;Samples available &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;To have the solution working you will need to install&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Install Java&lt;/li&gt;
-  &lt;li&gt;Download and install Pentaho Data Integration&lt;/li&gt;
-  &lt;li&gt;Download and install Pentaho and CTools&lt;/li&gt;
-  &lt;li&gt;Download PAHO libraries&lt;/li&gt;
-  &lt;li&gt;Run a &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; container with &lt;a href=&quot;https://mosquitto.org/&quot;&gt;Mosquitto&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Upload the dashboard (and resources) to the BA Server&lt;/li&gt;
-  &lt;li&gt;Run the solution&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;For each one of the steps here are some instructions:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. Install Java&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You will be able to download Java from the &lt;a href=&quot;https://java.com/en/download/&quot;&gt;this&lt;/a&gt; website. Just download the correct version of Java for your Operating System and run the installer.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. Download and install Pentaho Data Integration&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You will need to install Pentaho Data Integration making sure it is working. Don’t forget that for the Enterprise Edition you need to have the proper licenses. By the other hand if you want to use the Community Edition you can download it &lt;a href=&quot;http://community.pentaho.com/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. Download and install Pentaho and CTools&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You will be able to use the Community version available &lt;a href=&quot;http://community.pentaho.com/&quot;&gt;here&lt;/a&gt; or using the Enterprise Edition by following the instructions that are send to you when the deal is made. If using Community Edition, don’t forget to read the licenses carefully, you might be breaking the licenses agreement.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. Download PAHO libraries&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You will find in &lt;a href=&quot;http://www.eclipse.org/paho/downloads.php&quot;&gt;this&lt;/a&gt; link, the download page for the Java version. You should copy the .jar file into your Pentaho folder at a location similar to ${PENTAHO_FOLDER}/tomcat/webapps/pentaho/WEB-INF/lib/ and restart Data Integration.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;5. Run a &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; container with &lt;a href=&quot;https://mosquitto.org/&quot;&gt;Mosquitto&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You need to have Mosquitto running, so follow the steps bellow:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run -d -p 1883:1883 -p 9001:9001 toke/mosquitto
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;6. Upload the dasboard (and resources) to the BA Server&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In the samples provided &lt;a href=&quot;https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho&quot;&gt;here&lt;/a&gt; you will find two folders:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Backend: The files needed to generate random messages emulating an IoT device, and the transformations to process the data:&lt;/li&gt;
-  &lt;li&gt;Frontend: Contains the dashboard files and all the resources that are needed to render it on the browser.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Create a Zip of the content of the frontend folder, and upload it to somewhere in the BA server repository.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;7. Run the solution&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;From the PDI folder, you need to run the transformations, first the one to process data, by running the following command:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./pan.sh -file=${[PATH_TO_FILES}/mqtt-project-source-code/backend/iot-device-emulator.ktr -param:delaytime=200
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And next, the transformation, to emulate IoT device generating data, by using the command:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./pan.sh -file=${[PATH_TO_FILES}/mqtt-IoT-poc/mqtt-project-source-code/backend/realtime-using-mqtt.ktr 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Last you need to start the dashboard you will find on the folder you’ve created in the BA Server, and press the “start”&lt;/p&gt;
-
-&lt;p&gt;You can stop and start the IoT device emulator transformation and change the value of the parameter &lt;em&gt;delaytime&lt;/em&gt; to be &lt;em&gt;1000&lt;/em&gt;. You will see that the values will be pushed slowly into the dashboard.&lt;/p&gt;
-
-&lt;p&gt;Follow me at &lt;a href=&quot;https://twitter.com/migfgaspar&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 25 Jul 2016 19:54:00 +0100</pubDate>
-        <link>http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</link>
-        <guid isPermaLink="true">http://mfgaspar.github.io//2016/Live-Insights-With-Pentado-and-Ctools-Part-2/</guid>
-        
-        <category>Live Insights</category>
-        
-        
-        <category>Live Insights</category>
         
       </item>
     
