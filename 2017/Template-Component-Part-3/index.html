@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Template Component - Part 2: The use of formatters</title>
+  <title>Template Component - Part 3: The use of addins</title>
   <meta name="description" content="My name is Miguel Gaspar and the blog purpose is to provide information on the value and how to build IoT and Big Data solutions, providing business, architectural and technical guidance that can be useful to developers, architects and top level business managers. ">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mfgaspar.github.io//2017/Template-Component-Part-2/">
+  <link rel="canonical" href="http://mfgaspar.github.io//2017/Template-Component-Part-3/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -167,84 +167,64 @@
     <div class="post-meta">
       <time datetime="30 Dec 2017" class="post-meta__date date">30 Dec 2017</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Pentaho">Pentaho</a> <a href="/tags/#CTools">CTools</a> <a href="/tags/#Components">Components</a> <a href="/tags/#Template Component">Template Component</a> </span>
     </div>
-    <h1 class="post-title">Template Component - Part 2: The use of formatters</h1>
+    <h1 class="post-title">Template Component - Part 3: The use of addins</h1>
   </header>
   <section class="post">
-    <p>The template component is a very powerful component, you will always need to write at least one JavaScript function, to return back to the component the template you want to use. In future, we need to consider a way to reuse templates without copy/paste the code.</p>
+    <p>Getting back to the template component! This time we will cover the use of addins.</p>
 
 <p>To get familiar with the earlier post I wrote on this subject, please refer to the following links:</p>
 
 <ul>
   <li><a href="http://mfgaspar.github.io/2017/Template-Component-Part-1/">Template Component - Part 1: The concept and basic usage</a></li>
+  <li><a href="http://mfgaspar.github.io/2017/Template-Component-Part-2/">Template Component - Part 2: The concept and basic formatters</a></li>
 </ul>
 
-<p>This post will cover the formatters. The template component has the concept of formatters, which are functions that we can define on the component and later use them inside the template. The values can be numeric, date or string.</p>
+<p>Just like in the table component we can use addins inside the template component. The following image shows the out-of-the-box addins, ready to be used.</p>
 
-<p>Formatters are very useful because, most of the time, we can’t get the value formatted from the query, as we want it to be displayed on the dashboard. Let’s suppose you want your values to use always 2 decimal places, but from the query you are getting more decimal places then you need.</p>
+<p><img src="http://mfgaspar.github.io/assets/template_component_3.png" alt="Example of addins using the Template Component" /></p>
 
-<p>The way to use them, is done in two steps:</p>
+<p>From the image above, we can find the following list of addins types:</p>
 
 <ol>
-  <li>Define the formatter function in the formatters property of the component</li>
-  <li>Use the function on the template, so that it can be called when the template is being rendered</li>
+  <li>clippedText: The same as the table add-in plugin used when we have text larger than the space we have to display it. It will show the full text when we hover over it.</li>
+  <li>trendArrow: This add-in is very similar to the trend arrow of the table component using the exact same behaviour and properties. It will display an arrow up/down and red/green depending on whether it’s up/below and whether it’s a good/bad value.</li>
+  <li>formatted: I consider this a multiuse addin because you can use it to easily apply some formatting or even customize, and have complete control over, what you will display. You can use the add-in to send HTML to the dashboard, so it gives you great  flexibility. By default, the add-in format will be applied using one of two functions. You can format numbers and/or dates, but that for that we saw we can use the formatters.</li>
+  <li>sparkline: Allows you to use the JQuery Sparkline Plugin just like we covered on the table component. Options should be the ones available on the plugin; just make sure the value returned is a string, represented with comma-separated (,) numbers.</li>
+  <li>hyperlink: hyperlink is an add-in that can provide links to any URI that is recognized by the HTML and the browser. You need to return a string with a valid URL from the query.</li>
+  <li>localized: This is similar to the localizedText add-in on the table component, it facilitates the localization of the dashboards.</li>
+  <li>bubble: This add-in will draw a bubble where the size of the bubble is the relation between the value and the minimum and maximum values for all the rows on that same column, where the biggest bubble will be the highest value of all.</li>
+  <li>bulletChart: This is used to represent a bullet chart with the values that come from the query for that same cell. Here you need to return all the values to use on the bullet chart, separated by a comma. The options that you have available are all those available for CCC charts.</li>
+  <li>cccChart: This add-in allows you to display any CCC chart, very powerful but also very tricky to use.</li>
 </ol>
 
-<p>Let’s see each of the steps in more details:</p>
-
-<p><strong>STEP 1:</strong> 
-You need to go to the formatters property of the template component and add a new formatter, by setting its name and the JavaScript function that accepts a “value” and “id” as arguments. Let’s suppose we want to transform a number and show the dollar sign, and we want to use the function in 2 different places, the 1st using 1 decimal place and the second using 2 decimal places. In this case we want to use the same function and name, and the id can be used to make the distinction between the use of 1 or 0 decimal places.</p>
+<p>The way to use the addins is quite simple. When using the Mustache, we can call one addin by using the following syntax: 
+<strong>{{{ value | addin | “addin_type” : addin_id }}}</strong>, where we can see the folwoing options:</p>
 
 <ul>
-  <li>The value, it’s a mandatory argument, will be the value we want to format.</li>
-  <li>The id, it’s an optional argument, can be used for conditional formatting. If we pass 1, then we will return the value with 1 decimal place, 2 decimal places otherwise.</li>
+  <li><strong>value</strong>: the value to be passed to the addin</li>
+  <li><strong>addin</strong>: it indicates that we want to call an addin. Another option would be formatters like we saw on the last post</li>
+  <li><strong>addin_type</strong>: the addin type we want to use, from the list above o some other you might create</li>
+  <li><strong>addin_id</strong>: the addin id to be used. That’s because we might need to call the same addin type multiple times, but for different purposes</li>
 </ul>
 
-<p>One example without the use of the id would be as:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>	
-  <span class="k">return</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">numberFormat</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="s1">'$0.0a'</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>One example with the id would be as follows:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">id</span><span class="p">){</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>	
-    <span class="k">return</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">numberFormat</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="s1">'$0.0a'</span><span class="p">)</span>
-  <span class="k">else</span>
-    <span class="k">return</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">numberFormat</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="s1">'$0.00a'</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>TIP: We can use the id as an option, suppose you have different signs you want to use, you cn then pass the signs as the argument in the id.</strong></p>
-
-<p><strong>STEP 2:</strong>
-The second step is to make use of the formatter function inside the template we want to use. Let’s suppose we called the formatter “monetary”. The way to invoke the formatter by calling the function. The syntax is different between Mustache and Underscore, we will focus on the syntax for Mustache. The formatter can be invoked by using  <strong>{{{ value | formatter | “formatter_name” : id }}}</strong>, where we can find the following arguments:</p>
-
-<ul>
-  <li><strong>value</strong>: the value to be formatted</li>
-  <li><strong>formatter</strong>: it indicates that we want to apply formatters. Another option would be addins, that we will cover in another blog post</li>
-  <li><strong>formatter_name</strong>: the formatter name used in the previous step. The name should be set between double quotes</li>
-  <li><strong>id</strong>: some option to pass to the addin, like the id of a specific formatter</li>
-</ul>
-
-<p>In the example, we have been working on, the template would be as:</p>
+<p>One example of using an addin inside the template would be, let’s just consider we have one more column that indicates what ws the sales growth compared to last year:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> 
   <span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span>  <span class="s1">''</span> <span class="o">+</span>
     <span class="s1">'&lt;ul&gt;'</span> <span class="o">+</span>
     <span class="s1">'{{#items}}'</span> <span class="o">+</span>
-    <span class="s1">'&lt;li&gt; {{0}}: {{{ 1 | formatter : "monetary" : 1}}} &lt;/li&gt;'</span><span class="o">+</span>
+    <span class="s1">'&lt;li&gt; {{0}}: {{{ 1 | formatter : "monetary" : 1 }}} {{{ 2 | addin : "trendArrrow" : "none"}}} &lt;/li&gt;'</span><span class="o">+</span>
     <span class="s1">'{{/items}}'</span> <span class="o">+</span>
     <span class="s1">'&lt;/ul&gt;'</span><span class="p">;</span> 
   <span class="k">return</span> <span class="nx">template</span><span class="p">;</span>
 <span class="p">}</span> 
 </code></pre></div></div>
-<p>So, we can see that the vale we want to pass is the value in the second column (column #1), indication that we want to use a formatter, the formatter name as “monetary” and the number of decimal places to use.</p>
 
-<p>There are many use cases you can think of to use the formatters. They will save you lots of code or work on the queries, that sometimes we are not able to perform.</p>
+<p>In this case we are using the trendArrow to display an arrow up or down, based on a vlaue that would coming from the 3rd column of the result of our query.</p>
 
-<p>Please refer to the Book <a href="https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-ctools">Learning Pentaho CTools</a> to get more details.</p>
+<p>Do not forget this is the example for using the Mustache engine/syntax.</p>
+
+<p>Please refer to the Book <a href="https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-ctools">Learning Pentaho CTools</a> to get more details. In the book, I do cover all the options of the addins, plus how to change those options.</p>
 
 <p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
 
@@ -256,13 +236,13 @@ The second step is to make use of the formatter function inside the template we 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
 
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-2/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-3/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-2/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-3/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-3/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-3/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
 <!--
 <a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
 -->

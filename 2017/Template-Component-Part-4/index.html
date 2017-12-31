@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>Template Component - Part 2: The use of formatters</title>
+  <title>Template Component - Part 4: The model handler</title>
   <meta name="description" content="My name is Miguel Gaspar and the blog purpose is to provide information on the value and how to build IoT and Big Data solutions, providing business, architectural and technical guidance that can be useful to developers, architects and top level business managers. ">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mfgaspar.github.io//2017/Template-Component-Part-2/">
+  <link rel="canonical" href="http://mfgaspar.github.io//2017/Template-Component-Part-4/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -165,86 +165,83 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="30 Dec 2017" class="post-meta__date date">30 Dec 2017</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Pentaho">Pentaho</a> <a href="/tags/#CTools">CTools</a> <a href="/tags/#Components">Components</a> <a href="/tags/#Template Component">Template Component</a> </span>
+      <time datetime="31 Dec 2017" class="post-meta__date date">31 Dec 2017</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Pentaho">Pentaho</a> <a href="/tags/#CTools">CTools</a> <a href="/tags/#Components">Components</a> <a href="/tags/#Template Component">Template Component</a> </span>
     </div>
-    <h1 class="post-title">Template Component - Part 2: The use of formatters</h1>
+    <h1 class="post-title">Template Component - Part 4: The model handler</h1>
   </header>
   <section class="post">
-    <p>The template component is a very powerful component, you will always need to write at least one JavaScript function, to return back to the component the template you want to use. In future, we need to consider a way to reuse templates without copy/paste the code.</p>
+    <p>In the first blog post under the subject I referred about some advanced options. Let’s cover one of those options, the model handler.</p>
 
 <p>To get familiar with the earlier post I wrote on this subject, please refer to the following links:</p>
 
 <ul>
   <li><a href="http://mfgaspar.github.io/2017/Template-Component-Part-1/">Template Component - Part 1: The concept and basic usage</a></li>
+  <li><a href="http://mfgaspar.github.io/2017/Template-Component-Part-2/">Template Component - Part 2: The use of formatters</a></li>
+  <li><a href="http://mfgaspar.github.io/2017/Template-Component-Part-3/">Template Component - Part 3: The use of addins</a></li>
 </ul>
 
-<p>This post will cover the formatters. The template component has the concept of formatters, which are functions that we can define on the component and later use them inside the template. The values can be numeric, date or string.</p>
+<p>You must know we can use Pentaho Data Integration (Kettle) transformations to return data to the dashboard, so you cam prety much build the result set you need, also when using MDX, we may return some complex values parsed in a string. When we have more complex result sets, we may also need to manipulate the model so that it will let us build a really advanced visualization. Let’s suppose that we getting from a query the sales for each territory and country, and we want to display a card by territory where we will include all countries’ sales, such as in the following image:</p>
 
-<p>Formatters are very useful because, most of the time, we can’t get the value formatted from the query, as we want it to be displayed on the dashboard. Let’s suppose you want your values to use always 2 decimal places, but from the query you are getting more decimal places then you need.</p>
+<p><img src="http://mfgaspar.github.io/assets/template_component_4.png" alt="Example of using the model handler inside the Template Component" /></p>
 
-<p>The way to use them, is done in two steps:</p>
+<p>The fist think that comes out, is that we need to do is to group the result by territory, because if we can have an object for each one of the territories then we can have all countries inside it. It’s easier to build a template that can bring those results to the screen, if we build ours own model. That’s what the model handler is about, a function that is called where we can manipulate the data and build our own model. The function accepts a parameter and we must return the model back, just as the following example:</p>
 
-<ol>
-  <li>Define the formatter function in the formatters property of the component</li>
-  <li>Use the function on the template, so that it can be called when the template is being rendered</li>
-</ol>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">getValues</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">idx</span><span class="p">){</span>
+      <span class="k">return</span> <span class="p">{</span><span class="na">country</span><span class="p">:</span> <span class="nx">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="na">sales</span><span class="p">:</span> <span class="nx">value</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="na">salesByMonth</span><span class="p">:</span> <span class="nx">value</span><span class="p">[</span><span class="mi">3</span><span class="p">]};</span>      
+    <span class="p">});</span>
+  <span class="p">};</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">queryInfo</span><span class="p">.</span><span class="nx">totalRows</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">model</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="c1">// group by territory</span>
+    <span class="kd">var</span> <span class="nx">groups</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">resultset</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">){</span> <span class="k">return</span> <span class="nx">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">];});</span>
+    <span class="c1">// create model with array of groups</span>
+    <span class="nx">model</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">rootElement</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">groups</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span> 
+      <span class="k">return</span> <span class="p">{</span><span class="na">territory</span><span class="p">:</span> <span class="nx">id</span><span class="p">,</span> <span class="na">values</span><span class="p">:</span> <span class="nx">getValues</span><span class="p">(</span><span class="nx">value</span><span class="p">)};</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="nx">model</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span> 
+</code></pre></div></div>
 
-<p>Let’s see each of the steps in more details:</p>
+<p>The way we are transforming the model, will look like, and thats what it will be used by the template engine:</p>
 
-<p><strong>STEP 1:</strong> 
-You need to go to the formatters property of the template component and add a new formatter, by setting its name and the JavaScript function that accepts a “value” and “id” as arguments. Let’s suppose we want to transform a number and show the dollar sign, and we want to use the function in 2 different places, the 1st using 1 decimal place and the second using 2 decimal places. In this case we want to use the same function and name, and the id can be used to make the distinction between the use of 1 or 0 decimal places.</p>
-
-<ul>
-  <li>The value, it’s a mandatory argument, will be the value we want to format.</li>
-  <li>The id, it’s an optional argument, can be used for conditional formatting. If we pass 1, then we will return the value with 1 decimal place, 2 decimal places otherwise.</li>
-</ul>
-
-<p>One example without the use of the id would be as:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>	
-  <span class="k">return</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">numberFormat</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="s1">'$0.0a'</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> 
+  <span class="nl">items</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="na">territory</span><span class="p">:</span> <span class="s2">"APAC"</span><span class="p">,</span> <span class="na">values</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span><span class="na">country</span><span class="p">:</span> <span class="s2">"Australia"</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="mi">630623</span><span class="p">,</span> <span class="na">valueByMonth</span><span class="p">:</span> <span class="s2">"0,49637,...,37905"</span><span class="p">],</span>
+      <span class="p">[</span><span class="na">country</span><span class="p">:</span> <span class="s2">"New Zeland"</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="mi">230625</span><span class="p">,</span> <span class="na">valueByMonth</span><span class="p">:</span> <span class="s2">"0,36632,...,45678"</span><span class="p">],</span>
+    <span class="p">{</span><span class="na">territory</span><span class="p">:</span> <span class="s2">"EMEA"</span><span class="p">,</span> <span class="na">values</span><span class="p">:</span> <span class="p">[...]},</span>
+    <span class="p">{</span><span class="na">territory</span><span class="p">:</span> <span class="s2">"Japan"</span><span class="p">,</span> <span class="na">values</span><span class="p">:</span> <span class="p">[...]},</span>
+    <span class="p">{</span><span class="na">territory</span><span class="p">:</span> <span class="s2">"NA"</span><span class="p">,</span> <span class="na">values</span><span class="p">:</span> <span class="p">[...]}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>One example with the id would be as follows:</p>
+<p>We now need to have in consideration, that’s easier to build the template, that’s because we will refer to the data using names instead the number of the columns. The template can look like:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">id</span><span class="p">){</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>	
-    <span class="k">return</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">numberFormat</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="s1">'$0.0a'</span><span class="p">)</span>
-  <span class="k">else</span>
-    <span class="k">return</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">numberFormat</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="s1">'$0.00a'</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>TIP: We can use the id as an option, suppose you have different signs you want to use, you cn then pass the signs as the argument in the id.</strong></p>
-
-<p><strong>STEP 2:</strong>
-The second step is to make use of the formatter function inside the template we want to use. Let’s suppose we called the formatter “monetary”. The way to invoke the formatter by calling the function. The syntax is different between Mustache and Underscore, we will focus on the syntax for Mustache. The formatter can be invoked by using  <strong>{{{ value | formatter | “formatter_name” : id }}}</strong>, where we can find the following arguments:</p>
-
-<ul>
-  <li><strong>value</strong>: the value to be formatted</li>
-  <li><strong>formatter</strong>: it indicates that we want to apply formatters. Another option would be addins, that we will cover in another blog post</li>
-  <li><strong>formatter_name</strong>: the formatter name used in the previous step. The name should be set between double quotes</li>
-  <li><strong>id</strong>: some option to pass to the addin, like the id of a specific formatter</li>
-</ul>
-
-<p>In the example, we have been working on, the template would be as:</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> 
-  <span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span>  <span class="s1">''</span> <span class="o">+</span>
-    <span class="s1">'&lt;ul&gt;'</span> <span class="o">+</span>
-    <span class="s1">'{{#items}}'</span> <span class="o">+</span>
-    <span class="s1">'&lt;li&gt; {{0}}: {{{ 1 | formatter : "monetary" : 1}}} &lt;/li&gt;'</span><span class="o">+</span>
-    <span class="s1">'{{/items}}'</span> <span class="o">+</span>
-    <span class="s1">'&lt;/ul&gt;'</span><span class="p">;</span> 
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> 
+  <span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span>  <span class="s1">''</span><span class="o">+</span>
+  <span class="s1">'&lt;div class="row"&gt;'</span> <span class="o">+</span>
+  <span class="s1">'{{#items}}'</span> <span class="o">+</span>
+  <span class="s1">'  &lt;div class="col-xs-3 territory"&gt;'</span> <span class="o">+</span>
+  <span class="s1">'    &lt;div&gt; {{territory}} &lt;/div&gt;'</span> <span class="o">+</span>
+  <span class="s1">'    {{#values}}'</span> <span class="o">+</span>
+  <span class="s1">'      &lt;div&gt;'</span><span class="o">+</span>
+  <span class="s1">'        &lt;div class="country"&gt; {{country}} &lt;/div&gt;'</span> <span class="o">+</span>
+  <span class="s1">'        &lt;div class="sales"&gt; {{{sales | formatter : "sales" : "none"}}} &lt;/div&gt;'</span> <span class="o">+</span>
+  <span class="s1">'        &lt;div class="sparkline"&gt; {{{salesByMonth | addin : "sparkline" : "none"}}} &lt;/div&gt;'</span> <span class="o">+</span> 
+  <span class="s1">'      &lt;/div&gt;'</span> <span class="o">+</span>
+  <span class="s1">'    {{/values}}'</span> <span class="o">+</span>
+  <span class="s1">'  &lt;/div&gt;'</span> <span class="o">+</span>
+  <span class="s1">'{{/items}}'</span> <span class="o">+</span>
+  <span class="s1">'&lt;/div&gt;'</span><span class="p">;</span> 
   <span class="k">return</span> <span class="nx">template</span><span class="p">;</span>
 <span class="p">}</span> 
 </code></pre></div></div>
-<p>So, we can see that the vale we want to pass is the value in the second column (column #1), indication that we want to use a formatter, the formatter name as “monetary” and the number of decimal places to use.</p>
-
-<p>There are many use cases you can think of to use the formatters. They will save you lots of code or work on the queries, that sometimes we are not able to perform.</p>
-
-<p>Please refer to the Book <a href="https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-ctools">Learning Pentaho CTools</a> to get more details.</p>
 
 <p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
 
@@ -256,13 +253,13 @@ The second step is to make use of the formatter function inside the template we 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
 
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-2/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-4/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-2/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-4/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-4/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-2/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-4/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
 <!--
 <a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
 -->
