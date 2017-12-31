@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mfgaspar.github.io//2017/Template-Component-Part-4/">
+  <link rel="canonical" href="http://localhost:4000//2017/Template-Component-Part-4/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -165,7 +165,7 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="31 Dec 2017" class="post-meta__date date">31 Dec 2017</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Pentaho">Pentaho</a> <a href="/tags/#CTools">CTools</a> <a href="/tags/#Components">Components</a> <a href="/tags/#Template Component">Template Component</a> </span>
+      <time datetime="29 Dec 2017" class="post-meta__date date">29 Dec 2017</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Pentaho">Pentaho</a> <a href="/tags/#CTools">CTools</a> <a href="/tags/#Components">Components</a> <a href="/tags/#Template Component">Template Component</a> </span>
     </div>
     <h1 class="post-title">Template Component - Part 4: The model handler</h1>
   </header>
@@ -228,12 +228,14 @@
   <span class="s1">'&lt;div class="row"&gt;'</span> <span class="o">+</span>
   <span class="s1">'{{#items}}'</span> <span class="o">+</span>
   <span class="s1">'  &lt;div class="col-xs-3 territory"&gt;'</span> <span class="o">+</span>
-  <span class="s1">'    &lt;div&gt; {{territory}} &lt;/div&gt;'</span> <span class="o">+</span>
+  <span class="s1">'    &lt;div class="row"&gt;'</span> <span class="o">+</span>
+  <span class="s1">'      &lt;div class="col-xs-12"&gt;{{territory}} &lt;/div&gt;'</span> <span class="o">+</span>
+  <span class="s1">'    &lt;/div&gt;'</span> <span class="o">+</span>
   <span class="s1">'    {{#values}}'</span> <span class="o">+</span>
-  <span class="s1">'      &lt;div&gt;'</span><span class="o">+</span>
-  <span class="s1">'        &lt;div class="country"&gt; {{country}} &lt;/div&gt;'</span> <span class="o">+</span>
-  <span class="s1">'        &lt;div class="sales"&gt; {{{sales | formatter : "sales" : "none"}}} &lt;/div&gt;'</span> <span class="o">+</span>
-  <span class="s1">'        &lt;div class="sparkline"&gt; {{{salesByMonth | addin : "sparkline" : "none"}}} &lt;/div&gt;'</span> <span class="o">+</span> 
+  <span class="s1">'      &lt;div class="row"&gt;'</span><span class="o">+</span>
+  <span class="s1">'        &lt;div class="country col-xs-3"&gt; {{country}} &lt;/div&gt;'</span> <span class="o">+</span>
+  <span class="s1">'        &lt;div class="sales col-xs-3"&gt; {{{sales | formatter : "sales" : "none"}}} &lt;/div&gt;'</span> <span class="o">+</span>
+  <span class="s1">'        &lt;div class="sparkline col-xs-3"&gt; {{{salesByMonth | addin : "sparkline" : "none"}}} &lt;/div&gt;'</span> <span class="o">+</span> 
   <span class="s1">'      &lt;/div&gt;'</span> <span class="o">+</span>
   <span class="s1">'    {{/values}}'</span> <span class="o">+</span>
   <span class="s1">'  &lt;/div&gt;'</span> <span class="o">+</span>
@@ -242,6 +244,10 @@
   <span class="k">return</span> <span class="nx">template</span><span class="p">;</span>
 <span class="p">}</span> 
 </code></pre></div></div>
+
+<p>So, using the model handler you can easly create your templates, even if it gives us some more work creating the model handler.</p>
+
+<p>Please refer to the Book <a href="https://www.packtpub.com/big-data-and-business-intelligence/learning-pentaho-ctools">Learning Pentaho CTools</a> to get more details.</p>
 
 <p>Follow me at <a href="https://twitter.com/migfgaspar">Twitter</a></p>
 
@@ -253,13 +259,13 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
 
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-4/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://localhost:4000/2017/Template-Component-Part-4/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-4/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://localhost:4000/2017/Template-Component-Part-4/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-4/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://localhost:4000/2017/Template-Component-Part-4/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://mfgaspar.github.io/2017/Template-Component-Part-4/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://localhost:4000/2017/Template-Component-Part-4/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
 <!--
 <a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
 -->
