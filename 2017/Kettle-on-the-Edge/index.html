@@ -14,7 +14,7 @@
   ga('send', 'pageview');
   </script>
 
-  <title>IoT on Pentaho using MQTT - New MQTT steps for PDI are available in Marketplace</title>
+  <title>Kettle used on the edge after getting on a diet!</title>
   <meta name="description" content="My name is Miguel Gaspar and the blog purpose is to provide information on the value and how to build IoT and Big Data solutions, providing business, architectural and technical guidance that can be useful to developers, architects and top level business managers. ">
   <meta name="author" content="Miguel Gaspar">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://localhost:4000//2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/">
+  <link rel="canonical" href="http://localhost:4000//2017/Kettle-on-the-Edge/">
   <link rel="alternate" type="application/rss+xml" title="Cooking Analytics" href="/feed.xml">
 </head>
 
@@ -165,40 +165,94 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="16 Dec 2016" class="post-meta__date date">16 Dec 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#IoT">IoT</a> <a href="/tags/#MQTT">MQTT</a> </span>
+      <time datetime="30 Dec 2017" class="post-meta__date date">30 Dec 2017</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#IoT">IoT</a> <a href="/tags/#Pentaho">Pentaho</a> <a href="/tags/#Data Integration">Data Integration</a> <a href="/tags/#Kettle">Kettle</a> <a href="/tags/#Edge">Edge</a> <a href="/tags/#Kitchen">Kitchen</a> <a href="/tags/#Pan">Pan</a> </span>
     </div>
-    <h1 class="post-title">IoT on Pentaho using MQTT - New MQTT steps for PDI are available in Marketplace</h1>
+    <h1 class="post-title">Kettle used on the edge after getting on a diet!</h1>
   </header>
   <section class="post">
-    <p>Earlier this year I have made some posts and provided some samples on how we could stream data from the IoT devices and displaying the info on a dashboard, using Pentaho Data Integration and MQTT protocol.</p>
+    <p>One of the thinks that is important to consider when designing and creating IoT solutions is edge computing. So, can we leverage Pentaho Data Integration for edge processing?</p>
 
-<p><a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-1/">First blog post</a></p>
+<h1 id="pentaho-data-integration-on-the-edge">Pentaho Data Integration On the Edge!</h1>
 
-<p><a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-2/">Second blog post</a></p>
+<p>Most of the times you don’t want to send all the data from all the sensor to a central deposit, but only send the data.
+Edge computing allows is useful in many use cases and one example is to have data produced by Internet of Things (IoT) devices processed closer to where it is created instead of sending it all across long distances to data centers or clouds. If we do edge computing we will definitely save on costs, faster response time creating a better overall solution that is still capable of fulfilling project requirements.</p>
 
-<p><a href="http://mfgaspar.github.io/2016/Live-Insights-With-Pentado-and-Ctools-Part-3/">Third blog post</a></p>
+<p><a href="https://www.networkworld.com/article/3224893/internet-of-things/what-is-edge-computing-and-how-it-s-changing-the-network.html">Here</a>, you will find a simple article on the subject.</p>
 
-<p>I am still missing some blog posts on how to scale a solution on this and how to use D3.js as the chart library, among other updates. The good news is that Pentaho Labs announced the release of MQTT steps, even if not yet supported. I guess it is just a matter of time now.</p>
+<p>You may ask, how “big” will be my edge device or gateway and how much will I need to perform on the edge? Well, that depends on your goals and project requirements, but I almost bet that you can now think on many ways to improve your solution. Anyhow I am sure that for edge we usually want some technology that is light and performant, easy to develop with.</p>
 
-<p>The steps are ready to be used and available in marketplace.</p>
+<p>You might struggle to find many edge solutions that will perform all operations you need, so most of the times you will find that most time you need to get hands dirty and create some custom code.</p>
 
-<p><a href="http://www.pentaho.com/blog/pentaho-mqtt-iot">Here the link</a> where Pentaho labs is announcing it.</p>
+<p>To reduce your solution time to market, you can also make use of tools that will allows you to save time when it comes to data processing and analysis and apply artificial intelligence on it. One of those tools is Pentaho Data Integration.</p>
 
-<p><img src="http://mfgaspar.github.io/assets/new-mqtt-plugin-pdi.png" alt="MQTT on PDI" /></p>
+<p>One of the problem of amazing tools is that they get big and sometimes they provide much more then we need for simpler, anyhow more complex tasks.</p>
 
-<p>You can watch the <a href="http://www.youtube.com/watch?v=q4gspdUhlU4">video</a> with the updates.</p>
+<h2 id="so-can-we-use-pentaho-data-integration-for-edge-processing">So, can we use Pentaho Data Integration for Edge processing?</h2>
 
-<p>Samples are available <a href="https://github.com/mfgaspar/mfgaspar.github.io-samples/tree/master/pentaho/iot.pdi.mqtt.samples">here</a></p>
+<p>The answer is off course, yes, we can!</p>
 
-<p>Please keep in mind that the most interesting part is not the live dashboard, it is the data streaming capabilities on PDI. You can nos make use of the new steps to be closer to IoT and possible to use Data Integration for the ingestion of data coming from devices. This also makes clear tht might be possible to use other protocols.</p>
+<p>But PDI is a greater and more advanced tool with much more features and functionality that we need for edge computing, so why not using only what we can, having a tiny data integration tool were you just add what you need? Of course, that if you still need more than its core components or parts, you should be able to do it. I guess that the solution would be to start from base and core functionality and add the components and/or plugins we need for specific operations.</p>
 
-<p><img src="http://mfgaspar.github.io/assets/row-processing-transformation.png" alt="Main and row processing transformations" /></p>
+<p>On Edge devices or gateways you will probably be executing Kitchen, Pan or even Carte. The use of OSGI and some plugins that are included by default makes Spoon and associated command line tools to be a bit slow at start. So, we need to do some adjustments on Pentaho Data Integration and use a lighter but still powerful version of it.</p>
 
-<p>One clear advantage is that you don’t need to write all your code, you can build a gateway using PDI and without writing one line of code. Also look at the samples, you will notice we can switch the data processing transformation we want to use, and you can do it using a parameters. Also from the image above you can see that you are able to group rows based on number of rows or time.</p>
+<h2 id="lets-get-to-the-point-and-check-what-it-can-be-done-on-that-sense">Let’s get to the point and check what it can be done on that sense</h2>
 
-<p>Also notice that the case, based on the values opf a parameter named “rowsGroupingType” will decide if we need to go and process rows based of the number, based on time, or not group them at all.</p>
+<p>First, I need to raise a warning, this is not supported by Pentaho, so you need to do/use it on your own risk!</p>
 
-<p>Usefull also if you write to a permanent storage, like Cassandra/HBase or other depending on golas and requirments.</p>
+<p>Second, I need to set some of the goals/objectives:</p>
+<ul>
+  <li>Start with core and base kettle tool that provides essential functionality for edge processing;</li>
+  <li>The goal was to find an easier solution, and avoid having to recompile kettle on every change;</li>
+  <li>To be able to re-include plugins as we need;</li>
+  <li>Consume as less memory, cpu and disk space as possible.</li>
+</ul>
+
+<p>Let me know if you find issues and please contribute with improvements. Share experiences and feedback while using it! We can make it much better, I just spend couple of hours putting this in place, so I know that lots of improvements can be done.</p>
+
+<h2 id="getting-pdi-on-a-diet">Getting PDI on a diet</h2>
+
+<p>Looking to plugins and some of the functionality under OSGI, it’s not required for edge computing, so, I have removed OSGI and OSGI plugins plus plugins that you might add later without any issues if we need to use them. You must be aware that by removing OSGI, you also remove some of PDI functionality, but you might be completely fine with that. You won’t be able to connect to repository, won’t be able to use Big Data shims, Yarn, Adaptive Execution Layer (AEL), Data Lineage and remote execution.</p>
+
+<p>Yes, I will miss DET, but I can survive with that. I can even do development with a version were OSGI is available but having proper continuous integration process in place to perform proper testing using edge version.</p>
+
+<p>Also, there are plugins that most of the time we don’t use, and that most of the time wont be required for edge computing.</p>
+
+<p><strong>Less than 160MB of Pentaho Data Integration to be used!</strong></p>
+
+<p>I have reduced components to a core and had not to recompile Kettle. So, now I do have a Kettle solution that takes less then 170 MB of disk space and consumes less computing recourses so better efficiency while doing edge processing, just by running and maybe designing your kettle transformations and jobs on the edge.</p>
+
+<p>So, what were the main transformation I did?</p>
+
+<h3 id="removing-osgi-and-dependencies">Removing OSGI and dependencies</h3>
+
+<p>We can remove Karaf/OSGI listeners but there are still some dependencies that will stop spoon to start. Even if it only this change, works good on kitchen and pan, spoon would break, and I wanted to have spoon also running. So, I had to remove dependencies from PentahoSystem.java class and recompile it. But that’s how much I had to do have lightning fast startup also on Spoon. No need to recompile Kettle code, only had to replace the jar file from Pentaho platform code.</p>
+
+<h3 id="plugins-removed">Plugins removed:</h3>
+
+<p>I have removed most of the plugins that are inside the plugins folder except for essential as json, xlm, platform utils, core plugins, dummy (yes we should avoid using it, but it is quite useful sometimes)</p>
+
+<p>Samples were also removed to save disk space and have faster deploy process. Karaf folder was completely removed.</p>
+
+<p>I will make the list more accurate and precise once time permits. The list will be available in <a href="https://github.com/mfgaspar/orlo">this</a> github repository, I have called the repository “Orlo”, that is edge in Italy, where I was when worked on this.</p>
+
+<h3 id="how-to-install-it-and-run-spoon-kitchen-pan-and-carte">How to install it and run Spoon, Kitchen, Pan and Carte?</h3>
+
+<p>You can find a zip file with thin PDI using this <a href="https://github.com/mfgaspar/orlo/releases/download/8.0.0.0-28/orlo-pdi-8.0.0.0-28.zip">link</a></p>
+
+<p>Once you download the zip file in <a href="https://github.com/mfgaspar/orlo/releases/download/8.0.0.0-28/orlo-pdi-8.0.0.0-28.zip">here</a> you just need to unzip and start Spoon, Kitchen and Pan from the command line as you would to it normally, just like the example below. Don’t forget to optimize JVM memory, point to specific Kettle Home folder, etc..</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh kitchen.sh <span class="nt">-file</span> ../etl/job.kjb <span class="nt">-level</span> Error <span class="nt">-logfile</span> ../joblog.log
+</code></pre></div></div>
+
+<p>You will see the job/transformation is started instantaneously, and no starting overhead. If you measure the execution time (by any mean you might have), plus memory and cpu (that you easily do using jconsole) you will be able how much you’ve improved.</p>
+
+<p>Unfortunately, I had to leave Windows out of this, anyhow as for now I don’t see windows as the operating system for edge computing. Just a reminder that you can still develop the transformations and jobs in Windows but having proper tests in place to make sure that you’ve developed will work on the Edge version of Pentaho Data Integration.</p>
+
+<p>Have fun creating jobs and transformations to be used on edge processing on small and scarse resources devices.</p>
+
+<p>NOTE: This is great solution not only for Edge processing but can also be used in solutions that uses “serverless” and part of the backend, as Dan Keeley has already mentioned on a post on his blog. Some other uses cases are cloud and elastic computing that I will later write a post about it.</p>
+
+<p>Follow me at:</p>
 
 
   </section>
@@ -208,13 +262,13 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571518f68ebfed3f"></script>
 
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://localhost:4000/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http://localhost:4000/2017/Kettle-on-the-Edge/&text=&pco=tbxnj-1.0&pubid=&ct=1" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://localhost:4000/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=http://localhost:4000/2017/Kettle-on-the-Edge/&pubid=&ct=1&summary=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://localhost:4000/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://localhost:4000/2017/Kettle-on-the-Edge/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
 
-<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://localhost:4000/2016/IoT-on-Pentaho-Data-Integration-using-MQTT-steps/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
+<a href="https://api.addthis.com/oexchange/0.8/forward/google_plus_one/offer?url=http://localhost:4000/2017/Kettle-on-the-Edge/&pubid=&ct=1&title=&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/google_plusone_share.png" border="0" alt="Google+"/></a>
 <!--
 <a href="https://api.addthis.com/oexchange/0.8/forward/link/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-571518f68ebfed3f&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v3/thumbs/32x32/link.png" border="0" alt="Copy Link"/></a>
 -->
